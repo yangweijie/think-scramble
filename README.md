@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](#testing)
 
-ThinkScramble 是一个为 ThinkPHP 8.0 框架设计的自动 API 文档生成扩展包，移植自 Laravel Scramble。它能够自动分析你的控制器代码，无需手动编写 PHPDoc 注解，即可生成符合 OpenAPI 3.0 规范的 API 文档。
+ThinkScramble 是一个为 ThinkPHP 6/8 框架设计的自动 API 文档生成扩展包，移植自 Laravel Scramble。它能够自动分析你的控制器代码，无需手动编写 PHPDoc 注解，即可生成符合 OpenAPI 3.0 规范的 API 文档。
 
 ## ✨ 特性
 
