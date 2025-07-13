@@ -1,0 +1,63 @@
+{
+    "name": "yangweijie/think-scramble",
+    "description": "ThinkPHP 框架的 OpenAPI 文档自动生成扩展包",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yangweijie\\ThinkScramble\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yangweijie",
+            "email": "917647288@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0",
+        "topthink/framework": "^6.0|^8.0",
+        "nikic/php-parser": "^4.15",
+        "cebe/php-openapi": "^1.7"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-type-coverage": "^2.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "scripts": {
+        "test": "pest",
+        "test:unit": "pest tests/Unit",
+        "test:integration": "pest tests/Integration",
+        "test:coverage": "pest --coverage",
+        "test:coverage-html": "pest --coverage-html=coverage-html",
+        "phpunit": "phpunit",
+        "phpunit:unit": "phpunit --testsuite=Unit",
+        "phpunit:integration": "phpunit --testsuite=Integration",
+        "phpunit:coverage": "phpunit --coverage-html=coverage-html",
+        "test:text-coverage": "pest --coverage --min=80",
+        "test:no-coverage": "pest"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+
+    "extra": {
+        "think": {
+            "services": [
+                "Yangweijie\\ThinkScramble\\Service\\ScrambleServiceProvider"
+            ]
+        }
+    }
+}

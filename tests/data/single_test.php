@@ -1,0 +1,1 @@
+<?php class SingleTest { public function test() { return true; } }
