@@ -49,7 +49,7 @@ class ExportCommand extends Command
              ->addOption('format', 'f', Option::VALUE_REQUIRED, 'Export format: ' . implode('|', array_keys($this->supportedFormats)))
              ->addOption('output', 'o', Option::VALUE_OPTIONAL, 'Output directory or file path', 'exports')
              ->addOption('title', 't', Option::VALUE_OPTIONAL, 'Documentation title')
-             ->addOption('version', null, Option::VALUE_OPTIONAL, 'API version')
+             ->addOption('api-version', null, Option::VALUE_OPTIONAL, 'API version')
              ->addOption('template', null, Option::VALUE_OPTIONAL, 'Custom template path for HTML export')
              ->addOption('include-examples', 'e', Option::VALUE_NONE, 'Include request/response examples')
              ->addOption('compress', 'z', Option::VALUE_NONE, 'Compress output (for applicable formats)')
@@ -68,7 +68,8 @@ class ExportCommand extends Command
     protected function execute(Input $input, Output $output): int
     {
         try {
-            $app = $this->getApplication()->getKernel();
+            // 在 ThinkPHP 中获取应用实例
+            $app = app();
             $this->initializeConfig($input);
 
             $format = strtolower($input->getOption('format'));
@@ -76,7 +77,7 @@ class ExportCommand extends Command
             if (!isset($this->supportedFormats[$format])) {
                 $output->writeln("<error>Unsupported format: {$format}</error>");
                 $output->writeln("Supported formats: " . implode(', ', array_keys($this->supportedFormats)));
-                return self::FAILURE;
+                return 1; // FAILURE
             }
 
             if (!$input->getOption('quiet')) {
@@ -84,7 +85,7 @@ class ExportCommand extends Command
             }
 
             // 生成文档
-            $document = $this->generateDocumentation($app, $output);
+            $document = $this->generateDocumentation($app, $input, $output);
 
             // 导出文档
             $outputPath = $this->exportDocumentation($document, $format, $app, $input, $output);
@@ -93,18 +94,18 @@ class ExportCommand extends Command
                 $output->writeln("<success>Documentation exported successfully: {$outputPath}</success>");
             }
 
-            return self::SUCCESS;
+            return 0; // SUCCESS
 
         } catch (GenerationException $e) {
             $output->writeln("<error>Export failed: {$e->getMessage()}</error>");
-            return self::FAILURE;
+            return 1; // FAILURE
         } catch (\Exception $e) {
             $output->writeln("<error>Unexpected error: {$e->getMessage()}</error>");
             if ($output->isVerbose()) {
                 $output->writeln("<comment>Stack trace:</comment>");
                 $output->writeln($e->getTraceAsString());
             }
-            return self::FAILURE;
+            return 1; // FAILURE
         }
     }
 
@@ -130,7 +131,7 @@ class ExportCommand extends Command
             $this->config->set('info.title', $title);
         }
 
-        if ($version = $input->getOption('version')) {
+        if ($version = $input->getOption('api-version')) {
             $this->config->set('info.version', $version);
         }
     }
@@ -139,13 +140,14 @@ class ExportCommand extends Command
      * 生成文档
      *
      * @param App $app 应用实例
+     * @param Input $input 输入
      * @param Output $output 输出
      * @return array
      * @throws GenerationException
      */
-    protected function generateDocumentation(App $app, Output $output): array
+    protected function generateDocumentation(App $app, Input $input, Output $output): array
     {
-        if (!$output->getOption('quiet')) {
+        if (!$input->getOption('quiet')) {
             $output->writeln('<comment>Generating documentation...</comment>');
         }
 

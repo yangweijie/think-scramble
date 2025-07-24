@@ -115,10 +115,10 @@ class ScrambleServiceProvider extends Service
     protected function registerCommands(): void
     {
         // TODO: 在后续任务中注册命令
-        // $this->commands([
-        //     \Yangweijie\ThinkScramble\Command\GenerateCommand::class,
-        //     \Yangweijie\ThinkScramble\Command\ExportCommand::class,
-        // ]);
+         $this->commands([
+             \Yangweijie\ThinkScramble\Command\GenerateCommand::class,
+            \Yangweijie\ThinkScramble\Command\ExportCommand::class,
+         ]);
     }
 
     /**

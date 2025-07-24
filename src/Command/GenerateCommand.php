@@ -40,7 +40,7 @@ class GenerateCommand extends Command
              ->addOption('pretty', 'p', Option::VALUE_NONE, 'Pretty print JSON output')
              ->addOption('config', 'c', Option::VALUE_OPTIONAL, 'Custom config file path')
              ->addOption('force', null, Option::VALUE_NONE, 'Force overwrite existing file')
-             ->addOption('validate', 'v', Option::VALUE_NONE, 'Validate generated documentation')
+             ->addOption('validate', null, Option::VALUE_NONE, 'Validate generated documentation')
              ->addOption('quiet', 'q', Option::VALUE_NONE, 'Suppress output messages')
              ->setHelp($this->getCommandHelp());
     }
@@ -55,7 +55,8 @@ class GenerateCommand extends Command
     protected function execute(Input $input, Output $output): int
     {
         try {
-            $app = $this->getApplication()->getKernel();
+            // 在 ThinkPHP 中获取应用实例
+            $app = app();
             $this->initializeConfig($input);
 
             if (!$input->getOption('quiet')) {
@@ -63,32 +64,32 @@ class GenerateCommand extends Command
             }
 
             // 生成文档
-            $document = $this->generateDocumentation($app, $output);
+            $document = $this->generateDocumentation($app, $input, $output);
 
             // 输出文档
             $outputPath = $this->outputDocumentation($document, $app, $input, $output);
 
             // 验证文档
             if ($input->getOption('validate')) {
-                $this->validateDocumentation($document, $output);
+                $this->validateDocumentation($document, $input, $output);
             }
 
             if (!$input->getOption('quiet')) {
                 $output->writeln("<success>Documentation generated successfully: {$outputPath}</success>");
             }
 
-            return self::SUCCESS;
+            return 0; // SUCCESS
 
         } catch (GenerationException $e) {
             $output->writeln("<error>Generation failed: {$e->getMessage()}</error>");
-            return self::FAILURE;
+            return 1; // FAILURE
         } catch (\Exception $e) {
             $output->writeln("<error>Unexpected error: {$e->getMessage()}</error>");
             if ($output->isVerbose()) {
                 $output->writeln("<comment>Stack trace:</comment>");
                 $output->writeln($e->getTraceAsString());
             }
-            return self::FAILURE;
+            return 1; // FAILURE
         }
     }
 
@@ -114,13 +115,14 @@ class GenerateCommand extends Command
      * 生成文档
      *
      * @param App $app 应用实例
+     * @param Input $input 输入
      * @param Output $output 输出
      * @return array
      * @throws GenerationException
      */
-    protected function generateDocumentation(App $app, Output $output): array
+    protected function generateDocumentation(App $app, Input $input, Output $output): array
     {
-        if (!$output->getOption('quiet')) {
+        if (!$input->getOption('quiet')) {
             $output->writeln('<comment>Analyzing routes and controllers...</comment>');
         }
 
@@ -132,10 +134,10 @@ class GenerateCommand extends Command
 
         $duration = round(($endTime - $startTime) * 1000, 2);
         
-        if (!$output->getOption('quiet')) {
+        if (!$input->getOption('quiet')) {
             $pathCount = count($document['paths'] ?? []);
             $schemaCount = count($document['components']['schemas'] ?? []);
-            
+
             $output->writeln("<comment>Generated documentation in {$duration}ms</comment>");
             $output->writeln("<comment>Found {$pathCount} API endpoints and {$schemaCount} schemas</comment>");
         }
@@ -194,12 +196,13 @@ class GenerateCommand extends Command
      * 验证文档
      *
      * @param array $document 文档数据
+     * @param Input $input 输入
      * @param Output $output 输出
      * @return void
      */
-    protected function validateDocumentation(array $document, Output $output): void
+    protected function validateDocumentation(array $document, Input $input, Output $output): void
     {
-        if (!$output->getOption('quiet')) {
+        if (!$input->getOption('quiet')) {
             $output->writeln('<comment>Validating documentation...</comment>');
         }
 
@@ -228,7 +231,7 @@ class GenerateCommand extends Command
         }
 
         if (empty($errors)) {
-            if (!$output->getOption('quiet')) {
+            if (!$input->getOption('quiet')) {
                 $output->writeln('<success>Documentation validation passed</success>');
             }
         } else {
