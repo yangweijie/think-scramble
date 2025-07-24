@@ -256,8 +256,41 @@ class DocumentBuilder
     {
         $action = $routeInfo['action'] ?? 'unknown';
         $controller = $routeInfo['controller'] ?? 'unknown';
-        
-        return ucfirst($action) . ' ' . $controller;
+
+        // 从控制器信息中提取方法的简短描述
+        if (isset($controllerInfo['methods'][$action]['doc_comment'])) {
+            $docComment = $controllerInfo['methods'][$action]['doc_comment'];
+            // 提取第一行注释作为摘要
+            if (preg_match('/\/\*\*\s*\n\s*\*\s*(.+?)\s*\n/', $docComment, $matches)) {
+                return trim($matches[1]);
+            }
+        }
+
+        // 生成友好的默认摘要
+        $actionMap = [
+            'index' => 'List',
+            'list' => 'List',
+            'show' => 'Get',
+            'read' => 'Get',
+            'create' => 'Create',
+            'store' => 'Create',
+            'save' => 'Save',
+            'update' => 'Update',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
+            'destroy' => 'Delete',
+            'users' => 'Get Users',
+            'user' => 'Get User',
+            'createUser' => 'Create User',
+        ];
+
+        $friendlyAction = $actionMap[$action] ?? ucfirst($action);
+
+        // 提取控制器简名（去掉命名空间）
+        $controllerParts = explode('\\', $controller);
+        $controllerName = end($controllerParts);
+
+        return $friendlyAction;
     }
 
     /**
@@ -307,7 +340,24 @@ class DocumentBuilder
     protected function generateTags(array $routeInfo, array $controllerInfo): array
     {
         $controller = $routeInfo['controller'] ?? 'unknown';
-        return [$controller];
+
+        // 提取控制器简名（去掉命名空间）
+        $controllerParts = explode('\\', $controller);
+        $controllerName = end($controllerParts);
+
+        // 生成友好的标签名称
+        $tagMap = [
+            'Api' => 'API 接口',
+            'User' => '用户管理',
+            'Auth' => '认证授权',
+            'Admin' => '管理后台',
+            'Product' => '产品管理',
+            'Order' => '订单管理',
+        ];
+
+        $friendlyTag = $tagMap[$controllerName] ?? $controllerName;
+
+        return [$friendlyTag];
     }
 
     /**

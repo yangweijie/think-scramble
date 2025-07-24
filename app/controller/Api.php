@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace app\controller;
 
 use think\Response;
+use app\dto\UserResponse;
+use app\dto\ApiResponse;
 
 /**
  * API 控制器示例
@@ -15,7 +17,7 @@ class Api
 {
     /**
      * 获取用户列表
-     * 
+     *
      * @return Response
      */
     public function users(): Response
@@ -34,7 +36,7 @@ class Api
 
     /**
      * 获取单个用户
-     * 
+     *
      * @param int $id 用户ID
      * @return Response
      */
@@ -51,7 +53,7 @@ class Api
 
     /**
      * 创建用户
-     * 
+     *
      * @return Response
      */
     public function createUser(): Response

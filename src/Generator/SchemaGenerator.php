@@ -248,8 +248,21 @@ class SchemaGenerator
             ];
         }
 
+        // 排除不应该生成模式的类
+        $excludedClasses = [
+            'think\Response',
+            'think\response\Json',
+            'think\response\Xml',
+            'think\response\Html',
+            'think\response\Redirect',
+            'think\response\View',
+            'think\Request',
+            'think\Collection',
+            'think\Paginator',
+        ];
+
         // 处理类类型
-        if (class_exists($typeName)) {
+        if (class_exists($typeName) && !in_array($typeName, $excludedClasses)) {
             return [
                 '$ref' => "#/components/schemas/" . $this->getSchemaName($typeName),
             ];
