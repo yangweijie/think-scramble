@@ -112,9 +112,15 @@ class ControllerParser
      */
     protected function resolveControllerClass(string $controller, ?string $module = null): string
     {
+        // 如果已经是完整的类名（包含命名空间），直接返回
+        if (strpos($controller, '\\') !== false) {
+            return $controller;
+        }
+
+        // 否则按照传统方式构建类名
         $namespace = $this->getControllerNamespace($module);
         $className = $this->formatControllerName($controller);
-        
+
         return $namespace . '\\' . $className;
     }
 
@@ -218,7 +224,8 @@ class ControllerParser
             }
             
             // 排除继承的方法（如果是从 Controller 基类继承）
-            if (isset($methodInfo['class']) && $methodInfo['class'] !== $methodInfo['declaring_class']) {
+            if (isset($methodInfo['class']) && isset($methodInfo['declaring_class']) &&
+                $methodInfo['class'] !== $methodInfo['declaring_class']) {
                 $reflection = new ReflectionClass($methodInfo['class']);
                 if ($reflection->isSubclassOf(Controller::class)) {
                     $parentReflection = new ReflectionClass(Controller::class);

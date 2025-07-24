@@ -44,20 +44,52 @@ return [
 ];
 ```
 
-## 快速开始
+## 🚀 快速开始
 
-### 1. 服务注册
+### 1. 创建 API 控制器
 
-安装后，运行服务发现命令：
+```php
+<?php
+// app/controller/Api.php
 
-```bash
-php think service:discover
+namespace app\controller;
+
+use think\Response;
+
+class Api
+{
+    /**
+     * 获取用户列表
+     */
+    public function users(): Response
+    {
+        $users = [
+            ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com'],
+            ['id' => 2, 'name' => 'Jane Smith', 'email' => 'jane@example.com'],
+        ];
+
+        return json([
+            'code' => 200,
+            'message' => 'success',
+            'data' => $users
+        ]);
+    }
+}
 ```
 
-### 2. 发布配置文件
+### 2. 配置路由
 
-```bash
-php think vendor:publish --provider="Yangweijie\ThinkScramble\Service\ServiceProvider"
+```php
+<?php
+// route/app.php
+
+use think\facade\Route;
+
+Route::group('api', function () {
+    Route::get('users', 'Api/users');
+    Route::get('users/<id>', 'Api/user');
+    Route::post('users', 'Api/createUser');
+});
 ```
 
 ### 3. 生成文档
@@ -68,9 +100,49 @@ php think scramble:generate
 
 ### 4. 访问文档
 
-访问 `/docs/api` 查看生成的 API 文档。
+启动开发服务器并访问文档：
 
-## 配置
+```bash
+php think run
+```
+
+访问 `http://localhost:8000/docs/api` 查看生成的 API 文档。
+
+## ✅ 功能状态
+
+### 已完成功能
+
+- ✅ **命令行工具** - 完整的文档生成和导出命令
+- ✅ **Web 界面** - 基于 Swagger UI 的文档界面
+- ✅ **多格式支持** - JSON, YAML, HTML, Postman, Insomnia
+- ✅ **自动路由检测** - 智能分析 ThinkPHP 路由
+- ✅ **配置系统** - 灵活的配置选项
+- ✅ **缓存支持** - 提高文档生成性能
+- ✅ **错误处理** - 完善的异常处理机制
+
+### 开发中功能
+
+- 🚧 **注解支持** - 基于注释的文档增强
+- 🚧 **模型分析** - 自动分析数据模型
+- 🚧 **验证器集成** - 自动提取验证规则
+- 🚧 **中间件分析** - 安全方案自动检测
+
+### 计划功能
+
+- 📋 **API 版本控制** - 多版本 API 文档支持
+- 📋 **自定义模板** - 可定制的文档模板
+- 📋 **实时预览** - 开发时实时文档更新
+- 📋 **测试集成** - 自动生成 API 测试用例
+
+## ⚙️ 配置
+
+### 发布配置文件（可选）
+
+```bash
+php think vendor:publish --provider="Yangweijie\ThinkScramble\Service\ServiceProvider"
+```
+
+### 基本配置
 
 配置文件位于 `config/scramble.php`：
 
@@ -80,73 +152,101 @@ php think scramble:generate
 return [
     // API 路径前缀
     'api_path' => 'api',
-    
-    // API 域名
-    'api_domain' => null,
-    
+
     // 文档信息
     'info' => [
         'version' => '1.0.0',
         'title' => 'API Documentation',
-        'description' => '',
+        'description' => '自动生成的 API 文档',
     ],
-    
-    // 服务器配置
-    'servers' => [],
-    
-    // 中间件
-    'middleware' => ['web'],
-    
+
+    // 输出配置
+    'output' => [
+        'default_path' => 'public/docs',
+        'auto_create_directory' => true,
+    ],
+
     // 缓存配置
     'cache' => [
-        'enable' => true,
+        'enabled' => true,
         'ttl' => 3600,
     ],
 ];
 ```
 
-## 使用示例
+## 📖 命令行工具
 
-### 控制器示例
+### 生成文档
+
+```bash
+# 基本生成
+php think scramble:generate
+
+# 生成到指定位置
+php think scramble:generate --output=public/api-docs.json
+
+# 生成 YAML 格式
+php think scramble:generate --format=yaml --pretty
+
+# 强制覆盖现有文件
+php think scramble:generate --force
+```
+
+### 导出文档
+
+```bash
+# 导出为 HTML
+php think scramble:export --format=html
+
+# 导出为 Postman 集合
+php think scramble:export --format=postman
+
+# 导出为 Insomnia 工作空间
+php think scramble:export --format=insomnia
+```
+
+## 🌟 特色功能
+
+### 自动类型推断
+
+ThinkScramble 能够自动分析您的代码并推断参数类型和响应格式：
 
 ```php
-<?php
-
-namespace app\controller;
-
-use think\Request;
-use think\Response;
-
-class UserController
+public function createUser(Request $request): Response
 {
-    /**
-     * 获取用户列表
-     */
-    public function index(Request $request): Response
-    {
-        // Scramble 会自动分析这个方法并生成文档
-        return json([
-            'users' => [
-                ['id' => 1, 'name' => 'John'],
-                ['id' => 2, 'name' => 'Jane'],
-            ]
-        ]);
+    // 自动检测 POST 参数
+    $name = $request->post('name');     // string
+    $age = $request->post('age/d');     // integer
+    $email = $request->post('email');   // string
+
+    // 自动分析响应结构
+    return json([
+        'id' => 123,                    // integer
+        'name' => $name,                // string
+        'age' => $age,                  // integer
+        'email' => $email,              // string
+        'created_at' => date('c'),      // datetime
+    ]);
+}
+```
+
+### 支持验证器
+
+```php
+public function store(Request $request): Response
+{
+    // ThinkScramble 会分析验证规则并生成参数文档
+    $validate = \think\facade\Validate::make([
+        'name' => 'require|max:50',
+        'email' => 'require|email|unique:user',
+        'age' => 'integer|between:1,120',
+    ]);
+
+    if (!$validate->check($request->post())) {
+        return json(['error' => $validate->getError()], 422);
     }
-    
-    /**
-     * 创建用户
-     */
-    public function save(Request $request): Response
-    {
-        // 自动识别请求参数和响应格式
-        $data = $request->post();
-        
-        return json([
-            'id' => 3,
-            'name' => $data['name'],
-            'created_at' => date('Y-m-d H:i:s'),
-        ]);
-    }
+
+    // 处理逻辑...
 }
 ```
 
@@ -170,11 +270,11 @@ composer test:coverage
 
 ## 📚 文档
 
-- [安装指南](docs/installation.md)
-- [配置说明](docs/configuration.md)
-- [使用教程](docs/usage.md)
-- [API 参考](docs/api-reference.md)
-- [故障排除](docs/troubleshooting.md)
+- [📦 安装指南](docs/installation.md) - 详细的安装步骤和系统要求
+- [⚙️ 配置说明](docs/configuration.md) - 完整的配置选项参考
+- [📖 使用教程](docs/usage.md) - 从入门到高级的使用指南
+- [🔧 API 参考](docs/api-reference.md) - 完整的 API 和类参考
+- [🚨 故障排除](docs/troubleshooting.md) - 常见问题和解决方案
 
 ## 🤝 贡献
 

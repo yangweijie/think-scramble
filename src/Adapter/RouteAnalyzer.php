@@ -56,17 +56,18 @@ class RouteAnalyzer
     {
         try {
             $routes = [];
-            
-            // 获取所有域名
-            $domains = $this->route->getDomains();
-            
-            foreach ($domains as $domainName => $domain) {
-                if (is_string($domain)) {
-                    continue; // 跳过别名域名
+
+            // 确保路由已加载
+            $this->ensureRoutesLoaded();
+
+            // 使用 ThinkPHP 官方方法获取路由列表
+            $routeList = $this->route->getRuleList();
+
+            foreach ($routeList as $routeData) {
+                $routeInfo = $this->analyzeRouteData($routeData);
+                if ($routeInfo) {
+                    $routes[] = $routeInfo;
                 }
-                
-                $domainRoutes = $this->analyzeDomain($domain, $domainName);
-                $routes = array_merge($routes, $domainRoutes);
             }
 
             return $routes;
@@ -76,7 +77,93 @@ class RouteAnalyzer
     }
 
     /**
-     * 分析域名路由
+     * 确保路由已加载
+     */
+    protected function ensureRoutesLoaded(): void
+    {
+        try {
+            // 手动加载路由文件
+            $routePath = $this->app->getRootPath() . 'route' . DIRECTORY_SEPARATOR . 'app.php';
+            if (file_exists($routePath)) {
+                require_once $routePath;
+            }
+        } catch (\Exception $e) {
+            error_log("Error loading routes: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * 获取路由域名
+     *
+     * @return array
+     */
+    protected function getRouteDomains(): array
+    {
+        try {
+            // 首先尝试使用公共方法
+            if (method_exists($this->route, 'getDomains')) {
+                return $this->route->getDomains();
+            }
+
+            // 使用反射获取 domains 属性
+            $reflection = new \ReflectionClass($this->route);
+            $domainsProperty = $reflection->getProperty('domains');
+            $domainsProperty->setAccessible(true);
+            return $domainsProperty->getValue($this->route) ?: [];
+
+        } catch (\Exception $e) {
+            error_log("Error getting route domains: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    /**
+     * 分析路由数据（ThinkPHP 官方格式）
+     *
+     * @param array $routeData 路由数据
+     * @return array|null
+     */
+    protected function analyzeRouteData(array $routeData): ?array
+    {
+        try {
+            // 直接使用 ThinkPHP 官方格式的数据
+            $routeInfo = [
+                'domain' => $routeData['domain'] ?? '',
+                'rule' => $routeData['rule'] ?? '',
+                'route' => $routeData['route'] ?? '',
+                'method' => $this->normalizeHttpMethod($routeData['method'] ?? 'get'),
+                'name' => $routeData['name'] ?? '',
+                'middleware' => [], // 中间件需要单独获取
+                'option' => $routeData['option'] ?? [],
+                'pattern' => $routeData['pattern'] ?? [],
+                'type' => 'single',
+                'controller' => null,
+                'action' => null,
+                'parameters' => [],
+                'is_resource' => false,
+                'resource_actions' => [],
+            ];
+
+            // 跳过 Closure 路由
+            if ($routeInfo['route'] instanceof \Closure) {
+                return null;
+            }
+
+            // 解析控制器和方法
+            $this->parseControllerAction($routeInfo);
+
+            // 解析路由参数
+            $this->parseRouteParameters($routeInfo);
+
+            return $routeInfo;
+        } catch (\Exception $e) {
+            // 忽略解析失败的路由
+            return null;
+        }
+    }
+
+    /**
+     * 分析域名路由（已废弃，保留兼容性）
      *
      * @param Domain $domain 域名对象
      * @param string $domainName 域名名称
@@ -85,24 +172,55 @@ class RouteAnalyzer
     protected function analyzeDomain(Domain $domain, string $domainName): array
     {
         $routes = [];
-        
-        // 获取域名下的路由规则
-        $rules = $domain->getRules();
-        
-        foreach ($rules as $rule) {
-            $routeInfos = $this->analyzeRuleOrGroup($rule, $domainName);
-            if ($routeInfos) {
-                if (is_array($routeInfos) && isset($routeInfos[0])) {
-                    // 多个路由（来自路由组）
-                    $routes = array_merge($routes, $routeInfos);
-                } else {
-                    // 单个路由
-                    $routes[] = $routeInfos;
+
+        try {
+            // 使用反射获取域名下的路由规则
+            $rules = $this->getDomainRules($domain);
+
+            foreach ($rules as $rule) {
+                $routeInfos = $this->analyzeRuleOrGroup($rule, $domainName);
+                if ($routeInfos) {
+                    if (is_array($routeInfos) && isset($routeInfos[0]) && is_array($routeInfos[0])) {
+                        // 多个路由（来自路由组）
+                        $routes = array_merge($routes, $routeInfos);
+                    } else {
+                        // 单个路由
+                        $routes[] = $routeInfos;
+                    }
                 }
             }
+        } catch (\Exception $e) {
+            // 记录错误但继续处理
+            error_log("Error analyzing domain {$domainName}: " . $e->getMessage());
         }
 
         return $routes;
+    }
+
+    /**
+     * 获取域名下的路由规则
+     *
+     * @param Domain $domain 域名对象
+     * @return array
+     */
+    protected function getDomainRules(Domain $domain): array
+    {
+        try {
+            // 首先尝试使用公共方法
+            if (method_exists($domain, 'getRules')) {
+                return $domain->getRules();
+            }
+
+            // 使用反射获取 rules 属性
+            $reflection = new \ReflectionClass($domain);
+            $rulesProperty = $reflection->getProperty('rules');
+            $rulesProperty->setAccessible(true);
+            return $rulesProperty->getValue($domain) ?: [];
+
+        } catch (\Exception $e) {
+            error_log("Error getting domain rules: " . $e->getMessage());
+            return [];
+        }
     }
 
     /**
@@ -140,12 +258,12 @@ class RouteAnalyzer
 
         try {
             // 获取路由组中的规则
-            $rules = $this->safeGetProperty($group, 'getRules') ?: [];
+            $rules = $this->getGroupRules($group);
 
             foreach ($rules as $rule) {
                 $routeInfo = $this->analyzeRuleOrGroup($rule, $domain);
                 if ($routeInfo) {
-                    if (is_array($routeInfo) && isset($routeInfo[0])) {
+                    if (is_array($routeInfo) && isset($routeInfo[0]) && is_array($routeInfo[0])) {
                         // 嵌套路由组
                         $routes = array_merge($routes, $routeInfo);
                     } else {
@@ -163,6 +281,32 @@ class RouteAnalyzer
     }
 
     /**
+     * 获取路由组中的规则
+     *
+     * @param \think\route\RuleGroup $group 路由组
+     * @return array
+     */
+    protected function getGroupRules(\think\route\RuleGroup $group): array
+    {
+        try {
+            // 首先尝试使用公共方法
+            if (method_exists($group, 'getRules')) {
+                return $group->getRules();
+            }
+
+            // 使用反射获取 rules 属性
+            $reflection = new \ReflectionClass($group);
+            $rulesProperty = $reflection->getProperty('rules');
+            $rulesProperty->setAccessible(true);
+            return $rulesProperty->getValue($group) ?: [];
+
+        } catch (\Exception $e) {
+            error_log("Error getting group rules: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    /**
      * 分析路由规则
      *
      * @param \think\route\RuleItem $rule 路由规则
@@ -176,7 +320,7 @@ class RouteAnalyzer
                 'domain' => $domain,
                 'rule' => $this->safeGetProperty($rule, 'getRule'),
                 'route' => $this->safeGetProperty($rule, 'getRoute'),
-                'method' => $this->safeGetProperty($rule, 'getMethod'),
+                'method' => $this->normalizeHttpMethod($this->safeGetProperty($rule, 'getMethod')),
                 'name' => $this->safeGetProperty($rule, 'getName'),
                 'middleware' => $this->safeGetMiddleware($rule),
                 'option' => $this->safeGetProperty($rule, 'getOption'),
@@ -185,13 +329,20 @@ class RouteAnalyzer
                 'controller' => null,
                 'action' => null,
                 'parameters' => [],
+                'is_resource' => $this->isResourceRoute($rule),
+                'resource_actions' => [],
             ];
 
             // 解析控制器和方法
             $this->parseControllerAction($routeInfo);
-            
+
             // 解析路由参数
             $this->parseRouteParameters($routeInfo);
+
+            // 解析资源路由
+            if ($routeInfo['is_resource']) {
+                $this->parseResourceRoute($routeInfo, $rule);
+            }
 
             return $routeInfo;
         } catch (\Exception $e) {
@@ -220,6 +371,69 @@ class RouteAnalyzer
     }
 
     /**
+     * 标准化 HTTP 方法
+     *
+     * @param mixed $method HTTP 方法
+     * @return string
+     */
+    protected function normalizeHttpMethod($method): string
+    {
+        if (is_array($method)) {
+            // 如果是数组，取第一个方法
+            return strtolower($method[0] ?? 'get');
+        }
+
+        if (is_string($method)) {
+            return strtolower($method);
+        }
+
+        return 'get'; // 默认为 GET
+    }
+
+    /**
+     * 检查是否为资源路由
+     *
+     * @param \think\route\RuleItem $rule 路由规则
+     * @return bool
+     */
+    protected function isResourceRoute(\think\route\RuleItem $rule): bool
+    {
+        return $rule instanceof \think\route\Resource;
+    }
+
+    /**
+     * 解析资源路由
+     *
+     * @param array &$routeInfo 路由信息
+     * @param \think\route\RuleItem $rule 路由规则
+     * @return void
+     */
+    protected function parseResourceRoute(array &$routeInfo, \think\route\RuleItem $rule): void
+    {
+        if (!$this->isResourceRoute($rule)) {
+            return;
+        }
+
+        try {
+            // 获取资源路由的标准动作
+            $resourceActions = [
+                'index' => ['method' => 'get', 'path' => ''],
+                'create' => ['method' => 'get', 'path' => '/create'],
+                'store' => ['method' => 'post', 'path' => ''],
+                'show' => ['method' => 'get', 'path' => '/{id}'],
+                'edit' => ['method' => 'get', 'path' => '/{id}/edit'],
+                'update' => ['method' => 'put', 'path' => '/{id}'],
+                'delete' => ['method' => 'delete', 'path' => '/{id}'],
+            ];
+
+            $routeInfo['resource_actions'] = $resourceActions;
+            $routeInfo['type'] = 'resource';
+        } catch (\Exception $e) {
+            // 忽略资源路由解析错误
+        }
+    }
+
+    /**
      * 解析控制器和方法
      *
      * @param array &$routeInfo
@@ -230,9 +444,19 @@ class RouteAnalyzer
         $route = $routeInfo['route'];
 
         if (is_string($route)) {
+            // 检查是否是 @ 分隔符格式：app\controller\Api@users
+            if (strpos($route, '@') !== false) {
+                $parts = explode('@', $route);
+                if (count($parts) === 2) {
+                    $routeInfo['controller'] = $parts[0];
+                    $routeInfo['action'] = $parts[1];
+                    return;
+                }
+            }
+
             // 格式：controller/action 或 module/controller/action
             $parts = explode('/', trim($route, '/'));
-            
+
             if (count($parts) >= 2) {
                 if (count($parts) === 3) {
                     // 多应用模式：module/controller/action
