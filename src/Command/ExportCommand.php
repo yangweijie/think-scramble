@@ -168,7 +168,7 @@ class ExportCommand extends Command
      */
     protected function exportDocumentation(array $document, string $format, App $app, Input $input, Output $output): string
     {
-        $outputPath = $input->getOption('output');
+        $outputPath = $this->getExportOutputPath($input, $format);
         
         switch ($format) {
             case 'json':
@@ -483,6 +483,69 @@ class ExportCommand extends Command
 </body>
 </html>
 HTML;
+    }
+
+    /**
+     * 获取导出输出路径
+     *
+     * @param Input $input 输入
+     * @param string $format 导出格式
+     * @return string
+     */
+    protected function getExportOutputPath(Input $input, string $format): string
+    {
+        $outputPath = $input->getOption('output');
+
+        // 如果用户没有指定输出路径，使用默认配置
+        if (!$outputPath || $outputPath === 'exports') {
+            $defaultPath = $this->config->get('output.html_path', 'public/docs');
+
+            // 根据格式调整默认路径
+            switch ($format) {
+                case 'html':
+                    $outputPath = $defaultPath;
+                    break;
+                case 'json':
+                    $outputPath = rtrim($defaultPath, '/') . '/exports.json';
+                    break;
+                case 'yaml':
+                    $outputPath = rtrim($defaultPath, '/') . '/exports.yaml';
+                    break;
+                case 'postman':
+                    $outputPath = rtrim($defaultPath, '/') . '/postman-collection.json';
+                    break;
+                case 'insomnia':
+                    $outputPath = rtrim($defaultPath, '/') . '/insomnia-workspace.json';
+                    break;
+                default:
+                    $outputPath = rtrim($defaultPath, '/') . '/exports.' . $format;
+                    break;
+            }
+        }
+
+        // 如果路径不是绝对路径，则相对于项目根目录
+        if (!$this->isAbsolutePath($outputPath)) {
+            $outputPath = getcwd() . '/' . ltrim($outputPath, '/');
+        }
+
+        return $outputPath;
+    }
+
+    /**
+     * 检查是否为绝对路径
+     *
+     * @param string $path 路径
+     * @return bool
+     */
+    protected function isAbsolutePath(string $path): bool
+    {
+        // Windows: C:\ 或 \\
+        if (DIRECTORY_SEPARATOR === '\\') {
+            return preg_match('/^[a-zA-Z]:\\\\/', $path) || substr($path, 0, 2) === '\\\\';
+        }
+
+        // Unix/Linux: /
+        return substr($path, 0, 1) === '/';
     }
 
     /**

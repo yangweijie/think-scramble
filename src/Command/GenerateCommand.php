@@ -35,7 +35,7 @@ class GenerateCommand extends Command
     {
         $this->setName('scramble:generate')
              ->setDescription('Generate OpenAPI documentation for your API')
-             ->addOption('output', 'o', Option::VALUE_OPTIONAL, 'Output file path', 'api-docs.json')
+             ->addOption('output', 'o', Option::VALUE_OPTIONAL, 'Output file path')
              ->addOption('format', 'f', Option::VALUE_OPTIONAL, 'Output format (json|yaml)', 'json')
              ->addOption('pretty', 'p', Option::VALUE_NONE, 'Pretty print JSON output')
              ->addOption('config', 'c', Option::VALUE_OPTIONAL, 'Custom config file path')
@@ -157,9 +157,17 @@ class GenerateCommand extends Command
      */
     protected function outputDocumentation(array $document, App $app, Input $input, Output $output): string
     {
-        $outputPath = $input->getOption('output');
+        $outputPath = $this->getOutputPath($input);
         $format = strtolower($input->getOption('format'));
         $force = $input->getOption('force');
+
+        // 确保输出目录存在
+        $outputDir = dirname($outputPath);
+        if (!is_dir($outputDir) && $this->config->get('output.auto_create_directory', true)) {
+            if (!mkdir($outputDir, 0755, true)) {
+                throw new GenerationException("Failed to create output directory: {$outputDir}");
+            }
+        }
 
         // 检查文件是否存在
         if (file_exists($outputPath) && !$force) {
@@ -190,6 +198,62 @@ class GenerateCommand extends Command
         }
 
         return $outputPath;
+    }
+
+    /**
+     * 获取输出路径
+     *
+     * @param Input $input 输入
+     * @return string
+     */
+    protected function getOutputPath(Input $input): string
+    {
+        $outputPath = $input->getOption('output');
+
+        // 如果用户没有指定输出路径，使用默认配置
+        if (!$outputPath) {
+            $defaultPath = $this->config->get('output.default_path', 'public/docs');
+            $defaultFilename = $this->config->get('output.default_filename', 'api-docs.json');
+
+            // 根据格式调整文件扩展名
+            $format = strtolower($input->getOption('format'));
+            switch ($format) {
+                case 'yaml':
+                case 'yml':
+                    $defaultFilename = str_replace('.json', '.yaml', $defaultFilename);
+                    break;
+                case 'json':
+                default:
+                    // 保持 .json 扩展名
+                    break;
+            }
+
+            $outputPath = rtrim($defaultPath, '/') . '/' . $defaultFilename;
+        }
+
+        // 如果路径不是绝对路径，则相对于项目根目录
+        if (!$this->isAbsolutePath($outputPath)) {
+            $outputPath = getcwd() . '/' . ltrim($outputPath, '/');
+        }
+
+        return $outputPath;
+    }
+
+    /**
+     * 检查是否为绝对路径
+     *
+     * @param string $path 路径
+     * @return bool
+     */
+    protected function isAbsolutePath(string $path): bool
+    {
+        // Windows: C:\ 或 \\
+        if (DIRECTORY_SEPARATOR === '\\') {
+            return preg_match('/^[a-zA-Z]:\\\\/', $path) || substr($path, 0, 2) === '\\\\';
+        }
+
+        // Unix/Linux: /
+        return substr($path, 0, 1) === '/';
     }
 
     /**

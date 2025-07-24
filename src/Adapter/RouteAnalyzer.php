@@ -90,10 +90,73 @@ class RouteAnalyzer
         $rules = $domain->getRules();
         
         foreach ($rules as $rule) {
-            $routeInfo = $this->analyzeRule($rule, $domainName);
-            if ($routeInfo) {
-                $routes[] = $routeInfo;
+            $routeInfos = $this->analyzeRuleOrGroup($rule, $domainName);
+            if ($routeInfos) {
+                if (is_array($routeInfos) && isset($routeInfos[0])) {
+                    // 多个路由（来自路由组）
+                    $routes = array_merge($routes, $routeInfos);
+                } else {
+                    // 单个路由
+                    $routes[] = $routeInfos;
+                }
             }
+        }
+
+        return $routes;
+    }
+
+    /**
+     * 分析路由规则或路由组
+     *
+     * @param mixed $rule 路由规则或路由组
+     * @param string $domain 域名
+     * @return array|null
+     */
+    protected function analyzeRuleOrGroup($rule, string $domain = ''): ?array
+    {
+        // 检查是否为路由组
+        if ($rule instanceof \think\route\RuleGroup) {
+            return $this->analyzeRuleGroup($rule, $domain);
+        }
+
+        // 检查是否为单个路由规则
+        if ($rule instanceof \think\route\RuleItem) {
+            return $this->analyzeRule($rule, $domain);
+        }
+
+        return null;
+    }
+
+    /**
+     * 分析路由组
+     *
+     * @param \think\route\RuleGroup $group 路由组
+     * @param string $domain 域名
+     * @return array
+     */
+    protected function analyzeRuleGroup(\think\route\RuleGroup $group, string $domain = ''): array
+    {
+        $routes = [];
+
+        try {
+            // 获取路由组中的规则
+            $rules = $this->safeGetProperty($group, 'getRules') ?: [];
+
+            foreach ($rules as $rule) {
+                $routeInfo = $this->analyzeRuleOrGroup($rule, $domain);
+                if ($routeInfo) {
+                    if (is_array($routeInfo) && isset($routeInfo[0])) {
+                        // 嵌套路由组
+                        $routes = array_merge($routes, $routeInfo);
+                    } else {
+                        // 单个路由
+                        $routes[] = $routeInfo;
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // 记录错误但继续处理
+            error_log("Error analyzing route group: " . $e->getMessage());
         }
 
         return $routes;
@@ -102,11 +165,11 @@ class RouteAnalyzer
     /**
      * 分析路由规则
      *
-     * @param RuleItem $rule 路由规则
+     * @param \think\route\RuleItem $rule 路由规则
      * @param string $domain 域名
      * @return array|null
      */
-    protected function analyzeRule(RuleItem $rule, string $domain = ''): ?array
+    protected function analyzeRule(\think\route\RuleItem $rule, string $domain = ''): ?array
     {
         try {
             $routeInfo = [
