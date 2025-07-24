@@ -37,8 +37,22 @@ class DocsController
     }
 
     /**
+     * 测试端点 - 验证代码是否更新
+     *
+     * @return Response
+     */
+    public function test(): Response
+    {
+        return Response::create([
+            'message' => 'DocsController 代码已更新',
+            'timestamp' => date('Y-m-d H:i:s'),
+            'version' => 'v2.0'
+        ], 'json');
+    }
+
+    /**
      * 显示 API 文档 UI
-     * 
+     *
      * @return Response
      */
     public function ui(): Response
@@ -151,10 +165,12 @@ class DocsController
 
         return <<<HTML
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$title}</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/swagger-ui/swagger-ui.css" />
     <style>
         html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
         *, *:before, *:after { box-sizing: inherit; }
@@ -164,22 +180,30 @@ class DocsController
 </head>
 <body>
     <div id="swagger-ui"></div>
-    <script src="https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-bundle.js"></script>
+    <script src="/swagger-ui/swagger-ui-bundle.js" charset="UTF-8"></script>
     <script>
         window.onload = function() {
-            const ui = SwaggerUIBundle({
-                spec: {$jsonData},
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIBundle.presets.standalone
-                ],
-                plugins: [
-                    SwaggerUIBundle.plugins.DownloadUrl
-                ],
-                layout: "BaseLayout"
-            });
+            // 加载 API 规范并初始化 Swagger UI
+            fetch('/docs/api.json')
+                .then(response => response.json())
+                .then(spec => {
+                    const ui = SwaggerUIBundle({
+                        spec: spec,
+                        dom_id: '#swagger-ui',
+                        deepLinking: true,
+                        presets: [
+                            SwaggerUIBundle.presets.apis
+                        ],
+                        plugins: [
+                            SwaggerUIBundle.plugins.DownloadUrl
+                        ]
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading API spec:', error);
+                    document.getElementById('swagger-ui').innerHTML =
+                        '<div style="padding: 20px; color: red;">Error loading API documentation: ' + error.message + '</div>';
+                });
         };
     </script>
 </body>

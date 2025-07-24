@@ -452,16 +452,17 @@ class ExportCommand extends Command
 <html>
 <head>
     <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/swagger-ui/swagger-ui.css" />
     <style>
         html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
         *, *:before, *:after { box-sizing: inherit; }
         body { margin:0; background: #fafafa; }
+        .swagger-ui .topbar { display: none; }
     </style>
 </head>
 <body>
     <div id="swagger-ui"></div>
-    <script src="https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-bundle.js"></script>
+    <script src="/swagger-ui/swagger-ui-bundle.js"></script>
     <script>
         window.onload = function() {
             const ui = SwaggerUIBundle({

@@ -7,6 +7,9 @@
 use think\facade\Route;
 use Yangweijie\ThinkScramble\Controller\DocsController;
 
+// 测试路由
+Route::get('docs/test', [DocsController::class, 'test'])->name('scramble.docs.test');
+
 // API 文档 UI 路由
 Route::get('docs/api', [DocsController::class, 'ui'])->name('scramble.docs.ui');
 

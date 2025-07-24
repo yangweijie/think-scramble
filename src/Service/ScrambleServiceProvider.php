@@ -10,6 +10,7 @@ use think\Console;
 use Yangweijie\ThinkScramble\Config\ScrambleConfig;
 use Yangweijie\ThinkScramble\Config\ConfigPublisher;
 use Yangweijie\ThinkScramble\Scramble;
+use Yangweijie\ThinkScramble\Service\AssetPublisher;
 
 /**
  * Scramble 服务类
@@ -50,6 +51,9 @@ class ScrambleServiceProvider extends Service
 
         // 发布配置文件
         $this->publishConfig();
+
+        // 发布静态资源文件
+        $this->publishAssets();
 
         // 初始化 Scramble
         $this->initializeScramble();
@@ -114,11 +118,11 @@ class ScrambleServiceProvider extends Service
      */
     protected function registerCommands(): void
     {
-        // TODO: 在后续任务中注册命令
-         $this->commands([
-             \Yangweijie\ThinkScramble\Command\GenerateCommand::class,
+        $this->commands([
+            \Yangweijie\ThinkScramble\Command\GenerateCommand::class,
             \Yangweijie\ThinkScramble\Command\ExportCommand::class,
-         ]);
+            \Yangweijie\ThinkScramble\Command\PublishCommand::class,
+        ]);
     }
 
     /**
@@ -194,6 +198,24 @@ class ScrambleServiceProvider extends Service
             // 静默处理初始化失败
             if ($this->app->isDebug()) {
                 error_log('Scramble initialization failed: ' . $e->getMessage());
+            }
+        }
+    }
+
+    /**
+     * 发布静态资源文件
+     *
+     * @return void
+     */
+    protected function publishAssets(): void
+    {
+        try {
+            $publisher = new AssetPublisher($this->app);
+            $publisher->publishAssets();
+        } catch (\Exception $e) {
+            // 静默处理错误，不影响应用启动
+            if (function_exists('trace')) {
+                trace('Failed to publish Scramble assets: ' . $e->getMessage(), 'error');
             }
         }
     }
