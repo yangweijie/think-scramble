@@ -189,6 +189,14 @@ class DocumentBuilder
      */
     public function addTag(array $tag): self
     {
+        // 检查是否已存在相同名称的标签
+        $tagName = $tag['name'] ?? '';
+        foreach ($this->document['tags'] as $existingTag) {
+            if (($existingTag['name'] ?? '') === $tagName) {
+                return $this; // 跳过重复标签
+            }
+        }
+
         $this->document['tags'][] = $tag;
         return $this;
     }

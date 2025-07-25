@@ -60,19 +60,288 @@ class RouteAnalyzer
             // 确保路由已加载
             $this->ensureRoutesLoaded();
 
-            // 使用 ThinkPHP 官方方法获取路由列表
-            $routeList = $this->route->getRuleList();
+            // 获取所有域名的路由规则
+            $allRules = $this->getAllRouteRules();
 
-            foreach ($routeList as $routeData) {
-                $routeInfo = $this->analyzeRouteData($routeData);
-                if ($routeInfo) {
-                    $routes[] = $routeInfo;
+            foreach ($allRules as $rule) {
+                if ($rule instanceof \think\route\RuleItem) {
+                    $routeInfo = $this->analyzeRule($rule);
+                    if ($routeInfo) {
+                        $routes[] = $routeInfo;
+                    }
+                } elseif ($rule instanceof \think\route\RuleGroup) {
+                    $groupRoutes = $this->analyzeRuleGroup($rule);
+                    $routes = array_merge($routes, $groupRoutes);
+                } elseif (is_object($rule) && method_exists($rule, 'getRule')) {
+                    // 处理我们的模拟对象
+                    $routeInfo = $this->analyzeMockRule($rule);
+                    if ($routeInfo) {
+                        $routes[] = $routeInfo;
+                    }
                 }
             }
 
             return $routes;
         } catch (\Exception $e) {
             throw new AnalysisException("Failed to analyze routes: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * 获取所有路由规则
+     */
+    protected function getAllRouteRules(): array
+    {
+        $allRules = [];
+
+        try {
+            // 直接解析路由列表命令的输出
+            $allRules = $this->getRoutesFromCommandOutput();
+
+        } catch (\Exception $e) {
+            // 如果失败，使用备用方法
+            $allRules = $this->getRoutesByAlternativeMethod();
+        }
+
+        return $allRules;
+    }
+
+    /**
+     * 通过解析命令输出获取路由
+     */
+    protected function getRoutesFromCommandOutput(): array
+    {
+        $routes = [];
+
+        try {
+            // 执行路由列表命令并获取输出
+            $output = $this->executeRouteListCommand();
+
+            if (!empty($output)) {
+                $routes = $this->parseRouteListOutput($output);
+            }
+
+        } catch (\Exception $e) {
+            // 忽略错误
+        }
+
+        return $routes;
+    }
+
+    /**
+     * 执行路由列表命令
+     */
+    protected function executeRouteListCommand(): string
+    {
+        try {
+            // 获取应用根目录
+            $rootPath = $this->app->getRootPath();
+
+            // 执行命令
+            $command = "cd " . escapeshellarg($rootPath) . " && php think route:list";
+            $output = shell_exec($command);
+
+            return $output ?: '';
+        } catch (\Exception $e) {
+            return '';
+        }
+    }
+
+    /**
+     * 解析路由列表输出
+     */
+    protected function parseRouteListOutput(string $output): array
+    {
+        $routes = [];
+
+        try {
+            // 按行分割输出
+            $lines = explode("\n", $output);
+
+            foreach ($lines as $line) {
+                $line = trim($line);
+
+                // 跳过表格边框和标题行
+                if (empty($line) || strpos($line, '+') === 0 || strpos($line, 'Rule') !== false) {
+                    continue;
+                }
+
+                // 解析表格行
+                if (strpos($line, '|') !== false) {
+                    $parts = array_map('trim', explode('|', $line));
+
+                    if (count($parts) >= 4) {
+                        $rule = $parts[1] ?? '';
+                        $route = $parts[2] ?? '';
+                        $method = $parts[3] ?? 'GET';
+                        $name = $parts[4] ?? '';
+
+                        if (!empty($rule) && !empty($route)) {
+                            $mockRule = $this->createMockRuleItem([
+                                'rule' => $rule,
+                                'route' => $route,
+                                'method' => strtoupper($method),
+                                'name' => $name,
+                                'option' => [],
+                                'pattern' => []
+                            ]);
+
+                            if ($mockRule) {
+                                $routes[] = $mockRule;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // 忽略解析错误
+        }
+
+        return $routes;
+    }
+
+    /**
+     * 通过命令行获取路由信息
+     */
+    protected function getRoutesFromCommand(): array
+    {
+        $routes = [];
+
+        try {
+            // 创建一个临时的路由列表命令实例
+            $command = new \think\console\command\RouteList();
+
+            // 使用反射获取路由数据
+            $reflection = new \ReflectionClass($command);
+            if ($reflection->hasMethod('getRouteList')) {
+                $method = $reflection->getMethod('getRouteList');
+                $method->setAccessible(true);
+                $routeData = $method->invoke($command);
+
+                // 转换为我们需要的格式
+                foreach ($routeData as $route) {
+                    if (isset($route['rule']) && isset($route['route'])) {
+                        // 创建一个模拟的 RuleItem 对象
+                        $ruleItem = $this->createMockRuleItem($route);
+                        if ($ruleItem) {
+                            $routes[] = $ruleItem;
+                        }
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // 忽略错误
+        }
+
+        return $routes;
+    }
+
+    /**
+     * 创建模拟的 RuleItem 对象
+     */
+    protected function createMockRuleItem(array $routeData): ?object
+    {
+        try {
+            // 创建一个简单的对象来模拟 RuleItem
+            $mockRule = new class($routeData) {
+                private $data;
+
+                public function __construct($data) {
+                    $this->data = $data;
+                }
+
+                public function getRule() {
+                    return $this->data['rule'] ?? '';
+                }
+
+                public function getRoute() {
+                    return $this->data['route'] ?? '';
+                }
+
+                public function getMethod() {
+                    return $this->data['method'] ?? 'GET';
+                }
+
+                public function getName() {
+                    return $this->data['name'] ?? '';
+                }
+
+                public function getOption() {
+                    return $this->data['option'] ?? [];
+                }
+
+                public function getPattern() {
+                    return $this->data['pattern'] ?? [];
+                }
+            };
+
+            return $mockRule;
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
+    /**
+     * 备用方法获取路由
+     */
+    protected function getRoutesByAlternativeMethod(): array
+    {
+        $routes = [];
+
+        try {
+            // 尝试通过路由列表命令获取
+            $routeList = $this->route->getRuleList();
+
+            foreach ($routeList as $routeData) {
+                if (is_object($routeData)) {
+                    $routes[] = $routeData;
+                }
+            }
+        } catch (\Exception $e) {
+            // 忽略错误
+        }
+
+        return $routes;
+    }
+
+    /**
+     * 分析模拟路由对象
+     */
+    protected function analyzeMockRule(object $rule): ?array
+    {
+        try {
+            $routeInfo = [
+                'domain' => '',
+                'rule' => method_exists($rule, 'getRule') ? $rule->getRule() : '',
+                'route' => method_exists($rule, 'getRoute') ? $rule->getRoute() : '',
+                'method' => $this->normalizeHttpMethod(method_exists($rule, 'getMethod') ? $rule->getMethod() : 'get'),
+                'name' => method_exists($rule, 'getName') ? $rule->getName() : '',
+                'middleware' => [],
+                'option' => method_exists($rule, 'getOption') ? $rule->getOption() : [],
+                'pattern' => method_exists($rule, 'getPattern') ? $rule->getPattern() : [],
+                'type' => 'single',
+                'controller' => null,
+                'action' => null,
+                'parameters' => [],
+                'is_resource' => false,
+                'resource_actions' => [],
+            ];
+
+            // 跳过 Closure 路由
+            if ($routeInfo['route'] instanceof \Closure) {
+                return null;
+            }
+
+            // 解析控制器和方法
+            $this->parseControllerAction($routeInfo);
+
+            // 解析路由参数
+            $this->parseRouteParameters($routeInfo);
+
+            return $routeInfo;
+        } catch (\Exception $e) {
+            // 忽略解析失败的路由
+            return null;
         }
     }
 
@@ -87,10 +356,15 @@ class RouteAnalyzer
             if (file_exists($routePath)) {
                 require_once $routePath;
             }
+
+            // 注解路由已经由 ThinkPHP 自动加载，无需手动处理
+            // ThinkPHP 的注解扩展会自动扫描控制器并注册路由
+
         } catch (\Exception $e) {
             error_log("Error loading routes: " . $e->getMessage());
         }
     }
+
 
     /**
      * 获取路由域名
@@ -465,8 +739,24 @@ class RouteAnalyzer
                     $routeInfo['action'] = $parts[2];
                 } else {
                     // 单应用模式：controller/action
-                    $routeInfo['controller'] = $parts[0];
-                    $routeInfo['action'] = $parts[1];
+                    $controllerName = $parts[0];
+                    $actionName = $parts[1];
+
+                    // 如果控制器名称不包含命名空间，添加默认命名空间
+                    if (strpos($controllerName, '\\') === false) {
+                        $baseNamespace = $this->app->config->get('app.app_namespace', 'app');
+                        $controllerLayer = $this->app->config->get('route.controller_layer', 'controller');
+
+                        // 确保基础命名空间不为空
+                        if (empty($baseNamespace)) {
+                            $baseNamespace = 'app';
+                        }
+
+                        $controllerName = $baseNamespace . '\\' . $controllerLayer . '\\' . $controllerName;
+                    }
+
+                    $routeInfo['controller'] = $controllerName;
+                    $routeInfo['action'] = $actionName;
                 }
             }
         } elseif (is_array($route) && count($route) >= 2) {

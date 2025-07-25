@@ -226,14 +226,43 @@ class OpenApiGenerator
     protected function addControllerTag(array $route, array $controllerInfo): void
     {
         $controller = $route['controller'] ?? '';
-        
+
         if (empty($controller)) {
             return;
         }
 
+        // 提取控制器简名（去掉命名空间）
+        $controllerParts = explode('\\', $controller);
+        $controllerName = end($controllerParts);
+
+        // 生成友好的标签名称
+        $tagMap = [
+            'Api' => 'API 接口',
+            'User' => '用户管理',
+            'Auth' => '认证授权',
+            'Admin' => '管理后台',
+            'Product' => '产品管理',
+            'Order' => '订单管理',
+        ];
+
+        $friendlyTag = $tagMap[$controllerName] ?? $controllerName;
+
+        // 提取简洁的描述
+        $description = $friendlyTag;
+        if (isset($controllerInfo['doc_comment'])) {
+            $docComment = $controllerInfo['doc_comment'];
+            // 提取第一行有意义的注释
+            if (preg_match('/\/\*\*\s*\n\s*\*\s*(.+?)\s*\n/', $docComment, $matches)) {
+                $firstLine = trim($matches[1]);
+                if (!empty($firstLine) && !str_contains($firstLine, '@')) {
+                    $description = $firstLine;
+                }
+            }
+        }
+
         $tag = [
-            'name' => $controller,
-            'description' => $controllerInfo['doc_comment'] ?? ucfirst($controller) . ' controller',
+            'name' => $friendlyTag,
+            'description' => $description,
         ];
 
         $this->documentBuilder->addTag($tag);
@@ -393,16 +422,14 @@ class OpenApiGenerator
     public function generateJson(bool $pretty = true): string
     {
         $document = $this->generate();
-        $this->documentBuilder = new DocumentBuilder($this->config);
-        
-        // 重新构建文档
-        foreach ($document['paths'] as $path => $methods) {
-            foreach ($methods as $method => $operation) {
-                $this->documentBuilder->addPath($path, $method, $operation);
-            }
+
+        // 直接使用生成的文档，不需要重新构建
+        $flags = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
+        if ($pretty) {
+            $flags |= JSON_PRETTY_PRINT;
         }
 
-        return $this->documentBuilder->toJson($pretty);
+        return json_encode($document, $flags);
     }
 
     /**
@@ -414,16 +441,13 @@ class OpenApiGenerator
     public function generateYaml(): string
     {
         $document = $this->generate();
-        $this->documentBuilder = new DocumentBuilder($this->config);
-        
-        // 重新构建文档
-        foreach ($document['paths'] as $path => $methods) {
-            foreach ($methods as $method => $operation) {
-                $this->documentBuilder->addPath($path, $method, $operation);
-            }
+
+        // 检查 YAML 扩展
+        if (!extension_loaded('yaml')) {
+            throw new GenerationException('YAML extension is not available');
         }
 
-        return $this->documentBuilder->toYaml();
+        return yaml_emit($document);
     }
 
     /**
