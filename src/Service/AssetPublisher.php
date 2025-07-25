@@ -73,10 +73,14 @@ class AssetPublisher
             mkdir($targetDir, 0755, true);
         }
 
-        // 复制文件
+        // 复制文件 - 包含 Swagger UI 和 Stoplight Elements 资源
         $files = [
+            // Swagger UI 文件
             'swagger-ui.css',
-            'swagger-ui-bundle.js'
+            'swagger-ui-bundle.js',
+            // Stoplight Elements 文件
+            'elements-styles.min.css',
+            'elements-web-components.min.js'
         ];
 
         foreach ($files as $file) {
@@ -85,7 +89,7 @@ class AssetPublisher
 
             if (file_exists($sourcePath)) {
                 // 检查目标文件是否已存在且是最新的
-                if (!file_exists($targetPath) || 
+                if (!file_exists($targetPath) ||
                     filemtime($sourcePath) > filemtime($targetPath)) {
                     copy($sourcePath, $targetPath);
                 }
@@ -101,10 +105,14 @@ class AssetPublisher
     public function areAssetsPublished(): bool
     {
         $targetDir = $this->app->getRootPath() . 'public/swagger-ui';
-        
+
         $requiredFiles = [
+            // Swagger UI 文件
             'swagger-ui.css',
-            'swagger-ui-bundle.js'
+            'swagger-ui-bundle.js',
+            // Stoplight Elements 文件
+            'elements-styles.min.css',
+            'elements-web-components.min.js'
         ];
 
         foreach ($requiredFiles as $file) {
@@ -133,7 +141,7 @@ class AssetPublisher
 
             // 重新发布
             return $this->publishAssets();
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return false;
         }
     }
@@ -162,5 +170,126 @@ class AssetPublisher
         }
         
         rmdir($dir);
+    }
+
+    /**
+     * 获取 Stoplight Elements 的 HTML 模板
+     *
+     * @param string $apiDescriptionUrl OpenAPI 规范的 URL
+     * @param array $options 配置选项
+     * @return string
+     */
+    public function getStoplightElementsHtml(string $apiDescriptionUrl, array $options = []): string
+    {
+        $layout = $options['layout'] ?? 'sidebar';
+        $router = $options['router'] ?? 'hash';
+        $tryItCredentialsPolicy = $options['tryItCredentialsPolicy'] ?? 'same-origin';
+        $title = $options['title'] ?? 'API Documentation';
+
+        return <<<HTML
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="same-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{$title}</title>
+    <!-- Embed Stoplight Elements via Web Component -->
+    <link href="/swagger-ui/elements-styles.min.css" rel="stylesheet" />
+    <script src="/swagger-ui/elements-web-components.min.js" crossorigin="anonymous"></script>
+  </head>
+  <body style="height: 100vh;">
+    <elements-api
+      apiDescriptionUrl="{$apiDescriptionUrl}"
+      router="{$router}"
+      layout="{$layout}"
+      tryItCredentialsPolicy="{$tryItCredentialsPolicy}"
+    />
+  </body>
+</html>
+HTML;
+    }
+
+    /**
+     * 获取 Swagger UI 的 HTML 模板
+     *
+     * @param string $apiDescriptionUrl OpenAPI 规范的 URL
+     * @param array $options 配置选项
+     * @return string
+     */
+    public function getSwaggerUIHtml(string $apiDescriptionUrl, array $options = []): string
+    {
+        $title = $options['title'] ?? 'API Documentation';
+
+        return <<<HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SwaggerUI" />
+  <title>{$title}</title>
+  <link rel="stylesheet" href="/swagger-ui/swagger-ui.css" />
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="/swagger-ui/swagger-ui-bundle.js" crossorigin></script>
+<script>
+  window.onload = () => {
+    window.ui = SwaggerUIBundle({
+      url: '{$apiDescriptionUrl}',
+      dom_id: '#swagger-ui',
+    });
+  };
+</script>
+</body>
+</html>
+HTML;
+    }
+
+    /**
+     * 获取可用的文档渲染器列表
+     *
+     * @return array
+     */
+    public function getAvailableRenderers(): array
+    {
+        return [
+            'stoplight-elements' => [
+                'name' => 'Stoplight Elements',
+                'description' => '现代化的 API 文档渲染器，支持多种布局',
+                'files' => ['elements-styles.min.css', 'elements-web-components.min.js']
+            ],
+            'swagger-ui' => [
+                'name' => 'Swagger UI',
+                'description' => '经典的 API 文档渲染器',
+                'files' => ['swagger-ui.css', 'swagger-ui-bundle.js']
+            ]
+        ];
+    }
+
+    /**
+     * 检查特定渲染器的资源是否可用
+     *
+     * @param string $renderer 渲染器名称
+     * @return bool
+     */
+    public function isRendererAvailable(string $renderer): bool
+    {
+        $renderers = $this->getAvailableRenderers();
+
+        if (!isset($renderers[$renderer])) {
+            return false;
+        }
+
+        $targetDir = $this->app->getRootPath() . 'public/swagger-ui';
+
+        foreach ($renderers[$renderer]['files'] as $file) {
+            if (!file_exists($targetDir . '/' . $file)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -9,6 +9,7 @@ use think\Response;
 use Yangweijie\ThinkScramble\Config\ScrambleConfig;
 use Yangweijie\ThinkScramble\Generator\OpenApiGenerator;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
+use Yangweijie\ThinkScramble\Service\AssetPublisher;
 
 /**
  * API 文档控制器
@@ -28,12 +29,23 @@ class DocsController
     protected ScrambleConfig $config;
 
     /**
+     * 资源发布服务
+     */
+    protected AssetPublisher $assetPublisher;
+
+    /**
      * 构造函数
      */
     public function __construct(App $app)
     {
         $this->app = $app;
         $this->config = new ScrambleConfig();
+        $this->assetPublisher = new AssetPublisher($app);
+
+        // 确保资源文件已发布
+        if (!$this->assetPublisher->areAssetsPublished()) {
+            $this->assetPublisher->publishAssets();
+        }
     }
 
     /**
@@ -62,8 +74,12 @@ class DocsController
             $generator = new OpenApiGenerator($this->app, $this->config);
             $document = $generator->generate();
 
+            // 获取渲染器参数
+            $renderer = $this->app->request->param('renderer', 'auto');
+            $layout = $this->app->request->param('layout', 'sidebar');
+
             // 生成 HTML 页面
-            $html = $this->generateHtml($document);
+            $html = $this->generateHtml($document, $renderer, $layout);
 
             return Response::create($html, 'html');
 
@@ -80,6 +96,96 @@ class DocsController
                 500
             );
         }
+    }
+
+    /**
+     * 使用 Stoplight Elements 显示文档
+     *
+     * @return Response
+     */
+    public function elements(): Response
+    {
+        try {
+            $generator = new OpenApiGenerator($this->app, $this->config);
+            $document = $generator->generate();
+
+            $layout = $this->app->request->param('layout', 'sidebar');
+            $html = $this->generateHtml($document, 'stoplight-elements', $layout);
+
+            return Response::create($html, 'html');
+
+        } catch (GenerationException $e) {
+            return Response::create(
+                $this->generateErrorPage('Documentation Generation Error', $e->getMessage()),
+                'html',
+                500
+            );
+        } catch (\Exception $e) {
+            return Response::create(
+                $this->generateErrorPage('Unexpected Error', $e->getMessage()),
+                'html',
+                500
+            );
+        }
+    }
+
+    /**
+     * 使用 Swagger UI 显示文档
+     *
+     * @return Response
+     */
+    public function swagger(): Response
+    {
+        try {
+            $generator = new OpenApiGenerator($this->app, $this->config);
+            $document = $generator->generate();
+
+            $html = $this->generateHtml($document, 'swagger-ui');
+
+            return Response::create($html, 'html');
+
+        } catch (GenerationException $e) {
+            return Response::create(
+                $this->generateErrorPage('Documentation Generation Error', $e->getMessage()),
+                'html',
+                500
+            );
+        } catch (\Exception $e) {
+            return Response::create(
+                $this->generateErrorPage('Unexpected Error', $e->getMessage()),
+                'html',
+                500
+            );
+        }
+    }
+
+    /**
+     * 获取可用的渲染器信息
+     *
+     * @return Response
+     */
+    public function renderers(): Response
+    {
+        $renderers = $this->assetPublisher->getAvailableRenderers();
+        $status = [];
+
+        foreach ($renderers as $key => $renderer) {
+            $status[$key] = [
+                'name' => $renderer['name'],
+                'description' => $renderer['description'],
+                'available' => $this->assetPublisher->isRendererAvailable($key),
+                'files' => $renderer['files'],
+                'urls' => [
+                    'direct' => "/docs/{$key}",
+                    'with_layout' => "/docs/ui?renderer={$key}&layout=sidebar"
+                ]
+            ];
+        }
+
+        return Response::create([
+            'renderers' => $status,
+            'assets_published' => $this->assetPublisher->areAssetsPublished()
+        ], 'json');
     }
 
     /**
@@ -154,61 +260,60 @@ class DocsController
 
     /**
      * 生成 HTML 页面
-     * 
+     *
      * @param array $document OpenAPI 文档
+     * @param string $renderer 渲染器类型 (auto|stoplight-elements|swagger-ui)
+     * @param string $layout 布局类型 (sidebar|stacked)
      * @return string
      */
-    protected function generateHtml(array $document): string
+    protected function generateHtml(array $document, string $renderer = 'auto', string $layout = 'sidebar'): string
     {
         $title = $document['info']['title'] ?? 'API Documentation';
-        $jsonData = json_encode($document, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-        return <<<HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{$title}</title>
-    <link rel="stylesheet" type="text/css" href="/swagger-ui/swagger-ui.css" />
-    <style>
-        html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
-        *, *:before, *:after { box-sizing: inherit; }
-        body { margin:0; background: #fafafa; }
-        .swagger-ui .topbar { display: none; }
-    </style>
-</head>
-<body>
-    <div id="swagger-ui"></div>
-    <script src="/swagger-ui/swagger-ui-bundle.js" charset="UTF-8"></script>
-    <script>
-        window.onload = function() {
-            // 加载 API 规范并初始化 Swagger UI
-            fetch('/docs/api.json')
-                .then(response => response.json())
-                .then(spec => {
-                    const ui = SwaggerUIBundle({
-                        spec: spec,
-                        dom_id: '#swagger-ui',
-                        deepLinking: true,
-                        presets: [
-                            SwaggerUIBundle.presets.apis
-                        ],
-                        plugins: [
-                            SwaggerUIBundle.plugins.DownloadUrl
-                        ]
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading API spec:', error);
-                    document.getElementById('swagger-ui').innerHTML =
-                        '<div style="padding: 20px; color: red;">Error loading API documentation: ' + error.message + '</div>';
-                });
-        };
-    </script>
-</body>
-</html>
-HTML;
+        // 根据指定的渲染器生成 HTML
+        switch ($renderer) {
+            case 'stoplight-elements':
+                if ($this->assetPublisher->isRendererAvailable('stoplight-elements')) {
+                    return $this->assetPublisher->getStoplightElementsHtml('/docs/api.json', [
+                        'title' => $title,
+                        'layout' => $layout,
+                        'router' => 'hash',
+                        'tryItCredentialsPolicy' => 'same-origin'
+                    ]);
+                }
+                break;
+
+            case 'swagger-ui':
+                if ($this->assetPublisher->isRendererAvailable('swagger-ui')) {
+                    return $this->assetPublisher->getSwaggerUIHtml('/docs/api.json', [
+                        'title' => $title
+                    ]);
+                }
+                break;
+
+            case 'auto':
+            default:
+                // 自动选择：优先使用 Stoplight Elements，回退到 Swagger UI
+                if ($this->assetPublisher->isRendererAvailable('stoplight-elements')) {
+                    return $this->assetPublisher->getStoplightElementsHtml('/docs/api.json', [
+                        'title' => $title,
+                        'layout' => $layout,
+                        'router' => 'hash',
+                        'tryItCredentialsPolicy' => 'same-origin'
+                    ]);
+                } elseif ($this->assetPublisher->isRendererAvailable('swagger-ui')) {
+                    return $this->assetPublisher->getSwaggerUIHtml('/docs/api.json', [
+                        'title' => $title
+                    ]);
+                }
+                break;
+        }
+
+        // 如果都不可用，返回错误页面
+        return $this->generateErrorPage(
+            'Documentation Renderer Not Available',
+            "The requested renderer '{$renderer}' is not available. Please ensure assets are properly published."
+        );
     }
 
     /**
