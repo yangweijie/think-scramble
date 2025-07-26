@@ -87,6 +87,67 @@ class UserController
 }
 ```
 
+### 3. 模型分析 (v1.3.0)
+
+**功能描述**: 自动分析 ThinkPHP 模型生成 OpenAPI Schema
+
+**核心特性**:
+- 🏗️ 字段类型分析 (自动识别模型字段类型并映射到 OpenAPI)
+- 🔗 关联关系识别 (支持注释、代码、命名约定三种识别方式)
+- ✅ 验证规则集成 (自动提取验证规则并转换为 OpenAPI 约束)
+- ⏰ 时间戳处理 (自动识别和处理时间戳字段)
+- 🗑️ 软删除支持 (识别软删除 trait 并添加相应字段)
+- 📋 Schema 生成 (生成完整的 OpenAPI Schema 定义)
+
+**技术实现**:
+- `src/Analyzer/ModelAnalyzer.php` - 模型分析器核心
+- `src/Analyzer/ModelRelationAnalyzer.php` - 模型关系分析器
+- `src/Generator/ModelSchemaGenerator.php` - 模型 Schema 生成器
+- `src/Generator/DocumentBuilder.php` - 集成模型 Schema 功能
+- `example/UserModel.php` - 完整的模型示例
+- `example/ArticleModel.php` - 关联关系示例
+
+**使用示例**:
+```php
+/**
+ * 用户模型
+ * @property int $id 用户ID
+ * @property string $username 用户名
+ */
+class UserModel extends Model
+{
+    protected $type = [
+        'id' => 'integer',
+        'username' => 'string',
+        'email' => 'string',
+    ];
+
+    protected $rule = [
+        'username' => 'require|length:3,50',
+        'email' => 'require|email',
+    ];
+
+    /**
+     * @hasMany ArticleModel
+     */
+    public function articles()
+    {
+        return $this->hasMany(ArticleModel::class);
+    }
+}
+
+// 控制器中使用
+/**
+ * @Get("/users/{id}")
+ * @return UserModel 用户信息
+ */
+public function show(int $id): Response
+{
+    // 自动生成包含关联关系的完整 Schema
+    return json(UserModel::with('articles')->find($id));
+}
+```
+
 ## 🔧 架构设计
 
 ### 核心组件
@@ -97,16 +158,21 @@ class UserController
    - `AnnotationParser` - 注解解析
    - `AnnotationRouteAnalyzer` - 注解路由分析
    - `ValidateAnnotationAnalyzer` - 验证注解分析
+   - `ModelAnalyzer` - 模型分析
+   - `ModelRelationAnalyzer` - 模型关系分析
 
 2. **生成器层 (Generator)**
    - `ParameterExtractor` - 参数提取器
    - `DocumentBuilder` - 文档构建器
    - `SchemaGenerator` - Schema 生成器
+   - `ModelSchemaGenerator` - 模型 Schema 生成器
 
 3. **示例和文档**
    - `example/UploadController.php` - 文件上传示例
    - `example/AnnotationController.php` - 注解功能示例
    - `example/UserValidate.php` - 验证器示例
+   - `example/UserModel.php` - 用户模型示例
+   - `example/ArticleModel.php` - 文章模型示例
 
 ### 设计原则
 
@@ -117,15 +183,18 @@ class UserController
 
 ## 📊 功能对比
 
-| 功能 | 文件上传支持 | 注解支持 | 状态 |
-|------|-------------|----------|------|
-| 注释解析 | ✅ | ✅ | 完成 |
-| 代码分析 | ✅ | ✅ | 完成 |
-| OpenAPI 生成 | ✅ | ✅ | 完成 |
-| 参数提取 | ✅ | ✅ | 完成 |
-| 验证规则 | ❌ | ✅ | 完成 |
-| 路由生成 | ❌ | ✅ | 完成 |
-| 中间件处理 | ❌ | ✅ | 完成 |
+| 功能 | 文件上传支持 | 注解支持 | 模型分析 | 状态 |
+|------|-------------|----------|----------|------|
+| 注释解析 | ✅ | ✅ | ✅ | 完成 |
+| 代码分析 | ✅ | ✅ | ✅ | 完成 |
+| OpenAPI 生成 | ✅ | ✅ | ✅ | 完成 |
+| 参数提取 | ✅ | ✅ | ✅ | 完成 |
+| 验证规则 | ❌ | ✅ | ✅ | 完成 |
+| 路由生成 | ❌ | ✅ | ❌ | 完成 |
+| 中间件处理 | ❌ | ✅ | ❌ | 完成 |
+| 字段类型映射 | ❌ | ❌ | ✅ | 完成 |
+| 关联关系 | ❌ | ❌ | ✅ | 完成 |
+| Schema 生成 | ❌ | ❌ | ✅ | 完成 |
 
 ## 🧪 测试覆盖
 
@@ -143,21 +212,32 @@ class UserController
 - ✅ 验证注解提取
 - ✅ API 文档注解生成
 
+### 模型分析测试
+- ✅ 模型字段分析
+- ✅ 字段类型映射
+- ✅ 验证规则转换
+- ✅ 关联关系识别
+- ✅ Schema 生成
+- ✅ 示例数据生成
+
 ## 📚 文档完整性
 
 ### 用户文档
 - ✅ `docs/file-upload-support.md` - 文件上传完整使用指南
 - ✅ `docs/annotation-support.md` - 注解支持完整使用指南
+- ✅ `docs/model-analysis.md` - 模型分析完整使用指南
 - ✅ `README.md` - 更新主要功能说明和示例
 
 ### 开发文档
 - ✅ `CHANGELOG_FILE_UPLOAD.md` - 文件上传功能更新日志
 - ✅ `CHANGELOG_ANNOTATION_SUPPORT.md` - 注解支持功能更新日志
+- ✅ `CHANGELOG_MODEL_ANALYSIS.md` - 模型分析功能更新日志
 - ✅ 代码注释完整，符合 PSR 标准
 
 ### 示例代码
 - ✅ 完整的示例控制器
 - ✅ 验证器示例
+- ✅ 模型示例（用户、文章）
 - ✅ 各种使用场景演示
 
 ## 🚀 性能优化
@@ -230,16 +310,18 @@ class UserController
 ## 📈 项目统计
 
 ### 代码量
-- 新增文件: 8 个
-- 修改文件: 5 个
-- 总代码行数: ~2000 行
-- 文档行数: ~1500 行
+- 新增文件: 11 个
+- 修改文件: 6 个
+- 总代码行数: ~3000 行
+- 文档行数: ~2500 行
 
 ### 功能覆盖
 - 注解类型: 15+ 种
-- 验证规则: 20+ 种
+- 验证规则: 25+ 种
 - 文件格式: 10+ 种
 - HTTP 方法: 7 种
+- 数据库类型: 20+ 种
+- 关联类型: 7 种
 
 ---
 

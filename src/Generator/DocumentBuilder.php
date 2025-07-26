@@ -7,6 +7,7 @@ namespace Yangweijie\ThinkScramble\Generator;
 use Yangweijie\ThinkScramble\Contracts\ConfigInterface;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
 use Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer;
+use Yangweijie\ThinkScramble\Generator\ModelSchemaGenerator;
 
 /**
  * OpenAPI 文档构建器
@@ -31,6 +32,11 @@ class DocumentBuilder
     protected ParameterExtractor $parameterExtractor;
 
     /**
+     * 模型 Schema 生成器
+     */
+    protected ModelSchemaGenerator $modelSchemaGenerator;
+
+    /**
      * 文档数据
      */
     protected array $document = [];
@@ -45,7 +51,8 @@ class DocumentBuilder
         $this->config = $config;
         $this->schemaGenerator = new SchemaGenerator($config);
         $this->parameterExtractor = new ParameterExtractor($config);
-        
+        $this->modelSchemaGenerator = new ModelSchemaGenerator($config);
+
         $this->initializeDocument();
     }
 
@@ -619,5 +626,117 @@ class DocumentBuilder
         }
 
         return $yaml;
+    }
+
+    /**
+     * 添加模型 Schema 到文档
+     *
+     * @param array $modelClasses 模型类名数组
+     * @return void
+     */
+    public function addModelSchemas(array $modelClasses): void
+    {
+        $schemas = $this->modelSchemaGenerator->generateMultipleSchemas($modelClasses);
+
+        if (!isset($this->document['components'])) {
+            $this->document['components'] = [];
+        }
+
+        if (!isset($this->document['components']['schemas'])) {
+            $this->document['components']['schemas'] = [];
+        }
+
+        $this->document['components']['schemas'] = array_merge(
+            $this->document['components']['schemas'],
+            $schemas
+        );
+    }
+
+    /**
+     * 自动发现并添加模型 Schema
+     *
+     * @param string $modelDirectory 模型目录路径
+     * @return void
+     */
+    public function autoDiscoverModels(string $modelDirectory = 'app/model'): void
+    {
+        $modelClasses = $this->discoverModelClasses($modelDirectory);
+        $this->addModelSchemas($modelClasses);
+    }
+
+    /**
+     * 发现模型类
+     *
+     * @param string $directory
+     * @return array
+     */
+    protected function discoverModelClasses(string $directory): array
+    {
+        $modelClasses = [];
+
+        if (!is_dir($directory)) {
+            return $modelClasses;
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($directory)
+        );
+
+        foreach ($iterator as $file) {
+            if ($file->isFile() && $file->getExtension() === 'php') {
+                $className = $this->extractClassNameFromFile($file->getPathname());
+                if ($className && $this->isModelClass($className)) {
+                    $modelClasses[] = $className;
+                }
+            }
+        }
+
+        return $modelClasses;
+    }
+
+    /**
+     * 从文件中提取类名
+     *
+     * @param string $filePath
+     * @return string|null
+     */
+    protected function extractClassNameFromFile(string $filePath): ?string
+    {
+        $content = file_get_contents($filePath);
+
+        // 提取命名空间
+        if (preg_match('/namespace\s+([^;]+);/', $content, $namespaceMatches)) {
+            $namespace = $namespaceMatches[1];
+        } else {
+            $namespace = '';
+        }
+
+        // 提取类名
+        if (preg_match('/class\s+(\w+)/', $content, $classMatches)) {
+            $className = $classMatches[1];
+            return $namespace ? $namespace . '\\' . $className : $className;
+        }
+
+        return null;
+    }
+
+    /**
+     * 检查是否为模型类
+     *
+     * @param string $className
+     * @return bool
+     */
+    protected function isModelClass(string $className): bool
+    {
+        try {
+            if (!class_exists($className)) {
+                return false;
+            }
+
+            $reflection = new \ReflectionClass($className);
+            return $reflection->isSubclassOf('think\\Model');
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

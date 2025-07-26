@@ -141,7 +141,7 @@ php think run
 - ✅ **文件上传支持** - 自动识别和文档化文件上传参数
 - ✅ **注解支持** - 完整的 think-annotation 兼容性
 - ✅ **验证器集成** - 自动提取验证规则生成 OpenAPI 参数
-- 🚧 **模型分析** - 自动分析数据模型
+- ✅ **模型分析** - 自动分析数据模型生成 Schema
 - 🚧 **中间件分析** - 安全方案自动检测
 
 ### 计划功能
@@ -433,6 +433,56 @@ class UserController
         // 验证规则自动提取，文件上传自动识别
         return json(['message' => 'created'], 201);
     }
+}
+```
+
+### 🏗️ 模型分析
+
+自动分析 ThinkPHP 模型，生成精确的 OpenAPI Schema：
+
+```php
+/**
+ * 用户模型
+ *
+ * @property int $id 用户ID
+ * @property string $username 用户名
+ * @property string $email 邮箱地址
+ */
+class UserModel extends Model
+{
+    protected $type = [
+        'id' => 'integer',
+        'username' => 'string',
+        'email' => 'string',
+        'age' => 'integer',
+    ];
+
+    protected $rule = [
+        'username' => 'require|length:3,50',
+        'email' => 'require|email',
+        'age' => 'number|between:1,120',
+    ];
+
+    /**
+     * 获取用户文章
+     * @hasMany ArticleModel
+     */
+    public function articles()
+    {
+        return $this->hasMany(ArticleModel::class);
+    }
+}
+
+// 控制器中使用
+/**
+ * @Get("/users/{id}")
+ * @return UserModel 用户信息
+ */
+public function show(int $id): Response
+{
+    // 自动生成包含关联关系的完整 Schema
+    return json(UserModel::with('articles')->find($id));
+}
 ```
 
 ### 支持验证器
