@@ -1,0 +1,51 @@
+{
+    "main": "bin/scramble",
+    "output": "dist/scramble.phar",
+    "chmod": "0755",
+    "directories": [
+        "src"
+    ],
+    "files": [
+        "bin/scramble"
+    ],
+    "finder": [
+        {
+            "name": "*.php",
+            "exclude": [
+                "tests",
+                "build", 
+                "dist",
+                "docs",
+                "example"
+            ],
+            "in": "vendor"
+        }
+    ],
+    "blacklist": [
+        "build",
+        "dist", 
+        "docs",
+        "tests",
+        "example",
+        ".git",
+        ".github",
+        "*.md",
+        "*.txt",
+        "*.yml", 
+        "*.yaml",
+        "*.xml",
+        "phpunit.xml*",
+        "composer.json",
+        "composer.lock",
+        ".gitignore",
+        ".gitattributes"
+    ],
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\Php"
+    ],
+    "compression": "GZ",
+    "dump-autoload": true,
+    "exclude-dev-files": true,
+    "shebang": "#!/usr/bin/env php",
+    "stub": true
+}

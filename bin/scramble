@@ -21,6 +21,15 @@ $autoloadPaths = [
     getcwd() . '/vendor/autoload.php',
 ];
 
+// 如果在 PHAR 中运行，使用 PHAR 内部的 autoload
+if (Phar::running()) {
+    $pharPath = Phar::running(false);
+    $autoloadPaths = [
+        $pharPath . '/vendor/autoload.php',
+        __DIR__ . '/../vendor/autoload.php',
+    ];
+}
+
 $autoloadFound = false;
 foreach ($autoloadPaths as $path) {
     if (file_exists($path)) {

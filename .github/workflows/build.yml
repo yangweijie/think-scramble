@@ -1,0 +1,233 @@
+name: Build Cross-Platform CLI
+
+on:
+  push:
+    branches: [ main, develop ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build PHAR
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-version: ['8.0', '8.1', '8.2', '8.3']
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, json, zip
+        tools: composer:v2
+        coverage: none
+        
+    - name: Validate composer.json
+      run: composer validate --strict
+      
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-${{ matrix.php-version }}-
+          
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+      
+    - name: Run syntax check
+      run: find src -name "*.php" -exec php -l {} \;
+      
+    - name: Test CLI
+      run: php bin/scramble --version
+      
+    - name: Download Box
+      run: |
+        mkdir -p build/tools
+        curl -L https://github.com/box-project/box/releases/latest/download/box.phar -o build/tools/box.phar
+        chmod +x build/tools/box.phar
+        
+    - name: Build PHAR
+      run: |
+        mkdir -p dist
+        php build/tools/box.phar compile --config=box.json
+        chmod +x dist/scramble.phar
+        
+    - name: Test PHAR
+      run: |
+        php dist/scramble.phar --version
+        php dist/scramble.phar --help
+        
+    - name: Create cross-platform executables
+      run: |
+        # Linux/macOS executable
+        cp dist/scramble.phar dist/scramble-linux
+        chmod +x dist/scramble-linux
+        
+        # Windows batch file
+        cat > dist/scramble.bat << 'EOF'
+        @echo off
+        php "%~dp0scramble.phar" %*
+        EOF
+        
+        # Windows PowerShell script
+        cat > dist/scramble.ps1 << 'EOF'
+        #!/usr/bin/env pwsh
+        php "$PSScriptRoot/scramble.phar" @args
+        EOF
+        
+    - name: Generate install scripts
+      run: |
+        # Linux/macOS install script
+        cat > dist/install.sh << 'EOF'
+        #!/bin/bash
+        set -e
+        INSTALL_DIR="/usr/local/bin"
+        BINARY_NAME="scramble"
+        echo "Installing ThinkScramble CLI..."
+        if [ "$EUID" -ne 0 ]; then
+            echo "Please run as root (use sudo)"
+            exit 1
+        fi
+        cp scramble-linux "$INSTALL_DIR/$BINARY_NAME"
+        chmod +x "$INSTALL_DIR/$BINARY_NAME"
+        echo "ThinkScramble installed successfully!"
+        echo "Usage: scramble --help"
+        EOF
+        chmod +x dist/install.sh
+        
+        # Windows install script
+        cat > dist/install.bat << 'EOF'
+        @echo off
+        echo Installing ThinkScramble CLI...
+        set INSTALL_DIR=%USERPROFILE%\bin
+        if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
+        copy scramble.phar "%INSTALL_DIR%\"
+        copy scramble.bat "%INSTALL_DIR%\"
+        echo ThinkScramble installed successfully!
+        echo Add %INSTALL_DIR% to your PATH if not already added
+        echo Usage: scramble --help
+        EOF
+        
+    - name: Generate documentation
+      run: |
+        cat > dist/README.txt << 'EOF'
+        ThinkScramble CLI - ThinkPHP OpenAPI Documentation Generator
+        
+        INSTALLATION:
+          Linux/macOS: Run ./install.sh as root
+          Windows: Run install.bat as administrator
+        
+        USAGE:
+          scramble --help                    Show help
+          scramble --version                 Show version
+          scramble --output=api.json         Generate documentation
+          scramble --watch --output=api.json Monitor file changes
+          scramble --stats                   Show statistics
+        
+        EXAMPLES:
+          # Generate basic documentation
+          scramble --output=api.json
+        
+          # Generate with middleware analysis
+          scramble --output=api.json --middleware
+        
+          # Export to Postman format
+          scramble --format=postman --output=api.postman.json
+        
+          # Watch for file changes
+          scramble --watch --output=api.json
+        
+        For more information, visit: https://github.com/yangweijie/think-scramble
+        EOF
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: think-scramble-php${{ matrix.php-version }}
+        path: dist/
+        retention-days: 30
+        
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: think-scramble-php8.1
+        path: dist/
+        
+    - name: Create release package
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        RELEASE_DIR="think-scramble-$VERSION"
+        mkdir -p "$RELEASE_DIR"
+        
+        cp dist/scramble.phar "$RELEASE_DIR/"
+        cp dist/scramble-linux "$RELEASE_DIR/"
+        cp dist/scramble.bat "$RELEASE_DIR/"
+        cp dist/scramble.ps1 "$RELEASE_DIR/"
+        cp dist/install.sh "$RELEASE_DIR/"
+        cp dist/install.bat "$RELEASE_DIR/"
+        cp dist/README.txt "$RELEASE_DIR/"
+        cp LICENSE "$RELEASE_DIR/" 2>/dev/null || echo "MIT License" > "$RELEASE_DIR/LICENSE"
+        
+        tar -czf "think-scramble-$VERSION.tar.gz" "$RELEASE_DIR"
+        zip -r "think-scramble-$VERSION.zip" "$RELEASE_DIR"
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          think-scramble-*.tar.gz
+          think-scramble-*.zip
+          dist/scramble.phar
+        body: |
+          ## ThinkScramble CLI Release
+          
+          Cross-platform CLI tool for generating ThinkPHP OpenAPI documentation.
+          
+          ### Installation
+          
+          **Linux/macOS:**
+          ```bash
+          wget https://github.com/yangweijie/think-scramble/releases/download/${{ github.ref_name }}/scramble.phar
+          chmod +x scramble.phar
+          sudo mv scramble.phar /usr/local/bin/scramble
+          ```
+          
+          **Windows:**
+          Download `think-scramble-*.zip` and run `install.bat`
+          
+          ### Usage
+          ```bash
+          scramble --output=api.json
+          scramble --watch --output=api.json
+          scramble --format=postman --output=api.postman.json
+          ```
+          
+          ### What's Changed
+          - Cross-platform CLI executable
+          - Improved performance with caching
+          - Plugin system support
+          - Multiple export formats
+          - Real-time file watching
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

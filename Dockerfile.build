@@ -1,0 +1,40 @@
+# ThinkScramble 构建环境 Dockerfile
+
+FROM php:8.1-cli-alpine
+
+# 安装系统依赖
+RUN apk add --no-cache \
+    git \
+    curl \
+    zip \
+    unzip \
+    make \
+    bash
+
+# 安装 PHP 扩展
+RUN docker-php-ext-install \
+    pdo \
+    pdo_mysql
+
+# 安装 Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制项目文件
+COPY . .
+
+# 安装依赖
+RUN composer install --no-dev --optimize-autoloader
+
+# 下载 Box
+RUN mkdir -p build/tools && \
+    curl -L https://github.com/box-project/box/releases/latest/download/box.phar -o build/tools/box.phar && \
+    chmod +x build/tools/box.phar
+
+# 构建 PHAR
+RUN php build.php
+
+# 设置入口点
+ENTRYPOINT ["php", "dist/scramble.phar"]
