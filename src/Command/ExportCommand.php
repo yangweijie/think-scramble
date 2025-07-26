@@ -13,6 +13,7 @@ use think\App;
 use Yangweijie\ThinkScramble\Config\ScrambleConfig;
 use Yangweijie\ThinkScramble\Generator\OpenApiGenerator;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
+use Yangweijie\ThinkScramble\Utils\YamlGenerator;
 
 /**
  * API 文档导出命令
@@ -224,19 +225,22 @@ class ExportCommand extends Command
      */
     protected function exportYaml(array $document, string $outputPath, Input $input): string
     {
-        if (!function_exists('yaml_emit')) {
-            throw new GenerationException('YAML extension is not available');
-        }
-
         $filePath = $this->ensureFileExtension($outputPath, 'yaml');
-        $content = yaml_emit($document);
-        
-        if ($content === false) {
-            throw new GenerationException('Failed to encode document to YAML');
-        }
 
-        $this->writeFile($filePath, $content);
-        return $filePath;
+        try {
+            // 使用最佳可用的 YAML 生成方法
+            $content = YamlGenerator::dump($document);
+
+            if (empty($content)) {
+                throw new GenerationException('Failed to generate YAML content');
+            }
+
+            $this->writeFile($filePath, $content);
+            return $filePath;
+
+        } catch (\Exception $e) {
+            throw new GenerationException('Failed to encode document to YAML: ' . $e->getMessage());
+        }
     }
 
     /**

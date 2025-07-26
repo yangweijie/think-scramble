@@ -10,6 +10,7 @@ use Yangweijie\ThinkScramble\Config\ScrambleConfig;
 use Yangweijie\ThinkScramble\Generator\OpenApiGenerator;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
 use Yangweijie\ThinkScramble\Service\AssetPublisher;
+use Yangweijie\ThinkScramble\Utils\YamlGenerator;
 
 /**
  * API 文档控制器
@@ -230,15 +231,8 @@ class DocsController
             $generator = new OpenApiGenerator($this->app, $this->config);
             $document = $generator->generate();
 
-            // 检查 YAML 扩展
-            if (!extension_loaded('yaml')) {
-                return Response::create([
-                    'error' => 'YAML extension not available',
-                    'message' => 'Please install the YAML PHP extension to use this feature'
-                ], 'json', 500);
-            }
-
-            $yaml = yaml_emit($document);
+            // 使用最佳可用的 YAML 生成方法
+            $yaml = YamlGenerator::dump($document);
 
             return Response::create($yaml)->header([
                 'Content-Type' => 'application/x-yaml',

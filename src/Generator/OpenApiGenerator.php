@@ -11,6 +11,7 @@ use Yangweijie\ThinkScramble\Adapter\ControllerParser;
 use Yangweijie\ThinkScramble\Adapter\MiddlewareHandler;
 use Yangweijie\ThinkScramble\Adapter\ValidatorIntegration;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
+use Yangweijie\ThinkScramble\Utils\YamlGenerator;
 
 /**
  * OpenAPI 文档生成器
@@ -442,12 +443,11 @@ class OpenApiGenerator
     {
         $document = $this->generate();
 
-        // 检查 YAML 扩展
-        if (!extension_loaded('yaml')) {
-            throw new GenerationException('YAML extension is not available');
+        try {
+            return YamlGenerator::dump($document);
+        } catch (\Exception $e) {
+            throw new GenerationException('Failed to generate YAML: ' . $e->getMessage());
         }
-
-        return yaml_emit($document);
     }
 
     /**
