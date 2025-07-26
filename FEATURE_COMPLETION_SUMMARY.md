@@ -148,6 +148,63 @@ public function show(int $id): Response
 }
 ```
 
+### 4. 中间件分析 (v1.4.0)
+
+**功能描述**: 自动分析 ThinkPHP 中间件生成 OpenAPI 安全方案
+
+**核心特性**:
+- 🛡️ 中间件识别 (自动识别内置和自定义中间件类型)
+- 🔐 安全方案生成 (生成 Bearer Token、API Key、OAuth2 等安全方案)
+- 📊 中间件统计 (统计中间件使用情况和安全覆盖率)
+- ✅ 配置验证 (检测潜在的安全配置问题)
+- 📝 文档生成 (自动生成安全方案说明文档)
+- 🎯 智能推断 (基于命名约定推断自定义中间件类型)
+
+**技术实现**:
+- `src/Analyzer/MiddlewareAnalyzer.php` - 中间件分析器核心
+- `src/Generator/SecuritySchemeGenerator.php` - 安全方案生成器
+- `src/Generator/DocumentBuilder.php` - 集成中间件分析功能
+- `example/SecureController.php` - 安全控制器示例
+
+**使用示例**:
+```php
+/**
+ * 安全控制器
+ * @middleware auth
+ * @middleware throttle:60,1
+ */
+class SecureController
+{
+    /**
+     * 获取用户信息
+     * @Route("users/profile", method="GET")
+     */
+    public function profile(): Response
+    {
+        // 自动生成安全要求：Bearer Token
+        return json(['user' => 'data']);
+    }
+
+    /**
+     * 管理员接口
+     * @Route("admin/users", method="GET")
+     * @middleware admin
+     * @middleware audit:admin_access
+     */
+    public function adminUsers(): Response
+    {
+        // 自动生成安全要求：Bearer Token + 管理员权限
+        return json(['admin' => 'data']);
+    }
+}
+
+// 生成安全方案
+$securityGenerator = new SecuritySchemeGenerator($config);
+$securityConfig = $securityGenerator->generateSecuritySchemes([
+    SecureController::class,
+]);
+```
+
 ## 🔧 架构设计
 
 ### 核心组件
@@ -160,12 +217,14 @@ public function show(int $id): Response
    - `ValidateAnnotationAnalyzer` - 验证注解分析
    - `ModelAnalyzer` - 模型分析
    - `ModelRelationAnalyzer` - 模型关系分析
+   - `MiddlewareAnalyzer` - 中间件分析
 
 2. **生成器层 (Generator)**
    - `ParameterExtractor` - 参数提取器
    - `DocumentBuilder` - 文档构建器
    - `SchemaGenerator` - Schema 生成器
    - `ModelSchemaGenerator` - 模型 Schema 生成器
+   - `SecuritySchemeGenerator` - 安全方案生成器
 
 3. **示例和文档**
    - `example/UploadController.php` - 文件上传示例
@@ -173,6 +232,7 @@ public function show(int $id): Response
    - `example/UserValidate.php` - 验证器示例
    - `example/UserModel.php` - 用户模型示例
    - `example/ArticleModel.php` - 文章模型示例
+   - `example/SecureController.php` - 安全控制器示例
 
 ### 设计原则
 
@@ -183,18 +243,20 @@ public function show(int $id): Response
 
 ## 📊 功能对比
 
-| 功能 | 文件上传支持 | 注解支持 | 模型分析 | 状态 |
-|------|-------------|----------|----------|------|
-| 注释解析 | ✅ | ✅ | ✅ | 完成 |
-| 代码分析 | ✅ | ✅ | ✅ | 完成 |
-| OpenAPI 生成 | ✅ | ✅ | ✅ | 完成 |
-| 参数提取 | ✅ | ✅ | ✅ | 完成 |
-| 验证规则 | ❌ | ✅ | ✅ | 完成 |
-| 路由生成 | ❌ | ✅ | ❌ | 完成 |
-| 中间件处理 | ❌ | ✅ | ❌ | 完成 |
-| 字段类型映射 | ❌ | ❌ | ✅ | 完成 |
-| 关联关系 | ❌ | ❌ | ✅ | 完成 |
-| Schema 生成 | ❌ | ❌ | ✅ | 完成 |
+| 功能 | 文件上传支持 | 注解支持 | 模型分析 | 中间件分析 | 状态 |
+|------|-------------|----------|----------|------------|------|
+| 注释解析 | ✅ | ✅ | ✅ | ✅ | 完成 |
+| 代码分析 | ✅ | ✅ | ✅ | ✅ | 完成 |
+| OpenAPI 生成 | ✅ | ✅ | ✅ | ✅ | 完成 |
+| 参数提取 | ✅ | ✅ | ✅ | ❌ | 完成 |
+| 验证规则 | ❌ | ✅ | ✅ | ❌ | 完成 |
+| 路由生成 | ❌ | ✅ | ❌ | ❌ | 完成 |
+| 中间件处理 | ❌ | ✅ | ❌ | ✅ | 完成 |
+| 字段类型映射 | ❌ | ❌ | ✅ | ❌ | 完成 |
+| 关联关系 | ❌ | ❌ | ✅ | ❌ | 完成 |
+| Schema 生成 | ❌ | ❌ | ✅ | ❌ | 完成 |
+| 安全方案生成 | ❌ | ❌ | ❌ | ✅ | 完成 |
+| 安全配置验证 | ❌ | ❌ | ❌ | ✅ | 完成 |
 
 ## 🧪 测试覆盖
 
@@ -220,24 +282,35 @@ public function show(int $id): Response
 - ✅ Schema 生成
 - ✅ 示例数据生成
 
+### 中间件分析测试
+- ✅ 中间件识别和分析
+- ✅ 安全方案生成
+- ✅ 中间件统计
+- ✅ 安全配置验证
+- ✅ 自定义中间件推断
+- ✅ 参数化中间件解析
+
 ## 📚 文档完整性
 
 ### 用户文档
 - ✅ `docs/file-upload-support.md` - 文件上传完整使用指南
 - ✅ `docs/annotation-support.md` - 注解支持完整使用指南
 - ✅ `docs/model-analysis.md` - 模型分析完整使用指南
+- ✅ `docs/middleware-analysis.md` - 中间件分析完整使用指南
 - ✅ `README.md` - 更新主要功能说明和示例
 
 ### 开发文档
 - ✅ `CHANGELOG_FILE_UPLOAD.md` - 文件上传功能更新日志
 - ✅ `CHANGELOG_ANNOTATION_SUPPORT.md` - 注解支持功能更新日志
 - ✅ `CHANGELOG_MODEL_ANALYSIS.md` - 模型分析功能更新日志
+- ✅ `CHANGELOG_MIDDLEWARE_ANALYSIS.md` - 中间件分析功能更新日志
 - ✅ 代码注释完整，符合 PSR 标准
 
 ### 示例代码
 - ✅ 完整的示例控制器
 - ✅ 验证器示例
 - ✅ 模型示例（用户、文章）
+- ✅ 安全控制器示例
 - ✅ 各种使用场景演示
 
 ## 🚀 性能优化
@@ -310,10 +383,10 @@ public function show(int $id): Response
 ## 📈 项目统计
 
 ### 代码量
-- 新增文件: 11 个
-- 修改文件: 6 个
-- 总代码行数: ~3000 行
-- 文档行数: ~2500 行
+- 新增文件: 14 个
+- 修改文件: 7 个
+- 总代码行数: ~4000 行
+- 文档行数: ~3500 行
 
 ### 功能覆盖
 - 注解类型: 15+ 种
@@ -322,6 +395,8 @@ public function show(int $id): Response
 - HTTP 方法: 7 种
 - 数据库类型: 20+ 种
 - 关联类型: 7 种
+- 中间件类型: 8+ 种
+- 安全方案: 5+ 种
 
 ---
 

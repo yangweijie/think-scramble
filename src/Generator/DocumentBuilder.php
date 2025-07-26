@@ -8,6 +8,7 @@ use Yangweijie\ThinkScramble\Contracts\ConfigInterface;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
 use Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer;
 use Yangweijie\ThinkScramble\Generator\ModelSchemaGenerator;
+use Yangweijie\ThinkScramble\Generator\SecuritySchemeGenerator;
 
 /**
  * OpenAPI 文档构建器
@@ -37,6 +38,11 @@ class DocumentBuilder
     protected ModelSchemaGenerator $modelSchemaGenerator;
 
     /**
+     * 安全方案生成器
+     */
+    protected SecuritySchemeGenerator $securitySchemeGenerator;
+
+    /**
      * 文档数据
      */
     protected array $document = [];
@@ -52,6 +58,7 @@ class DocumentBuilder
         $this->schemaGenerator = new SchemaGenerator($config);
         $this->parameterExtractor = new ParameterExtractor($config);
         $this->modelSchemaGenerator = new ModelSchemaGenerator($config);
+        $this->securitySchemeGenerator = new SecuritySchemeGenerator($config);
 
         $this->initializeDocument();
     }
@@ -738,5 +745,88 @@ class DocumentBuilder
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    /**
+     * 添加安全方案到文档
+     *
+     * @param array $controllerClasses 控制器类名数组
+     * @return void
+     */
+    public function addSecuritySchemes(array $controllerClasses): void
+    {
+        $securityConfig = $this->securitySchemeGenerator->generateSecuritySchemes($controllerClasses);
+
+        if (!isset($this->document['components'])) {
+            $this->document['components'] = [];
+        }
+
+        if (!empty($securityConfig['securitySchemes'])) {
+            $this->document['components']['securitySchemes'] = $securityConfig['securitySchemes'];
+        }
+
+        if (!empty($securityConfig['security'])) {
+            $this->document['security'] = $securityConfig['security'];
+        }
+    }
+
+    /**
+     * 为路径操作添加安全要求
+     *
+     * @param array $pathItem
+     * @param string $controllerClass
+     * @param string $methodName
+     * @return array
+     */
+    protected function addSecurityToOperation(array $pathItem, string $controllerClass, string $methodName): array
+    {
+        $security = $this->securitySchemeGenerator->generateMethodSecurity($controllerClass, $methodName);
+
+        if (!empty($security)) {
+            foreach ($pathItem as $httpMethod => &$operation) {
+                if (is_array($operation) && !isset($operation['security'])) {
+                    $operation['security'] = $security;
+                }
+            }
+        }
+
+        return $pathItem;
+    }
+
+    /**
+     * 生成中间件摘要报告
+     *
+     * @param array $controllerClasses
+     * @return array
+     */
+    public function generateMiddlewareSummary(array $controllerClasses): array
+    {
+        return $this->securitySchemeGenerator->generateMiddlewareSummary($controllerClasses);
+    }
+
+    /**
+     * 验证安全配置
+     *
+     * @return array
+     */
+    public function validateSecurity(): array
+    {
+        $securityConfig = [
+            'securitySchemes' => $this->document['components']['securitySchemes'] ?? [],
+            'security' => $this->document['security'] ?? [],
+        ];
+
+        return $this->securitySchemeGenerator->validateSecurityConfig($securityConfig);
+    }
+
+    /**
+     * 生成安全文档
+     *
+     * @return string
+     */
+    public function generateSecurityDocumentation(): string
+    {
+        $securitySchemes = $this->document['components']['securitySchemes'] ?? [];
+        return $this->securitySchemeGenerator->generateSecurityDocumentation($securitySchemes);
     }
 }
