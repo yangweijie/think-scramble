@@ -30,10 +30,43 @@ ThinkScramble 是一个为 ThinkPHP 6/8 框架设计的自动 API 文档生成�
 
 ## 🚀 安装
 
+### PIE 安装（推荐）
+
+使用 PIE (PHP Installer for Extensions) 安装，享受现代化的包管理体验：
+
+```bash
+# 安装 PIE（如果尚未安装）
+composer global require pie/pie
+
+# 使用 PIE 安装 ThinkScramble
+pie install yangweijie/think-scramble
+
+# 验证安装
+scramble --version
+```
+
+### Composer 安装
+
 使用 Composer 安装扩展包：
 
 ```bash
 composer require yangweijie/think-scramble
+```
+
+### PHAR 安装
+
+下载预构建的 PHAR 文件：
+
+```bash
+# 下载最新版本
+curl -L https://github.com/yangweijie/think-scramble/releases/latest/download/scramble.phar -o scramble.phar
+chmod +x scramble.phar
+
+# 全局安装
+sudo mv scramble.phar /usr/local/bin/scramble
+
+# 验证安装
+scramble --version
 ```
 
 ### 自动发现

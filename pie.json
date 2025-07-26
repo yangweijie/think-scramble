@@ -1,8 +1,39 @@
 {
     "name": "yangweijie/think-scramble",
-    "description": "ThinkPHP 框架的 OpenAPI 文档自动生成扩展包",
+    "description": "ThinkPHP OpenAPI Documentation Generator with advanced features",
     "type": "library",
+    "keywords": [
+        "thinkphp",
+        "openapi",
+        "swagger",
+        "documentation",
+        "api",
+        "generator",
+        "cli"
+    ],
+    "homepage": "https://github.com/yangweijie/think-scramble",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Yang Weijie",
+            "email": "yangweijie@example.com",
+            "homepage": "https://github.com/yangweijie"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/yangweijie/think-scramble/issues",
+        "source": "https://github.com/yangweijie/think-scramble",
+        "docs": "https://github.com/yangweijie/think-scramble/blob/main/README.md"
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0|^10.0",
+        "phpstan/phpstan": "^1.0"
+    },
     "autoload": {
         "psr-4": {
             "Yangweijie\\ThinkScramble\\": "src/"
@@ -10,58 +41,28 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Yangweijie\\ThinkScramble\\Tests\\": "tests/"
         }
-    },
-    "authors": [
-        {
-            "name": "yangweijie",
-            "email": "917647288@qq.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=8.0",
-        "topthink/framework": "^6.0|^8.0",
-        "nikic/php-parser": "^4.15",
-        "cebe/php-openapi": "^1.7"
-    },
-    "require-dev": {
-        "nunomaduro/collision": "^7.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-type-coverage": "^2.0",
-        "phpunit/phpunit": "^10.0"
     },
     "bin": [
         "bin/scramble"
     ],
     "scripts": {
-        "test": "pest",
-        "test:unit": "pest tests/Unit",
-        "test:integration": "pest tests/Integration",
-        "test:coverage": "pest --coverage",
-        "test:coverage-html": "pest --coverage-html=coverage-html",
-        "phpunit": "phpunit",
-        "phpunit:unit": "phpunit --testsuite=Unit",
-        "phpunit:integration": "phpunit --testsuite=Integration",
-        "phpunit:coverage": "phpunit --coverage-html=coverage-html",
-        "test:text-coverage": "pest --coverage --min=80",
-        "test:no-coverage": "pest"
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "build": "php build.php",
+        "install-global": "sudo cp dist/scramble-linux /usr/local/bin/scramble"
     },
     "config": {
-        "sort-packages": true,
         "optimize-autoloader": true,
+        "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "composer/installers": true
         }
     },
-
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "extra": {
-        "think": {
-            "services": [
-                "Yangweijie\\ThinkScramble\\Service\\ScrambleServiceProvider"
-            ]
-        },
         "pie": {
             "installer": {
                 "type": "phar",
