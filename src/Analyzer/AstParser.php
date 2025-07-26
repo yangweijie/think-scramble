@@ -34,7 +34,7 @@ class AstParser
     /**
      * 错误处理器
      */
-    protected ErrorHandler $errorHandler;
+    protected ErrorHandler\Collecting $errorHandler;
 
     /**
      * 构造函数

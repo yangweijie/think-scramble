@@ -152,15 +152,9 @@ php think run
 
 ## ⚙️ 配置
 
-### 发布配置文件（可选）
-
-```bash
-php think vendor:publish --provider="Yangweijie\ThinkScramble\Service\ServiceProvider"
-```
-
 ### 基本配置
 
-配置文件位于 `config/scramble.php`：
+ThinkScramble 使用内置的默认配置，开箱即用。如需自定义配置，可以创建 `config/scramble.php` 文件：
 
 ```php
 <?php
