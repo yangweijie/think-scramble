@@ -181,6 +181,12 @@ class DocBlockParser
                     $tag['type'] = trim($content);
                     break;
 
+                case 'upload':
+                case 'file':
+                    $parsed = $this->parseFileUploadTag($content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
                 default:
                     $tag['content'] = $content;
                     break;
@@ -200,13 +206,35 @@ class DocBlockParser
      */
     protected function parseParamTag(string $content): array
     {
-        // 格式：type $variable description
-        if (preg_match('/^(\S+)\s+\$(\w+)(?:\s+(.+))?$/', $content, $matches)) {
+        // 支持格式：
+        // type $variable description
+        // {file} $variable description
+        // {file} variable description (without $)
+
+        // 检查是否为文件类型参数
+        if (preg_match('/^\{(file|upload)\}\s+\$?(\w+)(?:\s+(.+))?$/', $content, $matches)) {
             return [
+                'type' => 'file',
+                'variable' => $matches[2],
+                'description' => $matches[3] ?? '',
+                'is_file_upload' => true,
+            ];
+        }
+
+        // 标准格式：type $variable description
+        if (preg_match('/^(\S+)\s+\$(\w+)(?:\s+(.+))?$/', $content, $matches)) {
+            $result = [
                 'type' => $matches[1],
                 'variable' => $matches[2],
                 'description' => $matches[3] ?? '',
             ];
+
+            // 检查类型是否为文件相关
+            if (in_array(strtolower($matches[1]), ['file', 'upload', 'uploadedfile'])) {
+                $result['is_file_upload'] = true;
+            }
+
+            return $result;
         }
 
         return ['content' => $content];
@@ -227,6 +255,74 @@ class DocBlockParser
             'type' => $parts[0] ?? '',
             'description' => $parts[1] ?? '',
         ];
+    }
+
+    /**
+     * 解析文件上传标签
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseFileUploadTag(string $content): array
+    {
+        // 支持格式：
+        // @upload filename 文件描述
+        // @upload filename required 文件描述
+        // @upload filename jpg,png,gif max:2MB 头像文件
+
+        $parts = preg_split('/\s+/', trim($content));
+        $result = [
+            'is_file_upload' => true,
+            'name' => $parts[0] ?? 'file',
+            'required' => false,
+            'description' => '',
+            'allowed_types' => [],
+            'max_size' => null,
+        ];
+
+        $description = [];
+        $i = 1;
+
+        while ($i < count($parts)) {
+            $part = $parts[$i];
+
+            if ($part === 'required') {
+                $result['required'] = true;
+            } elseif (preg_match('/^([a-z,]+)$/', $part)) {
+                // 文件类型：jpg,png,gif
+                $result['allowed_types'] = explode(',', $part);
+            } elseif (preg_match('/^max:(\d+)(MB|KB|GB)?$/i', $part, $matches)) {
+                // 文件大小：max:2MB
+                $size = (int)$matches[1];
+                $unit = strtoupper($matches[2] ?? 'MB');
+                $result['max_size'] = $this->convertSizeToBytes($size, $unit);
+            } else {
+                // 描述文本
+                $description[] = $part;
+            }
+            $i++;
+        }
+
+        $result['description'] = implode(' ', $description);
+
+        return $result;
+    }
+
+    /**
+     * 转换文件大小为字节
+     *
+     * @param int $size
+     * @param string $unit
+     * @return int
+     */
+    protected function convertSizeToBytes(int $size, string $unit): int
+    {
+        return match (strtoupper($unit)) {
+            'KB' => $size * 1024,
+            'MB' => $size * 1024 * 1024,
+            'GB' => $size * 1024 * 1024 * 1024,
+            default => $size,
+        };
     }
 
     /**

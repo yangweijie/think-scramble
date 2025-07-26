@@ -41,6 +41,9 @@ class SchemaGenerator
         'boolean' => 'boolean',
         'array' => 'array',
         'object' => 'object',
+        'file' => 'string',
+        'upload' => 'string',
+        'uploadedfile' => 'string',
         'mixed' => null, // 特殊处理
     ];
 
@@ -242,10 +245,18 @@ class SchemaGenerator
     protected function convertBasicType(string $typeName): array
     {
         if (isset($this->typeMapping[$typeName])) {
-            return [
+            $schema = [
                 'type' => $this->typeMapping[$typeName],
                 'example' => $this->getExampleValue($typeName),
             ];
+
+            // 为文件类型添加格式
+            if (in_array(strtolower($typeName), ['file', 'upload', 'uploadedfile'])) {
+                $schema['format'] = 'binary';
+                unset($schema['example']); // 文件类型不需要示例值
+            }
+
+            return $schema;
         }
 
         // 排除不应该生成模式的类

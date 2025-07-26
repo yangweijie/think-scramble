@@ -138,7 +138,8 @@ php think run
 
 ### 开发中功能
 
-- 🚧 **注解支持** - 基于注释的文档增强
+- ✅ **文件上传支持** - 自动识别和文档化文件上传参数
+- ✅ **注解支持** - 基于注释的文档增强（文件上传）
 - 🚧 **模型分析** - 自动分析数据模型
 - 🚧 **验证器集成** - 自动提取验证规则
 - 🚧 **中间件分析** - 安全方案自动检测
@@ -345,6 +346,44 @@ public function createUser(Request $request): Response
         'email' => $email,              // string
         'created_at' => date('c'),      // datetime
     ]);
+}
+```
+
+### 🔄 文件上传支持
+
+支持多种文件上传注释格式和自动代码分析：
+
+```php
+/**
+ * 上传用户头像
+ *
+ * @upload avatar required jpg,png,gif max:2MB 用户头像文件
+ * @param string user_id 用户ID
+ */
+public function uploadAvatar(Request $request): Response
+{
+    $avatar = $request->file('avatar');  // 自动识别为文件上传参数
+    $userId = $request->param('user_id');
+
+    return json([
+        'avatar_url' => '/uploads/avatar.jpg',
+        'user_id' => $userId
+    ]);
+}
+
+/**
+ * 批量文件上传
+ *
+ * @file documents pdf,doc,docx max:50MB 文档文件
+ * @param {file} images 图片文件
+ */
+public function batchUpload(Request $request): Response
+{
+    // 这些调用会被自动识别为文件上传参数
+    $documents = $request->file('documents');
+    $images = $request->file('images');
+
+    return json(['success' => true]);
 }
 ```
 

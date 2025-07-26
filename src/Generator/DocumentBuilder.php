@@ -6,6 +6,7 @@ namespace Yangweijie\ThinkScramble\Generator;
 
 use Yangweijie\ThinkScramble\Contracts\ConfigInterface;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
+use Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer;
 
 /**
  * OpenAPI 文档构建器
@@ -439,29 +440,117 @@ class DocumentBuilder
     protected function generateRequestBody(array $routeInfo, array $controllerInfo): ?array
     {
         $method = strtoupper($routeInfo['method'] ?? 'GET');
-        
+
         // 只有 POST、PUT、PATCH 等方法才有请求体
         if (!in_array($method, ['POST', 'PUT', 'PATCH'])) {
             return null;
         }
 
-        return [
-            'required' => true,
-            'content' => [
-                'application/json' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
+        // 检查是否有文件上传参数
+        $hasFileUpload = $this->hasFileUploadParameters($routeInfo, $controllerInfo);
+
+        $content = [
+            'application/json' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [],
                 ],
-                'application/x-www-form-urlencoded' => [
-                    'schema' => [
-                        'type' => 'object',
-                        'properties' => [],
-                    ],
+            ],
+            'application/x-www-form-urlencoded' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [],
                 ],
             ],
         ];
+
+        // 如果有文件上传，添加 multipart/form-data 支持
+        if ($hasFileUpload) {
+            $content['multipart/form-data'] = [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => $this->generateFileUploadProperties($routeInfo, $controllerInfo),
+                ],
+            ];
+        }
+
+        return [
+            'required' => true,
+            'content' => $content,
+        ];
+    }
+
+    /**
+     * 检查是否有文件上传参数
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return bool
+     */
+    protected function hasFileUploadParameters(array $routeInfo, array $controllerInfo): bool
+    {
+        $action = $routeInfo['action'] ?? '';
+        $className = $controllerInfo['class'] ?? '';
+
+        if (!$action || !$className || !class_exists($className)) {
+            return false;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+            if (!$reflection->hasMethod($action)) {
+                return false;
+            }
+
+            $method = $reflection->getMethod($action);
+            $analyzer = new FileUploadAnalyzer();
+            $fileUploads = $analyzer->analyzeMethod($method);
+
+            return !empty($fileUploads);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * 生成文件上传属性
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return array
+     */
+    protected function generateFileUploadProperties(array $routeInfo, array $controllerInfo): array
+    {
+        $properties = [];
+        $action = $routeInfo['action'] ?? '';
+        $className = $controllerInfo['class'] ?? '';
+
+        if (!$action || !$className || !class_exists($className)) {
+            return $properties;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+            if (!$reflection->hasMethod($action)) {
+                return $properties;
+            }
+
+            $method = $reflection->getMethod($action);
+            $analyzer = new FileUploadAnalyzer();
+            $fileUploads = $analyzer->analyzeMethod($method);
+
+            foreach ($fileUploads as $upload) {
+                $properties[$upload['name']] = [
+                    'type' => 'string',
+                    'format' => 'binary',
+                    'description' => $upload['description'] ?? '文件上传参数',
+                ];
+            }
+        } catch (\Exception $e) {
+            // 忽略错误
+        }
+
+        return $properties;
     }
 
     /**

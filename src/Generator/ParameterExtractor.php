@@ -6,6 +6,7 @@ namespace Yangweijie\ThinkScramble\Generator;
 
 use Yangweijie\ThinkScramble\Contracts\ConfigInterface;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
+use Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer;
 
 /**
  * OpenAPI 参数提取器
@@ -25,6 +26,11 @@ class ParameterExtractor
     protected SchemaGenerator $schemaGenerator;
 
     /**
+     * 文件上传分析器
+     */
+    protected FileUploadAnalyzer $fileUploadAnalyzer;
+
+    /**
      * 构造函数
      *
      * @param ConfigInterface $config 配置接口
@@ -33,6 +39,7 @@ class ParameterExtractor
     {
         $this->config = $config;
         $this->schemaGenerator = new SchemaGenerator($config);
+        $this->fileUploadAnalyzer = new FileUploadAnalyzer();
     }
 
     /**
@@ -59,6 +66,10 @@ class ParameterExtractor
             // 提取头部参数
             $headerParameters = $this->extractHeaderParameters($routeInfo, $controllerInfo);
             $parameters = array_merge($parameters, $headerParameters);
+
+            // 提取文件上传参数
+            $fileParameters = $this->extractFileUploadParameters($routeInfo, $controllerInfo);
+            $parameters = array_merge($parameters, $fileParameters);
 
             return $parameters;
 
@@ -155,6 +166,47 @@ class ParameterExtractor
                 'description' => $header['description'] ?? '',
                 'schema' => $header['schema'] ?? ['type' => 'string'],
             ];
+        }
+
+        return $parameters;
+    }
+
+    /**
+     * 提取文件上传参数
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return array
+     */
+    protected function extractFileUploadParameters(array $routeInfo, array $controllerInfo): array
+    {
+        $parameters = [];
+        $action = $routeInfo['action'] ?? '';
+
+        if (!$action || !isset($controllerInfo['methods'][$action])) {
+            return $parameters;
+        }
+
+        // 获取方法反射
+        $className = $controllerInfo['class'] ?? '';
+        if (!$className || !class_exists($className)) {
+            return $parameters;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+            if (!$reflection->hasMethod($action)) {
+                return $parameters;
+            }
+
+            $method = $reflection->getMethod($action);
+            $fileUploads = $this->fileUploadAnalyzer->analyzeMethod($method);
+
+            foreach ($fileUploads as $upload) {
+                $parameters[] = $this->fileUploadAnalyzer->generateOpenApiParameter($upload);
+            }
+        } catch (\Exception $e) {
+            // 忽略分析错误
         }
 
         return $parameters;
