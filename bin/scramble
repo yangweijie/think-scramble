@@ -1,0 +1,78 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * ThinkScramble CLI 工具
+ * 
+ * 命令行文档生成工具
+ */
+
+// 检查 PHP 版本
+if (version_compare(PHP_VERSION, '8.0.0', '<')) {
+    echo "Error: ThinkScramble requires PHP 8.0 or higher.\n";
+    echo "Current PHP version: " . PHP_VERSION . "\n";
+    exit(1);
+}
+
+// 查找 autoload 文件
+$autoloadPaths = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+    getcwd() . '/vendor/autoload.php',
+];
+
+$autoloadFound = false;
+foreach ($autoloadPaths as $path) {
+    if (file_exists($path)) {
+        require_once $path;
+        $autoloadFound = true;
+        break;
+    }
+}
+
+if (!$autoloadFound) {
+    echo "Error: Could not find Composer autoload file.\n";
+    echo "Please run 'composer install' first.\n";
+    exit(1);
+}
+
+use Yangweijie\ThinkScramble\Console\ScrambleCommand;
+
+// 创建命令实例
+$command = new ScrambleCommand();
+
+// 解析命令行参数
+$options = getopt('h', [
+    'help',
+    'output:',
+    'config:',
+    'format:',
+    'controllers:',
+    'models:',
+    'middleware',
+    'validate',
+    'stats',
+    'watch',
+    'version',
+]);
+
+// 显示帮助信息
+if (isset($options['h']) || isset($options['help'])) {
+    $command->showHelp();
+    exit(0);
+}
+
+// 显示版本信息
+if (isset($options['version'])) {
+    $command->showVersion();
+    exit(0);
+}
+
+// 执行命令
+try {
+    $exitCode = $command->execute($options, $argv);
+    exit($exitCode);
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "\n";
+    exit(1);
+}

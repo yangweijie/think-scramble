@@ -9,6 +9,7 @@ use ReflectionMethod;
 use ReflectionProperty;
 use think\Model;
 use Yangweijie\ThinkScramble\Exception\AnalysisException;
+use Yangweijie\ThinkScramble\Cache\CacheManager;
 
 /**
  * ThinkPHP 模型分析器
@@ -21,6 +22,11 @@ class ModelAnalyzer
      * DocBlock 解析器
      */
     protected DocBlockParser $docBlockParser;
+
+    /**
+     * 缓存管理器
+     */
+    protected ?CacheManager $cacheManager = null;
 
     /**
      * 字段类型映射
@@ -57,9 +63,10 @@ class ModelAnalyzer
     /**
      * 构造函数
      */
-    public function __construct()
+    public function __construct(?CacheManager $cacheManager = null)
     {
         $this->docBlockParser = new DocBlockParser();
+        $this->cacheManager = $cacheManager;
     }
 
     /**
@@ -71,19 +78,28 @@ class ModelAnalyzer
      */
     public function analyzeModel(string $className): array
     {
+        // 检查缓存
+        if ($this->cacheManager) {
+            $cacheKey = "model_analysis:{$className}";
+            $cached = $this->cacheManager->get($cacheKey);
+            if ($cached !== null) {
+                return $cached;
+            }
+        }
+
         try {
             if (!class_exists($className)) {
                 throw new AnalysisException("Model class {$className} not found");
             }
 
             $reflection = new ReflectionClass($className);
-            
+
             // 检查是否继承自 think\Model
             if (!$reflection->isSubclassOf(Model::class) && $className !== Model::class) {
                 throw new AnalysisException("Class {$className} is not a ThinkPHP model");
             }
 
-            return [
+            $result = [
                 'class' => $className,
                 'table' => $this->getTableName($reflection),
                 'fields' => $this->analyzeFields($reflection),
@@ -93,6 +109,13 @@ class ModelAnalyzer
                 'soft_delete' => $this->analyzeSoftDelete($reflection),
                 'schema' => $this->generateSchema($reflection),
             ];
+
+            // 缓存结果
+            if ($this->cacheManager) {
+                $this->cacheManager->set($cacheKey, $result, 3600);
+            }
+
+            return $result;
 
         } catch (\Exception $e) {
             throw new AnalysisException("Failed to analyze model {$className}: " . $e->getMessage());
@@ -111,7 +134,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('table')) {
             $tableProperty = $reflection->getProperty('table');
             $tableProperty->setAccessible(true);
-            $table = $tableProperty->getStaticValue();
+            $table = $tableProperty->getValue();
             if ($table) {
                 return $table;
             }
@@ -271,7 +294,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('rule')) {
             $ruleProperty = $reflection->getProperty('rule');
             $ruleProperty->setAccessible(true);
-            $rules = $ruleProperty->getStaticValue();
+            $rules = $ruleProperty->getValue();
             if (is_array($rules)) {
                 $validation['rules'] = $rules;
             }
@@ -281,7 +304,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('message')) {
             $messageProperty = $reflection->getProperty('message');
             $messageProperty->setAccessible(true);
-            $messages = $messageProperty->getStaticValue();
+            $messages = $messageProperty->getValue();
             if (is_array($messages)) {
                 $validation['messages'] = $messages;
             }
@@ -308,14 +331,14 @@ class ModelAnalyzer
         if ($reflection->hasProperty('autoWriteTimestamp')) {
             $property = $reflection->getProperty('autoWriteTimestamp');
             $property->setAccessible(true);
-            $timestamps['enabled'] = $property->getStaticValue() !== false;
+            $timestamps['enabled'] = $property->getValue() !== false;
         }
 
         // 检查自定义时间戳字段名
         if ($reflection->hasProperty('createTime')) {
             $property = $reflection->getProperty('createTime');
             $property->setAccessible(true);
-            $createTime = $property->getStaticValue();
+            $createTime = $property->getValue();
             if ($createTime) {
                 $timestamps['create_time'] = $createTime;
             }
@@ -324,7 +347,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('updateTime')) {
             $property = $reflection->getProperty('updateTime');
             $property->setAccessible(true);
-            $updateTime = $property->getStaticValue();
+            $updateTime = $property->getValue();
             if ($updateTime) {
                 $timestamps['update_time'] = $updateTime;
             }
@@ -355,7 +378,7 @@ class ModelAnalyzer
             if ($reflection->hasProperty('deleteTime')) {
                 $property = $reflection->getProperty('deleteTime');
                 $property->setAccessible(true);
-                $deleteTime = $property->getStaticValue();
+                $deleteTime = $property->getValue();
                 if ($deleteTime) {
                     $softDelete['delete_time'] = $deleteTime;
                 }
@@ -425,7 +448,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('schema')) {
             $schemaProperty = $reflection->getProperty('schema');
             $schemaProperty->setAccessible(true);
-            $schema = $schemaProperty->getStaticValue();
+            $schema = $schemaProperty->getValue();
             return is_array($schema) ? $schema : [];
         }
 
@@ -443,7 +466,7 @@ class ModelAnalyzer
         if ($reflection->hasProperty('type')) {
             $typeProperty = $reflection->getProperty('type');
             $typeProperty->setAccessible(true);
-            $types = $typeProperty->getStaticValue();
+            $types = $typeProperty->getValue();
             return is_array($types) ? $types : [];
         }
 
