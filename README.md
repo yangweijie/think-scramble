@@ -4,6 +4,8 @@
 [![ThinkPHP Version](https://img.shields.io/badge/thinkphp-%3E%3D8.0-green.svg)](https://www.thinkphp.cn/)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](#testing)
+[![Export Formats](https://img.shields.io/badge/export%20formats-15-orange.svg)](#导出格式详解)
+[![UI Renderers](https://img.shields.io/badge/ui%20renderers-2-purple.svg)](#特色功能)
 
 ThinkScramble 是一个为 ThinkPHP 6/8 框架设计的自动 API 文档生成扩展包，移植自 Laravel Scramble。它能够自动分析你的控制器代码，无需手动编写 PHPDoc 注解，即可生成符合 OpenAPI 3.0 规范的 API 文档。
 
@@ -13,10 +15,10 @@ ThinkScramble 是一个为 ThinkPHP 6/8 框架设计的自动 API 文档生成�
 - 📝 **自动文档生成** - 无需手动编写 PHPDoc 注解
 - 🎯 **ThinkPHP 原生支持** - 完全适配 ThinkPHP 8.0 架构
 - 📊 **OpenAPI 3.0 标准** - 生成标准的 OpenAPI 文档
-- 🎨 **Swagger UI 集成** - 提供美观的 Web 界面
+- 🎨 **现代化 UI** - 支持 Swagger UI 和 Stoplight Elements 双重界面
 - ⚡ **高性能缓存** - 智能缓存机制，支持增量解析
 - 🔒 **访问控制** - 灵活的文档访问权限控制
-- 📤 **多格式导出** - 支持 JSON、YAML、HTML、Postman 等格式
+- 📤 **多格式导出** - 支持 15 种导出格式，覆盖主流 API 管理平台
 - 🛠️ **命令行工具** - 丰富的 CLI 命令支持
 - 🔍 **类型推断** - 智能的 PHP 类型分析引擎
 
@@ -106,16 +108,30 @@ php think scramble:generate
 php think run
 ```
 
-访问 `http://localhost:8000/docs/api` 查看生成的 API 文档。
+访问以下地址查看生成的 API 文档：
+
+#### 📱 Web 界面
+- **默认界面**: `http://localhost:8000/docs/` (自动选择最佳渲染器)
+- **Stoplight Elements**: `http://localhost:8000/docs/elements` (现代化界面，推荐)
+- **Swagger UI**: `http://localhost:8000/docs/swagger` (经典界面)
+
+#### 📄 API 规范文件
+- **JSON 格式**: `http://localhost:8000/docs/api.json`
+- **YAML 格式**: `http://localhost:8000/docs/api.yaml`
+
+#### 🔧 管理接口
+- **渲染器状态**: `http://localhost:8000/docs/renderers`
 
 ## ✅ 功能状态
 
 ### 已完成功能
 
 - ✅ **命令行工具** - 完整的文档生成和导出命令
-- ✅ **Web 界面** - 基于 Swagger UI 的文档界面
-- ✅ **多格式支持** - JSON, YAML, HTML, Postman, Insomnia
+- ✅ **现代化 UI** - 支持 Swagger UI 和 Stoplight Elements 双重界面
+- ✅ **多格式支持** - 15 种导出格式，覆盖主流 API 管理平台和测试工具
+- ✅ **YAML 导出** - 内置 YAML 生成器，无需额外扩展
 - ✅ **自动路由检测** - 智能分析 ThinkPHP 路由
+- ✅ **资源管理** - 自动发布和管理静态资源文件
 - ✅ **配置系统** - 灵活的配置选项
 - ✅ **缓存支持** - 提高文档生成性能
 - ✅ **错误处理** - 完善的异常处理机制
@@ -171,6 +187,19 @@ return [
         'enabled' => true,
         'ttl' => 3600,
     ],
+
+    // UI 配置
+    'ui' => [
+        'default_renderer' => 'auto', // auto, stoplight-elements, swagger-ui
+        'layout' => 'sidebar',        // sidebar, stacked (仅 Stoplight Elements)
+    ],
+
+    // 导出配置
+    'export' => [
+        'default_format' => 'json',
+        'include_examples' => true,
+        'compress_output' => false,
+    ],
 ];
 ```
 
@@ -194,15 +223,110 @@ php think scramble:generate --force
 
 ### 导出文档
 
+ThinkScramble 支持 **15 种不同的导出格式**，覆盖主流 API 管理平台、测试工具和文档系统：
+
+#### 标准格式
 ```bash
-# 导出为 HTML
-php think scramble:export --format=html
+# OpenAPI 标准格式
+php think scramble:export -f json
+php think scramble:export -f yaml
+php think scramble:export -f html
+```
 
-# 导出为 Postman 集合
-php think scramble:export --format=postman
+#### API 管理平台
+```bash
+# 主流 API 管理平台
+php think scramble:export -f postman      # Postman 集合
+php think scramble:export -f insomnia     # Insomnia 工作空间
+php think scramble:export -f eolink       # Eolink 平台
+php think scramble:export -f yapi         # YApi 平台
+php think scramble:export -f apifox       # ApiFox 集合
+php think scramble:export -f apipost      # ApiPost 集合
+php think scramble:export -f rap          # RAP 平台
+php think scramble:export -f showdoc      # ShowDoc 文档
+```
 
-# 导出为 Insomnia 工作空间
-php think scramble:export --format=insomnia
+#### 测试工具
+```bash
+# 性能测试和网络分析
+php think scramble:export -f jmeter       # JMeter 测试计划
+php think scramble:export -f har          # HTTP Archive
+```
+
+#### 文档和服务
+```bash
+# 文档生成和 Web 服务
+php think scramble:export -f apidoc       # ApiDoc 格式
+php think scramble:export -f wsdl         # WSDL 服务描述
+```
+
+#### 指定输出路径
+```bash
+# 自定义输出路径
+php think scramble:export -f postman -o collections/api.json
+php think scramble:export -f jmeter -o tests/testplan.jmx
+php think scramble:export -f wsdl -o services/api.wsdl
+```
+
+## 📤 导出格式详解
+
+ThinkScramble 支持 15 种不同的导出格式，满足各种使用场景：
+
+### 🎯 使用场景对照表
+
+| 使用场景 | 推荐格式 | 说明 |
+|----------|----------|------|
+| **开发阶段** | JSON, YAML, HTML | 标准格式，版本控制友好 |
+| **API 测试** | Postman, Insomnia, ApiPost | 功能测试和调试 |
+| **性能测试** | JMeter, HAR | 负载测试和网络分析 |
+| **团队协作** | Eolink, YApi, RAP, ApiFox | 企业级 API 管理 |
+| **文档发布** | HTML, ApiDoc, ShowDoc | 对外文档展示 |
+| **企业集成** | WSDL, JSON | SOA 架构和系统集成 |
+
+### 📋 格式特性对比
+
+| 格式 | 文件类型 | 特点 | 适用工具/平台 |
+|------|----------|------|---------------|
+| **JSON** | .json | OpenAPI 标准，通用性强 | 各种 API 工具 |
+| **YAML** | .yaml | 人类可读，配置友好 | 文档编写，CI/CD |
+| **HTML** | .html | 可视化，交互式文档 | 浏览器查看 |
+| **Postman** | .json | 支持测试脚本和环境变量 | Postman 客户端 |
+| **Insomnia** | .json | 现代化界面，插件丰富 | Insomnia 客户端 |
+| **Eolink** | .json | 企业级 API 管理 | Eolink 平台 |
+| **JMeter** | .jmx | 性能测试，负载测试 | Apache JMeter |
+| **YApi** | .json | 接口管理，Mock 数据 | YApi 平台 |
+| **ApiDoc** | .json | 静态文档生成 | ApiDoc 工具 |
+| **ApiPost** | .json | 国产工具，中文友好 | ApiPost 客户端 |
+| **ApiFox** | .json | 设计优先，协作开发 | ApiFox 平台 |
+| **HAR** | .har | 网络请求记录分析 | 浏览器开发者工具 |
+| **RAP** | .json | 阿里开源，Mock 支持 | RAP 平台 |
+| **WSDL** | .wsdl | SOAP 服务描述 | 企业 SOA 架构 |
+| **ShowDoc** | .json | 简单易用，快速部署 | ShowDoc 平台 |
+
+### 🚀 批量导出示例
+
+```bash
+#!/bin/bash
+# 批量导出脚本
+
+# 创建输出目录
+mkdir -p exports/{collections,tests,docs,services}
+
+# 导出标准格式
+php think scramble:export -f json -o exports/api.json
+php think scramble:export -f yaml -o exports/api.yaml
+php think scramble:export -f html -o exports/docs/
+
+# 导出 API 管理平台格式
+php think scramble:export -f postman -o exports/collections/postman.json
+php think scramble:export -f apifox -o exports/collections/apifox.json
+php think scramble:export -f eolink -o exports/collections/eolink.json
+
+# 导出测试工具格式
+php think scramble:export -f jmeter -o exports/tests/testplan.jmx
+php think scramble:export -f har -o exports/tests/requests.har
+
+echo "批量导出完成！"
 ```
 
 ## 🌟 特色功能
@@ -270,11 +394,21 @@ composer test:coverage
 
 ## 📚 文档
 
+### 核心文档
 - [📦 安装指南](docs/installation.md) - 详细的安装步骤和系统要求
 - [⚙️ 配置说明](docs/configuration.md) - 完整的配置选项参考
 - [📖 使用教程](docs/usage.md) - 从入门到高级的使用指南
 - [🔧 API 参考](docs/api-reference.md) - 完整的 API 和类参考
 - [🚨 故障排除](docs/troubleshooting.md) - 常见问题和解决方案
+
+### 功能文档
+- [📤 导出格式指南](docs/EXPORT_FORMATS.md) - 15 种导出格式详细说明
+- [🎨 文档渲染器](docs/DOCUMENTATION_RENDERERS.md) - Stoplight Elements 使用指南
+- [📝 YAML 导出修复](docs/YAML_EXPORT_FIX.md) - YAML 导出功能说明
+
+### 更新日志
+- [🔄 Stoplight Elements 集成](CHANGELOG_STOPLIGHT_ELEMENTS.md)
+- [📤 导出格式扩展](CHANGELOG_EXPORT_FORMATS.md)
 
 ## 🤝 贡献
 

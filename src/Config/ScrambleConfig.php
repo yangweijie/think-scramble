@@ -238,7 +238,7 @@ class ScrambleConfig implements ConfigInterface
         if (file_exists($defaultConfigPath)) {
             $this->defaults = require $defaultConfigPath;
         } else {
-            $this->defaults = $this->getDefaults();
+            $this->defaults = [];
         }
     }
 
