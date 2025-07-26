@@ -187,6 +187,51 @@ class DocBlockParser
                     $tag = array_merge($tag, $parsed);
                     break;
 
+                // ThinkPHP 注解支持
+                case 'Route':
+                case 'Get':
+                case 'Post':
+                case 'Put':
+                case 'Delete':
+                case 'Patch':
+                case 'Options':
+                case 'Head':
+                    $parsed = $this->parseRouteAnnotation($tagName, $content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
+                case 'Middleware':
+                    $parsed = $this->parseMiddlewareAnnotation($content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
+                case 'Validate':
+                case 'ValidateRule':
+                    $parsed = $this->parseValidateAnnotation($content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
+                case 'Resource':
+                    $parsed = $this->parseResourceAnnotation($content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
+                case 'Inject':
+                case 'Value':
+                    $parsed = $this->parseInjectAnnotation($content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
+                // OpenAPI 注解支持
+                case 'Api':
+                case 'ApiParam':
+                case 'ApiResponse':
+                case 'ApiSuccess':
+                case 'ApiError':
+                    $parsed = $this->parseApiAnnotation($tagName, $content);
+                    $tag = array_merge($tag, $parsed);
+                    break;
+
                 default:
                     $tag['content'] = $content;
                     break;
@@ -323,6 +368,269 @@ class DocBlockParser
             'GB' => $size * 1024 * 1024 * 1024,
             default => $size,
         };
+    }
+
+    /**
+     * 解析路由注解
+     *
+     * @param string $method HTTP方法
+     * @param string $content 注解内容
+     * @return array
+     */
+    protected function parseRouteAnnotation(string $method, string $content): array
+    {
+        $route = [
+            'is_route_annotation' => true,
+            'method' => strtoupper($method),
+            'path' => '',
+            'name' => '',
+            'middleware' => [],
+            'domain' => '',
+        ];
+
+        // 提取路径 - 支持多种格式
+        // @Get("/api/users")
+        // @Route("/api/users", method="GET")
+        if (preg_match('/["\']([^"\']*)["\']/', $content, $matches)) {
+            $route['path'] = $matches[1];
+        }
+
+        // 提取路由名称
+        if (preg_match('/name\s*=\s*["\']([^"\']+)["\']/', $content, $matches)) {
+            $route['name'] = $matches[1];
+        }
+
+        // 提取中间件
+        if (preg_match('/middleware\s*=\s*["\']([^"\']+)["\']/', $content, $matches)) {
+            $route['middleware'] = explode(',', $matches[1]);
+        }
+
+        // 提取域名
+        if (preg_match('/domain\s*=\s*["\']([^"\']+)["\']/', $content, $matches)) {
+            $route['domain'] = $matches[1];
+        }
+
+        return $route;
+    }
+
+    /**
+     * 解析中间件注解
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseMiddlewareAnnotation(string $content): array
+    {
+        $middleware = [
+            'is_middleware_annotation' => true,
+            'middleware' => [],
+        ];
+
+        // 单个中间件: @Middleware("auth")
+        if (preg_match('/^["\']([^"\']+)["\']$/', trim($content), $matches)) {
+            $middleware['middleware'] = [$matches[1]];
+        }
+        // 多个中间件: @Middleware({"auth", "throttle:60,1"})
+        elseif (preg_match_all('/["\']([^"\']+)["\']/', $content, $matches)) {
+            $middleware['middleware'] = $matches[1];
+        }
+        // 简单格式: @Middleware auth,throttle
+        elseif (!empty($content)) {
+            $middleware['middleware'] = array_map('trim', explode(',', $content));
+        }
+
+        return $middleware;
+    }
+
+    /**
+     * 解析验证注解
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseValidateAnnotation(string $content): array
+    {
+        $validate = [
+            'is_validate_annotation' => true,
+            'class' => '',
+            'scene' => '',
+            'batch' => false,
+        ];
+
+        // 验证器类: @Validate("UserValidate")
+        if (preg_match('/["\']([^"\']+)["\']/', $content, $matches)) {
+            $validate['class'] = $matches[1];
+        }
+
+        // 验证场景
+        if (preg_match('/scene\s*=\s*["\']([^"\']+)["\']/', $content, $matches)) {
+            $validate['scene'] = $matches[1];
+        }
+
+        // 批量验证
+        if (strpos($content, 'batch') !== false) {
+            $validate['batch'] = true;
+        }
+
+        return $validate;
+    }
+
+    /**
+     * 解析资源路由注解
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseResourceAnnotation(string $content): array
+    {
+        $resource = [
+            'is_resource_annotation' => true,
+            'name' => '',
+            'only' => [],
+            'except' => [],
+        ];
+
+        // 资源名称: @Resource("blog")
+        if (preg_match('/["\']([^"\']+)["\']/', $content, $matches)) {
+            $resource['name'] = $matches[1];
+        }
+
+        // only 参数
+        if (preg_match('/only\s*=\s*\[([^\]]+)\]/', $content, $matches)) {
+            $only = explode(',', $matches[1]);
+            $resource['only'] = array_map(function($item) {
+                return trim($item, ' "\'');
+            }, $only);
+        }
+
+        // except 参数
+        if (preg_match('/except\s*=\s*\[([^\]]+)\]/', $content, $matches)) {
+            $except = explode(',', $matches[1]);
+            $resource['except'] = array_map(function($item) {
+                return trim($item, ' "\'');
+            }, $except);
+        }
+
+        return $resource;
+    }
+
+    /**
+     * 解析依赖注入注解
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseInjectAnnotation(string $content): array
+    {
+        $inject = [
+            'is_inject_annotation' => true,
+            'class' => '',
+            'name' => '',
+        ];
+
+        // 注入类: @Inject("UserService")
+        if (preg_match('/["\']([^"\']+)["\']/', $content, $matches)) {
+            $inject['class'] = $matches[1];
+        }
+
+        // 注入名称
+        if (preg_match('/name\s*=\s*["\']([^"\']+)["\']/', $content, $matches)) {
+            $inject['name'] = $matches[1];
+        }
+
+        return $inject;
+    }
+
+    /**
+     * 解析 API 文档注解
+     *
+     * @param string $type 注解类型
+     * @param string $content 注解内容
+     * @return array
+     */
+    protected function parseApiAnnotation(string $type, string $content): array
+    {
+        $api = [
+            'is_api_annotation' => true,
+            'type' => $type,
+            'content' => $content,
+        ];
+
+        switch ($type) {
+            case 'Api':
+                $api = array_merge($api, $this->parseApiTag($content));
+                break;
+            case 'ApiParam':
+                $api = array_merge($api, $this->parseApiParamTag($content));
+                break;
+            case 'ApiResponse':
+            case 'ApiSuccess':
+            case 'ApiError':
+                $api = array_merge($api, $this->parseApiResponseTag($content));
+                break;
+        }
+
+        return $api;
+    }
+
+    /**
+     * 解析 @Api 标签
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseApiTag(string $content): array
+    {
+        // @Api {get} /api/users 获取用户列表
+        if (preg_match('/\{(\w+)\}\s+(\S+)\s*(.*)/', $content, $matches)) {
+            return [
+                'method' => strtoupper($matches[1]),
+                'path' => $matches[2],
+                'title' => trim($matches[3]),
+            ];
+        }
+
+        return ['title' => $content];
+    }
+
+    /**
+     * 解析 @ApiParam 标签
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseApiParamTag(string $content): array
+    {
+        // @ApiParam {String} name 用户名
+        if (preg_match('/\{(\w+)\}\s+(\w+)\s*(.*)/', $content, $matches)) {
+            return [
+                'param_type' => $matches[1],
+                'param_name' => $matches[2],
+                'description' => trim($matches[3]),
+            ];
+        }
+
+        return ['description' => $content];
+    }
+
+    /**
+     * 解析 @ApiResponse 标签
+     *
+     * @param string $content
+     * @return array
+     */
+    protected function parseApiResponseTag(string $content): array
+    {
+        // @ApiSuccess {Object} data 响应数据
+        if (preg_match('/\{(\w+)\}\s+(\w+)\s*(.*)/', $content, $matches)) {
+            return [
+                'type' => $matches[1],
+                'field' => $matches[2],
+                'description' => trim($matches[3]),
+            ];
+        }
+
+        return ['description' => $content];
     }
 
     /**

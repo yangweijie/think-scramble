@@ -139,9 +139,9 @@ php think run
 ### 开发中功能
 
 - ✅ **文件上传支持** - 自动识别和文档化文件上传参数
-- ✅ **注解支持** - 基于注释的文档增强（文件上传）
+- ✅ **注解支持** - 完整的 think-annotation 兼容性
+- ✅ **验证器集成** - 自动提取验证规则生成 OpenAPI 参数
 - 🚧 **模型分析** - 自动分析数据模型
-- 🚧 **验证器集成** - 自动提取验证规则
 - 🚧 **中间件分析** - 安全方案自动检测
 
 ### 计划功能
@@ -385,6 +385,54 @@ public function batchUpload(Request $request): Response
 
     return json(['success' => true]);
 }
+```
+
+### 🏷️ 注解支持
+
+完整支持 think-annotation 的所有注解类型：
+
+```php
+/**
+ * 用户管理控制器
+ *
+ * @Route("/api/v1/users")
+ * @Middleware("auth")
+ */
+class UserController
+{
+    /**
+     * 获取用户列表
+     *
+     * @Get("")
+     * @Middleware("throttle:60,1")
+     * @Validate("UserValidate", scene="list")
+     *
+     * @Api {get} /api/v1/users 获取用户列表
+     * @ApiParam {Number} page 页码
+     * @ApiParam {String} keyword 搜索关键词
+     * @ApiSuccess {Array} data.list 用户列表
+     */
+    public function index(Request $request): Response
+    {
+        // 自动应用中间件、验证规则，生成 OpenAPI 文档
+        return json(['data' => ['list' => []]]);
+    }
+
+    /**
+     * 创建用户
+     *
+     * @Post("")
+     * @Validate("UserValidate", scene="create")
+     *
+     * @upload avatar jpg,png max:2MB 用户头像
+     * @ApiParam {String} name 用户名
+     * @ApiParam {String} email 邮箱
+     */
+    public function create(Request $request): Response
+    {
+        // 验证规则自动提取，文件上传自动识别
+        return json(['message' => 'created'], 201);
+    }
 ```
 
 ### 支持验证器

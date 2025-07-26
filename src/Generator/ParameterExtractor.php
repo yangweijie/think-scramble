@@ -7,6 +7,8 @@ namespace Yangweijie\ThinkScramble\Generator;
 use Yangweijie\ThinkScramble\Contracts\ConfigInterface;
 use Yangweijie\ThinkScramble\Exception\GenerationException;
 use Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer;
+use Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer;
+use Yangweijie\ThinkScramble\Analyzer\AnnotationParser;
 
 /**
  * OpenAPI 参数提取器
@@ -31,6 +33,16 @@ class ParameterExtractor
     protected FileUploadAnalyzer $fileUploadAnalyzer;
 
     /**
+     * 验证注解分析器
+     */
+    protected ValidateAnnotationAnalyzer $validateAnalyzer;
+
+    /**
+     * 注解解析器
+     */
+    protected AnnotationParser $annotationParser;
+
+    /**
      * 构造函数
      *
      * @param ConfigInterface $config 配置接口
@@ -40,6 +52,8 @@ class ParameterExtractor
         $this->config = $config;
         $this->schemaGenerator = new SchemaGenerator($config);
         $this->fileUploadAnalyzer = new FileUploadAnalyzer();
+        $this->validateAnalyzer = new ValidateAnnotationAnalyzer();
+        $this->annotationParser = new AnnotationParser();
     }
 
     /**
@@ -70,6 +84,10 @@ class ParameterExtractor
             // 提取文件上传参数
             $fileParameters = $this->extractFileUploadParameters($routeInfo, $controllerInfo);
             $parameters = array_merge($parameters, $fileParameters);
+
+            // 提取注解参数
+            $annotationParameters = $this->extractAnnotationParameters($routeInfo, $controllerInfo);
+            $parameters = array_merge($parameters, $annotationParameters);
 
             return $parameters;
 
@@ -210,6 +228,95 @@ class ParameterExtractor
         }
 
         return $parameters;
+    }
+
+    /**
+     * 提取注解参数
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return array
+     */
+    protected function extractAnnotationParameters(array $routeInfo, array $controllerInfo): array
+    {
+        $parameters = [];
+        $action = $routeInfo['action'] ?? '';
+        $className = $controllerInfo['class'] ?? '';
+
+        if (!$action || !$className || !class_exists($className)) {
+            return $parameters;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+            if (!$reflection->hasMethod($action)) {
+                return $parameters;
+            }
+
+            $method = $reflection->getMethod($action);
+
+            // 分析验证注解
+            $validateInfo = $this->validateAnalyzer->analyzeMethod($method);
+            if (!empty($validateInfo['openapi_parameters'])) {
+                $parameters = array_merge($parameters, $validateInfo['openapi_parameters']);
+            }
+
+            // 分析其他注解参数
+            $methodAnnotations = $this->annotationParser->parseMethodAnnotations($method);
+            $apiParameters = $this->extractApiParameters($methodAnnotations);
+            $parameters = array_merge($parameters, $apiParameters);
+
+        } catch (\Exception $e) {
+            // 忽略分析错误
+        }
+
+        return $parameters;
+    }
+
+    /**
+     * 从注解中提取 API 参数
+     *
+     * @param array $methodAnnotations
+     * @return array
+     */
+    protected function extractApiParameters(array $methodAnnotations): array
+    {
+        $parameters = [];
+
+        foreach ($methodAnnotations['openapi'] as $annotation) {
+            if ($annotation['type'] === 'ApiParam') {
+                $parsed = $annotation['parsed'] ?? [];
+                if (!empty($parsed['name'])) {
+                    $parameters[] = [
+                        'name' => $parsed['name'],
+                        'in' => 'query',
+                        'required' => false,
+                        'description' => $parsed['description'] ?? '',
+                        'schema' => $this->mapApiParamType($parsed['type'] ?? 'string'),
+                    ];
+                }
+            }
+        }
+
+        return $parameters;
+    }
+
+    /**
+     * 映射 API 参数类型
+     *
+     * @param string $type
+     * @return array
+     */
+    protected function mapApiParamType(string $type): array
+    {
+        return match (strtolower($type)) {
+            'number', 'int', 'integer' => ['type' => 'integer'],
+            'float', 'double' => ['type' => 'number'],
+            'bool', 'boolean' => ['type' => 'boolean'],
+            'array' => ['type' => 'array'],
+            'object' => ['type' => 'object'],
+            default => ['type' => 'string'],
+        };
     }
 
     /**
