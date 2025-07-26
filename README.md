@@ -611,7 +611,24 @@ composer test:coverage
 
 ## 📚 文档
 
-### 核心文档
+### 📖 在线文档站点
+
+访问我们的完整在线文档站点，享受更好的阅读体验：
+
+**🌐 [https://yangweijie.github.io/think-scramble/](https://yangweijie.github.io/think-scramble/)**
+
+#### 🚀 快速链接
+
+- [⚡ 快速开始](https://yangweijie.github.io/think-scramble/#/quickstart) - 5分钟上手指南
+- [📦 安装指南](https://yangweijie.github.io/think-scramble/#/installation) - 多种安装方式
+- [🥧 PIE 安装](https://yangweijie.github.io/think-scramble/#/pie-installation) - 现代化包管理
+- [🎯 注解参考](https://yangweijie.github.io/think-scramble/#/annotations) - 完整注解说明
+- [🔧 配置说明](https://yangweijie.github.io/think-scramble/#/configuration) - 配置选项参考
+- [❓ 常见问题](https://yangweijie.github.io/think-scramble/#/faq) - 问题快速解答
+
+### 📁 本地文档
+
+#### 核心文档
 - [📦 安装指南](docs/installation.md) - 详细的安装步骤和系统要求
 - [⚙️ 配置说明](docs/configuration.md) - 完整的配置选项参考
 - [📖 使用教程](docs/usage.md) - 从入门到高级的使用指南

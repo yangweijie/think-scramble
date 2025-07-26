@@ -1,0 +1,55 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42b883;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#369870;stop-opacity:0.05"/>
+    </linearGradient>
+    
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(66,184,131,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景渐变 -->
+  <rect width="1200" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- 网格背景 -->
+  <rect width="1200" height="600" fill="url(#grid)"/>
+  
+  <!-- 装饰性几何图形 -->
+  <g opacity="0.1">
+    <!-- 大圆 -->
+    <circle cx="200" cy="150" r="80" fill="none" stroke="#42b883" stroke-width="2"/>
+    <circle cx="1000" cy="450" r="120" fill="none" stroke="#369870" stroke-width="2"/>
+    
+    <!-- 三角形 -->
+    <polygon points="800,100 850,50 900,100 850,150" fill="none" stroke="#42b883" stroke-width="2"/>
+    <polygon points="100,400 150,350 200,400 150,450" fill="none" stroke="#369870" stroke-width="2"/>
+    
+    <!-- 矩形 -->
+    <rect x="500" y="80" width="100" height="60" rx="10" fill="none" stroke="#42b883" stroke-width="2"/>
+    <rect x="300" y="480" width="80" height="80" rx="15" fill="none" stroke="#369870" stroke-width="2"/>
+    
+    <!-- 连接线 -->
+    <path d="M 200 150 Q 400 100 500 130" fill="none" stroke="#42b883" stroke-width="1" stroke-dasharray="5,5"/>
+    <path d="M 600 140 Q 800 200 1000 450" fill="none" stroke="#369870" stroke-width="1" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- 浮动的小元素 -->
+  <g opacity="0.2">
+    <circle cx="150" cy="80" r="3" fill="#42b883"/>
+    <circle cx="950" cy="120" r="4" fill="#369870"/>
+    <circle cx="750" cy="300" r="2" fill="#42b883"/>
+    <circle cx="450" cy="520" r="3" fill="#369870"/>
+    <circle cx="50" cy="300" r="2" fill="#42b883"/>
+    <circle cx="1150" cy="250" r="3" fill="#369870"/>
+  </g>
+  
+  <!-- 代码风格的装饰 -->
+  <g opacity="0.08" font-family="monospace" font-size="12" fill="#42b883">
+    <text x="50" y="550">// ThinkScramble - OpenAPI Documentation Generator</text>
+    <text x="50" y="570">// Automatic API documentation for ThinkPHP</text>
+    <text x="800" y="50">function generateDocs() { return 'awesome'; }</text>
+    <text x="600" y="550">@summary Get user information</text>
+  </g>
+</svg>

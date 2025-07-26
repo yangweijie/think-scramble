@@ -320,9 +320,9 @@ pie install yangweijie/think-scramble
 
 ### 贡献指南
 
-- [如何贡献代码](../CONTRIBUTING.md)
-- [开发环境搭建](../docs/development.md)
-- [测试指南](../docs/testing.md)
+- [如何贡献代码](https://github.com/yangweijie/think-scramble/blob/main/CONTRIBUTING.md)
+- [开发环境搭建](https://github.com/yangweijie/think-scramble/blob/main/docs/development.md)
+- [测试指南](https://github.com/yangweijie/think-scramble/blob/main/docs/testing.md)
 
 ---
 

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>ThinkScramble - ThinkPHP OpenAPI 文档生成器</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="ThinkScramble 是一个为 ThinkPHP 框架设计的自动 API 文档生成扩展包，支持 OpenAPI 3.0 规范">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- 主题样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- 自定义样式 -->
+  <style>
+    :root {
+      --theme-color: #42b883;
+      --theme-color-secondary: #369870;
+    }
+    
+    .app-name-link img {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    .sidebar-nav > ul > li > a {
+      font-weight: 600;
+    }
+    
+    .markdown-section {
+      max-width: 80%;
+    }
+    
+    .cover-main {
+      text-align: center;
+    }
+    
+    .cover-main h1 {
+      margin: 0.625rem 0 2.5rem;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--theme-color);
+    }
+    
+    .cover-main p {
+      margin: 1em 0;
+      font-size: 1.25rem;
+    }
+    
+    .cover-main .buttons {
+      margin: 2rem 0;
+    }
+    
+    .cover-main .buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 2rem;
+      border: 2px solid var(--theme-color);
+      border-radius: 2rem;
+      color: var(--theme-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .cover-main .buttons a:hover {
+      background: var(--theme-color);
+      color: white;
+    }
+    
+    .cover-main .buttons a.primary {
+      background: var(--theme-color);
+      color: white;
+    }
+    
+    .cover-main .buttons a.primary:hover {
+      background: var(--theme-color-secondary);
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .feature {
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background: #f8f9fa;
+    }
+    
+    .feature h3 {
+      color: var(--theme-color);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* 代码块样式优化 */
+    .markdown-section pre {
+      background-color: #f6f8fa;
+      border-radius: 6px;
+    }
+    
+    .markdown-section code {
+      background-color: rgba(175, 184, 193, 0.2);
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    
+    /* 表格样式 */
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .markdown-section table th,
+    .markdown-section table td {
+      border: 1px solid #dfe2e5;
+      padding: 0.6rem 1rem;
+      text-align: left;
+    }
+    
+    .markdown-section table th {
+      background-color: #f6f8fa;
+      font-weight: 600;
+    }
+    
+    /* 提示框样式 */
+    .markdown-section blockquote {
+      border-left: 4px solid var(--theme-color);
+      background-color: #f8f9fa;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    /* 徽章样式 */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge.success {
+      background-color: #28a745;
+      color: white;
+    }
+    
+    .badge.info {
+      background-color: #17a2b8;
+      color: white;
+    }
+    
+    .badge.warning {
+      background-color: #ffc107;
+      color: #212529;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">加载中...</div>
+  
+  <script>
+    window.$docsify = {
+      // 基本配置
+      name: 'ThinkScramble',
+      repo: 'https://github.com/yangweijie/think-scramble',
+      homepage: 'README.md',
+      loadSidebar: true,
+      loadNavbar: true,
+      coverpage: true,
+      onlyCover: false,
+      
+      // 路由配置
+      routerMode: 'hash',
+      basePath: '/think-scramble/',
+      relativePath: false,
+      
+      // 搜索配置
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '🔍 搜索文档...',
+        noData: '😞 没有找到结果',
+        depth: 6,
+        hideOtherSidebarContent: false,
+      },
+      
+      // 分页配置
+      pagination: {
+        previousText: '上一页',
+        nextText: '下一页',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      
+      // 复制代码配置
+      copyCode: {
+        buttonText: '复制',
+        errorText: '复制失败',
+        successText: '已复制'
+      },
+      
+      // 标签页配置
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      },
+      
+      // 代码高亮
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      },
+      
+      // 插件配置
+      plugins: [
+        // 编辑链接插件
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+            var url = 'https://github.com/yangweijie/think-scramble/blob/main/docs/' + vm.route.file;
+            var editHtml = '[:memo: 编辑此页](' + url + ')\n';
+            return editHtml + html;
+          });
+        },
+        
+        // 页脚插件
+        function(hook) {
+          var footer = [
+            '<hr/>',
+            '<footer>',
+            '<span>&copy; 2024 <a href="https://github.com/yangweijie" target="_blank">Yang Weijie</a>.</span>',
+            '<span>基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">Docsify</a> 构建.</span>',
+            '</footer>'
+          ].join('');
+
+          hook.afterEach(function (html) {
+            return html + footer;
+          });
+        }
+      ],
+      
+      // 外部链接配置
+      externalLinkTarget: '_blank',
+      externalLinkRel: 'noopener',
+      
+      // 格式化更新时间
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
+      
+      // 自定义 404 页面
+      notFoundPage: true,
+      
+      // 启用相对时间
+      timeUpdater: {
+        text: ">最后更新时间: {docsify-updated}",
+        formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}",
+        whereToPlace: "bottom",
+      }
+    }
+  </script>
+  
+  <!-- Docsify 核心 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- 语言高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  
+  <!-- 搜索插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  
+  <!-- 复制代码插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  
+  <!-- 分页插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  
+  <!-- 标签页插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  
+  <!-- 缩放图片插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+  <!-- 外部脚本插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  
+  <!-- 表情插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  
+  <!-- 字数统计插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-count/dist/countable.min.js"></script>
+  
+  <!-- 进度条插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-progress/dist/progress.min.js"></script>
+  
+  <!-- 时间更新插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+  
+  <!-- Google Analytics (可选) -->
+  <script>
+    if (typeof gtag !== 'undefined') {
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    }
+  </script>
+</body>
+</html>
