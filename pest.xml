@@ -13,6 +13,9 @@
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
         <testsuite name="Integration">
             <directory suffix="Test.php">./tests/Integration</directory>
         </testsuite>
@@ -27,11 +30,15 @@
         </exclude>
     </source>
 
-    <coverage>
+    <coverage includeUncoveredFiles="true"
+              pathCoverage="false"
+              ignoreDeprecatedCodeUnits="true"
+              disableCodeCoverageIgnore="false">
         <report>
-            <html outputDirectory="coverage-html"/>
-            <text outputFile="coverage.txt"/>
-            <clover outputFile="coverage.xml"/>
+            <html outputDirectory="coverage/html" lowUpperBound="50" highLowerBound="80"/>
+            <xml outputDirectory="coverage/xml"/>
+            <clover outputFile="coverage/clover.xml"/>
+            <text outputFile="coverage/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
         </report>
     </coverage>
 

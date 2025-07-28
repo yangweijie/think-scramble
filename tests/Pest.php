@@ -11,7 +11,7 @@
 |
 */
 
-uses(Tests\TestCase::class)->in('Unit', 'Integration');
+uses(Yangweijie\ThinkScramble\Tests\TestCase::class)->in('Unit', 'Integration', 'Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -168,4 +168,73 @@ function cleanupTestFiles(): void
             unlink($file);
         }
     }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Coverage Configuration
+|--------------------------------------------------------------------------
+|
+| Configure coverage settings and thresholds for the test suite.
+|
+*/
+
+/**
+ * 获取覆盖率阈值配置
+ */
+function getCoverageThresholds(): array
+{
+    return [
+        'line' => 80,
+        'function' => 80,
+        'class' => 80,
+        'method' => 80,
+        'branch' => 70,
+    ];
+}
+
+/**
+ * 获取覆盖率排除文件列表
+ */
+function getCoverageExcludes(): array
+{
+    return [
+        'src/Exception/*',
+        'src/Service/ScrambleServiceProvider.php',
+        'src/Console/Commands/*',
+        'tests/*',
+        'vendor/*',
+    ];
+}
+
+/**
+ * 验证覆盖率是否达到阈值
+ */
+function validateCoverage(array $coverage): bool
+{
+    $thresholds = getCoverageThresholds();
+
+    foreach ($thresholds as $metric => $threshold) {
+        if (isset($coverage[$metric]) && $coverage[$metric] < $threshold) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * 生成覆盖率报告摘要
+ */
+function generateCoverageSummary(array $coverage): string
+{
+    $summary = "Coverage Summary:\n";
+    $summary .= "================\n";
+
+    foreach ($coverage as $metric => $percentage) {
+        $status = $percentage >= (getCoverageThresholds()[$metric] ?? 0) ? '✅' : '❌';
+        $summary .= sprintf("%s %s: %.2f%%\n", $status, ucfirst($metric), $percentage);
+    }
+
+    return $summary;
 }

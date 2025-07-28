@@ -1,0 +1,2667 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="CacheMiddleware.php" path="/Middleware">
+    <totals>
+      <lines total="395" comments="132" code="263" executable="120" executed="22" percent="18.33"/>
+      <methods count="15" tested="3" percent="20.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="0" percent="0.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="Yangweijie\ThinkScramble\Middleware\CacheMiddleware" start="19" executable="120" executed="22" crap="1002.8">
+      <namespace name="Yangweijie\ThinkScramble\Middleware"/>
+      <method name="__construct" signature="__construct(think\App $app, Yangweijie\ThinkScramble\Contracts\ConfigInterface $config)" start="42" end="47" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="handle" signature="handle(think\Request $request, Closure $next): think\Response" start="56" end="86" crap="15.55" executable="12" executed="3" coverage="25"/>
+      <method name="isDocsRequest" signature="isDocsRequest(think\Request $request): bool" start="94" end="100" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="generateCacheKey" signature="generateCacheKey(think\Request $request): string" start="108" end="129" crap="20" executable="13" executed="0" coverage="0"/>
+      <method name="getApiVersion" signature="getApiVersion(): string" start="136" end="139" crap="2" executable="1" executed="0" coverage="0"/>
+      <method name="getCachedResponse" signature="getCachedResponse(string $cacheKey): ?array" start="147" end="166" crap="42" executable="8" executed="0" coverage="0"/>
+      <method name="createResponseFromCache" signature="createResponseFromCache(array $cachedData): think\Response" start="174" end="187" crap="2" executable="8" executed="0" coverage="0"/>
+      <method name="shouldCacheResponse" signature="shouldCacheResponse(think\Response $response): bool" start="195" end="227" crap="42" executable="17" executed="0" coverage="0"/>
+      <method name="cacheResponse" signature="cacheResponse(string $cacheKey, think\Response $response): void" start="236" end="254" crap="6" executable="11" executed="0" coverage="0"/>
+      <method name="clearDocsCache" signature="clearDocsCache(): bool" start="261" end="269" crap="2" executable="4" executed="4" coverage="100"/>
+      <method name="getCacheStats" signature="getCacheStats(): array" start="276" end="298" crap="2.18" executable="14" executed="9" coverage="64.285714285714"/>
+      <method name="warmupCache" signature="warmupCache(array $urls): array" start="306" end="343" crap="30" executable="19" executed="0" coverage="0"/>
+      <method name="setCacheTags" signature="setCacheTags(string $cacheKey, array $tags): void" start="352" end="360" crap="6" executable="1" executed="0" coverage="0"/>
+      <method name="clearCacheByTags" signature="clearCacheByTags(array $tags): bool" start="368" end="377" crap="6" executable="3" executed="0" coverage="0"/>
+      <method name="getCacheKeys" signature="getCacheKeys(): array" start="384" end="393" crap="6" executable="3" executed="0" coverage="0"/>
+    </class>
+    <coverage>
+      <line nr="44">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="45">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="46">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="59">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="64">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="65">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="96">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="97">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="99">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="264">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="265">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="266">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="267">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="280">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="281">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="282">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="283">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="284">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="285">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="279">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="291">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+      <line nr="286">
+        <covered by="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_DECLARE">declare</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strict_types</token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Yangweijie\ThinkScramble\Middleware</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6"/>
+      <line no="7">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">think\Request</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="8">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">think\Response</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="9">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">think\App</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="10">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">think\Cache</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="11">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Closure</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="12">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Yangweijie\ThinkScramble\Contracts\ConfigInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="13"/>
+      <line no="14">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT"> * API &#x6587;&#x6863;&#x7F13;&#x5B58;&#x4E2D;&#x95F4;&#x4EF6;</token>
+      </line>
+      <line no="16">
+        <token name="T_DOC_COMMENT"> * </token>
+      </line>
+      <line no="17">
+        <token name="T_DOC_COMMENT"> * &#x7F13;&#x5B58;&#x751F;&#x6210;&#x7684; API &#x6587;&#x6863;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;</token>
+      </line>
+      <line no="18">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="19">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">CacheMiddleware</token>
+      </line>
+      <line no="20">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="21">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT">     * ThinkPHP &#x5E94;&#x7528;&#x5B9E;&#x4F8B;</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="24">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$app</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="25"/>
+      <line no="26">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="27">
+        <token name="T_DOC_COMMENT">     * &#x914D;&#x7F6E;&#x63A5;&#x53E3;</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="29">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ConfigInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$config</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="30"/>
+      <line no="31">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="32">
+        <token name="T_DOC_COMMENT">     * &#x7F13;&#x5B58;&#x5B9E;&#x4F8B;</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="34">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Cache</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cache</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="35"/>
+      <line no="36">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">     * &#x6784;&#x9020;&#x51FD;&#x6570;</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">     * @param App $app ThinkPHP &#x5E94;&#x7528;&#x5B9E;&#x4F8B;</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">     * @param ConfigInterface $config &#x914D;&#x7F6E;&#x63A5;&#x53E3;</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="42">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">__construct</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">App</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$app</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">ConfigInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$config</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="44">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">app</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$app</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="45">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$config</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="46">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$app</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="47">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="48"/>
+      <line no="49">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="50">
+        <token name="T_DOC_COMMENT">     * &#x5904;&#x7406;&#x8BF7;&#x6C42;</token>
+      </line>
+      <line no="51">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="52">
+        <token name="T_DOC_COMMENT">     * @param Request $request &#x8BF7;&#x6C42;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="53">
+        <token name="T_DOC_COMMENT">     * @param Closure $next &#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     * @return Response</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="56">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">handle</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Closure</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$next</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Response</token>
+      </line>
+      <line no="57">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="58">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x542F;&#x7528;&#x7F13;&#x5B58;</token>
+      </line>
+      <line no="59">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_EXCLAMATION_MARK">!</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.enabled'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="60">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$next</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="62"/>
+      <line no="63">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x4E3A;&#x6587;&#x6863;&#x8BF7;&#x6C42;</token>
+      </line>
+      <line no="64">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_EXCLAMATION_MARK">!</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">isDocsRequest</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="65">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$next</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="66">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="67"/>
+      <line no="68">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x751F;&#x6210;&#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="69">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">generateCacheKey</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="70"/>
+      <line no="71">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x5C1D;&#x8BD5;&#x4ECE;&#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="72">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$cachedResponse</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getCachedResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="73">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cachedResponse</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="74">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">createResponseFromCache</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cachedResponse</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="76"/>
+      <line no="77">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x6267;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;</token>
+      </line>
+      <line no="78">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$next</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="79"/>
+      <line no="80">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x7F13;&#x5B58;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="81">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">shouldCacheResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="82">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cacheResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="83">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="84"/>
+      <line no="85">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="86">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="87"/>
+      <line no="88">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="89">
+        <token name="T_DOC_COMMENT">     * &#x68C0;&#x67E5;&#x662F;&#x5426;&#x4E3A;&#x6587;&#x6863;&#x8BF7;&#x6C42;</token>
+      </line>
+      <line no="90">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="91">
+        <token name="T_DOC_COMMENT">     * @param Request $request &#x8BF7;&#x6C42;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="92">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="93">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="94">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">isDocsRequest</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="95">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="96">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$path</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">pathinfo</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'docs.path'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'/docs'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="98"/>
+      <line no="99">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">str_starts_with</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$path</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="100">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="101"/>
+      <line no="102">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="103">
+        <token name="T_DOC_COMMENT">     * &#x751F;&#x6210;&#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="104">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="105">
+        <token name="T_DOC_COMMENT">     * @param Request $request &#x8BF7;&#x6C42;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="106">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="107">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="108">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">generateCacheKey</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Request</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="109">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="110">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$path</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">pathinfo</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="111">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$query</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">query</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="112">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="113">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x6392;&#x5E8F;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x4EE5;&#x786E;&#x4FDD;&#x4E00;&#x81F4;&#x6027;</token>
+      </line>
+      <line no="114">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$query</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="115">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_STRING">ksort</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$query</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="116">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ELSE">else</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="117">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$query</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="118">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="119">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$keyData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'path'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$path</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="122">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'query'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$query</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="123">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'version'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getApiVersion</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="124">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'env'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">app</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'app.app_debug'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'development'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'production'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="125">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="126"/>
+      <line no="127">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$keyString</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">serialize</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$keyData</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="128">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'scramble_docs_'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">md5</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$keyString</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="129">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="130"/>
+      <line no="131">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="132">
+        <token name="T_DOC_COMMENT">     * &#x83B7;&#x53D6; API &#x7248;&#x672C;</token>
+      </line>
+      <line no="133">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="134">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="135">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="136">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getApiVersion</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="138">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'info.version'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'1.0.0'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="139">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="140"/>
+      <line no="141">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="142">
+        <token name="T_DOC_COMMENT">     * &#x4ECE;&#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="143">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="144">
+        <token name="T_DOC_COMMENT">     * @param string $cacheKey &#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="145">
+        <token name="T_DOC_COMMENT">     * @return array|null</token>
+      </line>
+      <line no="146">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="147">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getCachedResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_ARRAY">array</token>
+      </line>
+      <line no="148">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="149">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="150">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="151">
+        <token name="T_WHITESPACE">            </token>
+      </line>
+      <line no="152">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">is_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="153">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x8FC7;&#x671F;</token>
+      </line>
+      <line no="154">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ISSET">isset</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'expires_at'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">time</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_GT">&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'expires_at'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="155">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">delete</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="156">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="157">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="158">
+        <token name="T_WHITESPACE">                </token>
+      </line>
+      <line no="159">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cached</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="160">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="161">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="162">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x7F13;&#x5B58;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#xFF0C;&#x7EE7;&#x7EED;&#x6B63;&#x5E38;&#x6D41;&#x7A0B;</token>
+      </line>
+      <line no="163">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="164"/>
+      <line no="165">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="166">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="167"/>
+      <line no="168">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="169">
+        <token name="T_DOC_COMMENT">     * &#x4ECE;&#x7F13;&#x5B58;&#x521B;&#x5EFA;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="170">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="171">
+        <token name="T_DOC_COMMENT">     * @param array $cachedData &#x7F13;&#x5B58;&#x6570;&#x636E;</token>
+      </line>
+      <line no="172">
+        <token name="T_DOC_COMMENT">     * @return Response</token>
+      </line>
+      <line no="173">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="174">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">createResponseFromCache</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cachedData</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Response</token>
+      </line>
+      <line no="175">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="176">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$headers</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cachedData</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'headers'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COALESCE">??</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="177">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="178">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x5934;</token>
+      </line>
+      <line no="179">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$headers</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'X-Scramble-Cache'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'HIT'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="180">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$headers</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'X-Scramble-Cache-Time'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">date</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'Y-m-d H:i:s'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cachedData</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cached_at'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COALESCE">??</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">time</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="181">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="182">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Response</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">create</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="183">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$cachedData</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'content'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COALESCE">??</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="184">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$cachedData</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'status_code'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COALESCE">??</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">200</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="185">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$headers</token>
+      </line>
+      <line no="186">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="187">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="188"/>
+      <line no="189">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="190">
+        <token name="T_DOC_COMMENT">     * &#x68C0;&#x67E5;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x7F13;&#x5B58;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="191">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="192">
+        <token name="T_DOC_COMMENT">     * @param Response $response &#x54CD;&#x5E94;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="193">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="194">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="195">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">shouldCacheResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">Response</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="196">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="197">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$statusCode</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getCode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="198">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="199">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x53EA;&#x7F13;&#x5B58;&#x6210;&#x529F;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="200">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$statusCode</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LT">&lt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">200</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_OR">||</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$statusCode</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_GREATER_OR_EQUAL">&gt;=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">300</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="201">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="202">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="203"/>
+      <line no="204">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x54CD;&#x5E94;&#x5927;&#x5C0F;&#x9650;&#x5236;</token>
+      </line>
+      <line no="205">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$maxSize</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.max_size'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1024</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_MULT">*</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1024</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COMMENT">// 1MB</token>
+      </line>
+      <line no="206">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$contentLength</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">strlen</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getContent</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="207">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="208">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$contentLength</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_GT">&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$maxSize</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="209">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="210">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="211"/>
+      <line no="212">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x5185;&#x5BB9;&#x7C7B;&#x578B;</token>
+      </line>
+      <line no="213">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$contentType</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getHeader</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'Content-Type'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="214">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$allowedTypes</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.allowed_types'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="215">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'application/json'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="216">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'application/x-yaml'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="217">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'text/html'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="218">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="219"/>
+      <line no="220">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_FOREACH">foreach</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$allowedTypes</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$allowedType</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="221">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">str_contains</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$contentType</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$allowedType</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="222">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="223">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="224">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="225"/>
+      <line no="226">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="227">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="228"/>
+      <line no="229">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="230">
+        <token name="T_DOC_COMMENT">     * &#x7F13;&#x5B58;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="231">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="232">
+        <token name="T_DOC_COMMENT">     * @param string $cacheKey &#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="233">
+        <token name="T_DOC_COMMENT">     * @param Response $response &#x54CD;&#x5E94;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="234">
+        <token name="T_DOC_COMMENT">     * @return void</token>
+      </line>
+      <line no="235">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="236">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">cacheResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Response</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="237">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="238">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="239">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$ttl</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.ttl'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">3600</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COMMENT">// 1&#x5C0F;&#x65F6;</token>
+      </line>
+      <line no="240">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$expiresAt</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">time</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PLUS">+</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$ttl</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="241">
+        <token name="T_WHITESPACE">            </token>
+      </line>
+      <line no="242">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$cacheData</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="243">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'content'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getContent</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="244">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'status_code'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getCode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="245">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'headers'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$response</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getHeader</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="246">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cached_at'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">time</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="247">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'expires_at'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$expiresAt</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="248">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="249"/>
+      <line no="250">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">set</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cacheData</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$ttl</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="251">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="252">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x7F13;&#x5B58;&#x8BBE;&#x7F6E;&#x5931;&#x8D25;&#xFF0C;&#x4E0D;&#x5F71;&#x54CD;&#x6B63;&#x5E38;&#x54CD;&#x5E94;</token>
+      </line>
+      <line no="253">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="254">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="255"/>
+      <line no="256">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="257">
+        <token name="T_DOC_COMMENT">     * &#x6E05;&#x9664;&#x6587;&#x6863;&#x7F13;&#x5B58;</token>
+      </line>
+      <line no="258">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="259">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="260">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="261">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">clearDocsCache</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="262">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="263">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="264">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$pattern</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'scramble_docs_*'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="265">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">cache</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">clear</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$pattern</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="266">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="267">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="268">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="269">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="270"/>
+      <line no="271">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="272">
+        <token name="T_DOC_COMMENT">     * &#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</token>
+      </line>
+      <line no="273">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="274">
+        <token name="T_DOC_COMMENT">     * @return array</token>
+      </line>
+      <line no="275">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="276">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getCacheStats</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+      </line>
+      <line no="277">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="278">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="279">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$stats</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="280">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'enabled'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.enabled'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="281">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'ttl'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.ttl'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">3600</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="282">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'max_size'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'cache.max_size'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1024</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_MULT">*</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1024</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="283">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'hit_count'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="284">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'miss_count'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="285">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'total_size'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="286">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="287"/>
+      <line no="288">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x4E3A;&#x83B7;&#x53D6;&#x5B9E;&#x9645;&#x7684;&#x7F13;&#x5B58;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</token>
+      </line>
+      <line no="289">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x53D6;&#x51B3;&#x4E8E;&#x4F7F;&#x7528;&#x7684;&#x7F13;&#x5B58;&#x9A71;&#x52A8;</token>
+      </line>
+      <line no="290"/>
+      <line no="291">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$stats</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="292">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="293">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="294">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'enabled'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="295">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'error'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getMessage</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="296">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="297">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="298">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="299"/>
+      <line no="300">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="301">
+        <token name="T_DOC_COMMENT">     * &#x9884;&#x70ED;&#x7F13;&#x5B58;</token>
+      </line>
+      <line no="302">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="303">
+        <token name="T_DOC_COMMENT">     * @param array $urls &#x8981;&#x9884;&#x70ED;&#x7684; URL &#x5217;&#x8868;</token>
+      </line>
+      <line no="304">
+        <token name="T_DOC_COMMENT">     * @return array &#x9884;&#x70ED;&#x7ED3;&#x679C;</token>
+      </line>
+      <line no="305">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="306">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">warmupCache</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$urls</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+      </line>
+      <line no="307">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="308">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$results</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="309">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="310">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_EMPTY">empty</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$urls</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="311">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">config</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">get</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'docs.path'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'/docs'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="312">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$urls</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+      </line>
+      <line no="313">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="314">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'/openapi.json'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="315">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$docsPath</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'/openapi.yaml'</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="316">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="317">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="318"/>
+      <line no="319">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_FOREACH">foreach</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$urls</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$url</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="320">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="321">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x521B;&#x5EFA;&#x6A21;&#x62DF;&#x8BF7;&#x6C42;</token>
+      </line>
+      <line no="322">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Request</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="323">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">setPathinfo</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$url</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="324">
+        <token name="T_WHITESPACE">                </token>
+      </line>
+      <line no="325">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x751F;&#x6210;&#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="326">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">generateCacheKey</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$request</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="327">
+        <token name="T_WHITESPACE">                </token>
+      </line>
+      <line no="328">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x5DF2;&#x7F13;&#x5B58;</token>
+      </line>
+      <line no="329">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getCachedResponse</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="330">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_VARIABLE">$results</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_VARIABLE">$url</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'already_cached'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="331">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_CONTINUE">continue</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="332">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="333"/>
+      <line no="334">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x4E3A;&#x5B9E;&#x9645;&#x751F;&#x6210;&#x548C;&#x7F13;&#x5B58;&#x5185;&#x5BB9;</token>
+      </line>
+      <line no="335">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$results</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_VARIABLE">$url</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'warmed_up'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="336">
+        <token name="T_WHITESPACE">                </token>
+      </line>
+      <line no="337">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="338">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$results</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_VARIABLE">$url</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'failed: '</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">getMessage</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="339">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="340">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="341"/>
+      <line no="342">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$results</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="343">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="344"/>
+      <line no="345">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="346">
+        <token name="T_DOC_COMMENT">     * &#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x6807;&#x7B7E;</token>
+      </line>
+      <line no="347">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="348">
+        <token name="T_DOC_COMMENT">     * @param string $cacheKey &#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="349">
+        <token name="T_DOC_COMMENT">     * @param array $tags &#x6807;&#x7B7E;&#x5217;&#x8868;</token>
+      </line>
+      <line no="350">
+        <token name="T_DOC_COMMENT">     * @return void</token>
+      </line>
+      <line no="351">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="352">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PROTECTED">protected</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">setCacheTags</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$cacheKey</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$tags</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="353">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="354">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="355">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x7F13;&#x5B58;&#x9A71;&#x52A8;&#x652F;&#x6301;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;</token>
+      </line>
+      <line no="356">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x4F8B;&#x5982;&#xFF1A;$this-&gt;cache-&gt;tag($tags)-&gt;set($cacheKey, $data);</token>
+      </line>
+      <line no="357">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="358">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x5FFD;&#x7565;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;&#x5931;&#x8D25;</token>
+      </line>
+      <line no="359">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="360">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="361"/>
+      <line no="362">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="363">
+        <token name="T_DOC_COMMENT">     * &#x6839;&#x636E;&#x6807;&#x7B7E;&#x6E05;&#x9664;&#x7F13;&#x5B58;</token>
+      </line>
+      <line no="364">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="365">
+        <token name="T_DOC_COMMENT">     * @param array $tags &#x6807;&#x7B7E;&#x5217;&#x8868;</token>
+      </line>
+      <line no="366">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="367">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="368">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">clearCacheByTags</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$tags</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="369">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="370">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="371">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x7F13;&#x5B58;&#x9A71;&#x52A8;&#x652F;&#x6301;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;</token>
+      </line>
+      <line no="372">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x4F8B;&#x5982;&#xFF1A;return $this-&gt;cache-&gt;tag($tags)-&gt;clear();</token>
+      </line>
+      <line no="373">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="374">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="375">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="376">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="377">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="378"/>
+      <line no="379">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="380">
+        <token name="T_DOC_COMMENT">     * &#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x952E;&#x5217;&#x8868;</token>
+      </line>
+      <line no="381">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="382">
+        <token name="T_DOC_COMMENT">     * @return array</token>
+      </line>
+      <line no="383">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="384">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getCacheKeys</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ARRAY">array</token>
+      </line>
+      <line no="385">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="386">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_TRY">try</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="387">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x4E3A;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x76F8;&#x5173;&#x7684;&#x7F13;&#x5B58;&#x952E;</token>
+      </line>
+      <line no="388">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x53D6;&#x51B3;&#x4E8E;&#x4F7F;&#x7528;&#x7684;&#x7F13;&#x5B58;&#x9A71;&#x52A8;</token>
+      </line>
+      <line no="389">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="390">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CATCH">catch</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_NAME_FULLY_QUALIFIED">\Exception</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$e</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="391">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="392">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="393">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="394">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="395"/>
+    </source>
+  </file>
+</phpunit>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThinkScramble Coverage Summary</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .metric { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .good { background-color: #d4edda; border: 1px solid #c3e6cb; }
+        .warning { background-color: #fff3cd; border: 1px solid #ffeaa7; }
+        .danger { background-color: #f8d7da; border: 1px solid #f5c6cb; }
+        .percentage { font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <h1>ThinkScramble Coverage Summary</h1>
+    <p>Generated: {date('Y-m-d H:i:s')}</p>    <div class="metric danger">
+        <h3>{ucfirst(lines)} Coverage</h3>
+        <div class="percentage">26.42%</div>
+        <div>1997/7560 covered</div>
+    </div>    <div class="metric danger">
+        <h3>{ucfirst(functions)} Coverage</h3>
+        <div class="percentage">22.81%</div>
+        <div>190/833 covered</div>
+    </div>    <div class="metric danger">
+        <h3>{ucfirst(classes)} Coverage</h3>
+        <div class="percentage">0%</div>
+        <div>0/55 covered</div>
+    </div>    <p><a href="index.html">View Detailed Report</a></p>
+</body>
+</html>

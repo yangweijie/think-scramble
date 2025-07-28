@@ -10,7 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Yangweijie\\ThinkScramble\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -30,23 +30,41 @@
         "nunomaduro/collision": "^7.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-type-coverage": "^2.0",
-        "phpunit/phpunit": "^10.0"
+        "pestphp/pest-plugin-coverage": "^2.0",
+        "phpunit/phpunit": "^10.0",
+        "phpunit/php-code-coverage": "^10.0",
+        "sebastian/phpcpd": "^6.0",
+        "squizlabs/php_codesniffer": "^3.7",
+        "phpstan/phpstan": "^1.10",
+        "mockery/mockery": "^1.6"
     },
     "bin": [
         "bin/scramble"
     ],
     "scripts": {
-        "test": "pest",
-        "test:unit": "pest tests/Unit",
-        "test:integration": "pest tests/Integration",
-        "test:coverage": "pest --coverage",
-        "test:coverage-html": "pest --coverage-html=coverage-html",
+        "test": "./scripts/test.sh",
+        "test:unit": "./scripts/test.sh --testsuite Unit",
+        "test:feature": "./scripts/test.sh --testsuite Feature",
+        "test:integration": "./scripts/test.sh --testsuite Integration",
+        "test:coverage": "./scripts/test.sh --coverage",
+        "test:coverage-html": "./scripts/test.sh --coverage --report",
+        "test:parallel": "./scripts/test.sh --parallel",
+        "test:filter": "./scripts/test.sh --filter",
+        "coverage:check": "php scripts/check-coverage-driver.php",
+        "coverage:analyse": "php scripts/coverage-analysis.php",
+        "coverage:report": "./scripts/test.sh --coverage && php scripts/coverage-analysis.php",
         "phpunit": "phpunit",
         "phpunit:unit": "phpunit --testsuite=Unit",
         "phpunit:integration": "phpunit --testsuite=Integration",
         "phpunit:coverage": "phpunit --coverage-html=coverage-html",
-        "test:text-coverage": "pest --coverage --min=80",
-        "test:no-coverage": "pest"
+        "pest": "pest",
+        "pest:coverage": "pest --coverage --min=80",
+        "analyse": "phpstan analyse",
+        "analyse:baseline": "phpstan analyse --generate-baseline",
+        "format": "php-cs-fixer fix",
+        "format:check": "php-cs-fixer fix --dry-run --diff",
+        "quality": "composer analyse && composer format:check",
+        "ci": "./scripts/test.sh --coverage --parallel && php scripts/coverage-analysis.php"
     },
     "config": {
         "sort-packages": true,

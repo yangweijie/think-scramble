@@ -1,0 +1,328 @@
+
+##teamcity[testCount count='74' flowId='59357']
+
+##teamcity[testSuiteStarted name='CLI Arguments' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\AdvancedCoverageExpansionTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_PostmanExporter_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__→_PostmanExporter_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_PostmanExporter_comprehensive_functionality' duration='21' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_CacheMiddleware_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_CacheMiddleware_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_CacheMiddleware_comprehensive_functionality' duration='12' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_MemoryCacheDriver_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_MemoryCacheDriver_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_MemoryCacheDriver_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_ExportManager_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__→_ExportManager_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_ExportManager_comprehensive_functionality' duration='4' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_DocsAccessMiddleware_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_DocsAccessMiddleware_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Middleware_Module_Comprehensive_Coverage__→_DocsAccessMiddleware_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_InsomniaExporter_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__→_InsomniaExporter_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Export_Module_Comprehensive_Coverage__→_InsomniaExporter_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Controller_Module_Comprehensive_Coverage__→_DocsController_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Controller_Module_Comprehensive_Coverage__→_DocsController_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Controller_Module_Comprehensive_Coverage__→_DocsController_comprehensive_functionality' duration='400' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_FileCacheDriver_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_FileCacheDriver_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__→_FileCacheDriver_comprehensive_functionality' duration='2017' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\AdvancedCoverageExpansionTest' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\ContinuousCoverageBoostTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AnnotationParser_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AnnotationParser_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AnnotationParser_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Deep_Coverage__→_SchemaGenerator_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__→_SchemaGenerator_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Deep_Coverage__→_SchemaGenerator_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Deep_Coverage__→_ParameterExtractor_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__→_ParameterExtractor_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Deep_Coverage__→_ParameterExtractor_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Deep_Coverage__→_ResponseGenerator_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__→_ResponseGenerator_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Deep_Coverage__→_ResponseGenerator_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Service_Module_Deep_Coverage__→_CommandService_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__→_CommandService_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Service_Module_Deep_Coverage__→_CommandService_comprehensive_functionality' duration='4' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Service_Module_Deep_Coverage__→_ScrambleService_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__→_ScrambleService_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Service_Module_Deep_Coverage__→_ScrambleService_comprehensive_functionality' duration='3' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Service_Module_Deep_Coverage__→_Container_service_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__→_Container_service_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Service_Module_Deep_Coverage__→_Container_service_comprehensive_functionality' duration='3' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_ReflectionAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__→_ReflectionAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_ReflectionAnalyzer_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Deep_Coverage__→_DocumentBuilder_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__→_DocumentBuilder_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Deep_Coverage__→_DocumentBuilder_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AstParser_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AstParser_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_AstParser_comprehensive_functionality' duration='12' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_CodeAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__→_CodeAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Analyzer_Module_Deep_Coverage__→_CodeAnalyzer_comprehensive_functionality' duration='34' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\ContinuousCoverageBoostTest' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\PeakSprint36BreakthroughTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_constructor_and_basic_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_constructor_and_basic_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_constructor_and_basic_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_constructor_and_basic_setup' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_constructor_and_basic_setup' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_constructor_and_basic_setup' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_advanced_hook_operations' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_advanced_hook_operations' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_advanced_hook_operations' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Critical_Coverage_Breakthrough___Generator_Modules__→_SecuritySchemeGenerator_comprehensive_security_generation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Generator_Modules__→_SecuritySchemeGenerator_comprehensive_security_generation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Critical_Coverage_Breakthrough___Generator_Modules__→_SecuritySchemeGenerator_comprehensive_security_generation' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_getFileHash_with_various_file_types' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_getFileHash_with_various_file_types' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_getFileHash_with_various_file_types' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_memory_tracking_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_memory_tracking_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_memory_tracking_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_addDirectory_and_configuration' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_addDirectory_and_configuration' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_addDirectory_and_configuration' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_change_detection_and_callbacks' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_change_detection_and_callbacks' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_change_detection_and_callbacks' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_start_and_stop_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_start_and_stop_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Watcher_Module_Coverage_Breakthrough__→_FileWatcher_start_and_stop_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_priority_based_execution_order' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_priority_based_execution_order' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_HookManager_priority_based_execution_order' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_PluginManager_plugin_discovery_and_loading' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__→_PluginManager_plugin_discovery_and_loading' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Plugin_System_Enhanced_Coverage__→_PluginManager_plugin_discovery_and_loading' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_MiddlewareAnalyzer_security_analysis' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_MiddlewareAnalyzer_security_analysis' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_MiddlewareAnalyzer_security_analysis' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__→_YamlGenerator_comprehensive_YAML_operations' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__→_YamlGenerator_comprehensive_YAML_operations' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__→_YamlGenerator_comprehensive_YAML_operations' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_constructor_and_timer_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_constructor_and_timer_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_PerformanceMonitor_constructor_and_timer_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_constructor_and_cache_operations' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_constructor_and_cache_operations' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_constructor_and_cache_operations' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_DocBlockParser_advanced_parsing_methods' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_DocBlockParser_advanced_parsing_methods' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_DocBlockParser_advanced_parsing_methods' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_hasFileChanged_with_real_file_scenarios' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_hasFileChanged_with_real_file_scenarios' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_FileChangeDetector_hasFileChanged_with_real_file_scenarios' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_ModelAnalyzer_comprehensive_model_analysis' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_ModelAnalyzer_comprehensive_model_analysis' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__→_ModelAnalyzer_comprehensive_model_analysis' duration='8' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_parseFile_with_incremental_logic' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_parseFile_with_incremental_logic' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__→_IncrementalParser_parseFile_with_incremental_logic' duration='36' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\PeakSprint36BreakthroughTest' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\UltimateCoverageMaximizationTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Config_Module_Ultimate_Coverage__→_ConfigPublisher_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Config_Module_Ultimate_Coverage__→_ConfigPublisher_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Config_Module_Ultimate_Coverage__→_ConfigPublisher_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Service_Module_Ultimate_Coverage__→_AssetPublisher_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Service_Module_Ultimate_Coverage__→_AssetPublisher_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Service_Module_Ultimate_Coverage__→_AssetPublisher_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_TypeInference_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_TypeInference_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_TypeInference_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ModelRelationAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ModelRelationAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ModelRelationAnalyzer_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ValidateAnnotationAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ValidateAnnotationAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_ValidateAnnotationAnalyzer_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_FileUploadAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_FileUploadAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_FileUploadAnalyzer_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_AnnotationRouteAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_AnnotationRouteAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Analyzer_Module_Coverage__→_AnnotationRouteAnalyzer_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Ultimate_Coverage__→_ModelSchemaGenerator_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Generator_Module_Ultimate_Coverage__→_ModelSchemaGenerator_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Ultimate_Coverage__→_ModelSchemaGenerator_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_ControllerParser_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_ControllerParser_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_ControllerParser_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_MiddlewareHandler_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_MiddlewareHandler_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Adapter_Module_Ultimate_Coverage__→_MiddlewareHandler_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Console_Module_Ultimate_Coverage__→_ScrambleCommand_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Console_Module_Ultimate_Coverage__→_ScrambleCommand_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFailed name='__pest_evaluable__Console_Module_Ultimate_Coverage__→_ScrambleCommand_comprehensive_functionality' message='This test printed output: |[INFO|] Generating OpenAPI documentation...|n|[INFO|] Found 2 controllers|n|[SUCCESS|] Documentation generated: test.json|n|[INFO|] |nGeneration Statistics:|n|[INFO|]   API Paths: 0|n|[INFO|]   Schemas: 0|n|[INFO|]   Security Schemes: 0|n' details='' duration='5' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Console_Module_Ultimate_Coverage__→_ScrambleCommand_comprehensive_functionality' duration='16' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Generator_Module_Ultimate_Coverage__→_OpenApiGenerator_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Generator_Module_Ultimate_Coverage__→_OpenApiGenerator_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Generator_Module_Ultimate_Coverage__→_OpenApiGenerator_comprehensive_functionality' duration='214' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\UltimateCoverageMaximizationTest' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\FinalCoverage30PercentSprintTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_AnalysisException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_AnalysisException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_AnalysisException_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_CacheException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_CacheException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_CacheException_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_GenerationException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_GenerationException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_GenerationException_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_ValidatorIntegration_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__→_ValidatorIntegration_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_ValidatorIntegration_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Command_Module_Complete_Coverage__→_GenerateCommand_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__→_GenerateCommand_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Command_Module_Complete_Coverage__→_GenerateCommand_comprehensive_functionality' duration='3' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_ScrambleException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_ScrambleException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_ScrambleException_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_ConfigException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_ConfigException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_ConfigException_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Exception_Module_Complete_Coverage__→_PerformanceException_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Exception_Module_Complete_Coverage__→_PerformanceException_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Exception_Module_Complete_Coverage__→_PerformanceException_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_MultiAppSupport_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__→_MultiAppSupport_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_MultiAppSupport_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Type_System_Complete_Coverage__→_Type_base_class_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__→_Type_base_class_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Type_System_Complete_Coverage__→_Type_base_class_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Type_System_Complete_Coverage__→_ArrayType_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__→_ArrayType_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Type_System_Complete_Coverage__→_ArrayType_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Type_System_Complete_Coverage__→_UnionType_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__→_UnionType_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Type_System_Complete_Coverage__→_UnionType_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Command_Module_Complete_Coverage__→_ExportCommand_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__→_ExportCommand_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Command_Module_Complete_Coverage__→_ExportCommand_comprehensive_functionality' duration='2' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Service_Provider_Complete_Coverage__→_ScrambleServiceProvider_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Service_Provider_Complete_Coverage__→_ScrambleServiceProvider_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Service_Provider_Complete_Coverage__→_ScrambleServiceProvider_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Command_Module_Complete_Coverage__→_PublishCommand_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__→_PublishCommand_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Command_Module_Complete_Coverage__→_PublishCommand_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_RouteAnalyzer_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__→_RouteAnalyzer_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Adapter_Module_Extended_Coverage__→_RouteAnalyzer_comprehensive_functionality' duration='71' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\FinalCoverage30PercentSprintTest' flowId='59357']
+
+##teamcity[testSuiteStarted name='P\Tests\Unit\Ultimate30PercentCoverageSprintTest' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_ConfigInterface_contract_validation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Contracts_Interface_Complete_Coverage__→_ConfigInterface_contract_validation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_ConfigInterface_contract_validation' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Advanced_Type_System_Coverage__→_ScalarType_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Advanced_Type_System_Coverage__→_ScalarType_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Advanced_Type_System_Coverage__→_ScalarType_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Utils_Module_Complete_Coverage__→_YamlGenerator_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__→_YamlGenerator_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Utils_Module_Complete_Coverage__→_YamlGenerator_comprehensive_functionality' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_PluginInterface_contract_validation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Contracts_Interface_Complete_Coverage__→_PluginInterface_contract_validation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_PluginInterface_contract_validation' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_CacheInterface_contract_validation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Contracts_Interface_Complete_Coverage__→_CacheInterface_contract_validation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_CacheInterface_contract_validation' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_AnalyzerInterface_contract_validation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Contracts_Interface_Complete_Coverage__→_AnalyzerInterface_contract_validation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_AnalyzerInterface_contract_validation' duration='0' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Core_Scramble_Class_Complete_Coverage__→_Scramble_main_class_comprehensive_functionality' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Core_Scramble_Class_Complete_Coverage__→_Scramble_main_class_comprehensive_functionality' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Core_Scramble_Class_Complete_Coverage__→_Scramble_main_class_comprehensive_functionality' duration='1' flowId='59357']
+
+##teamcity[testStarted name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_GeneratorInterface_contract_validation' locationHint='php_qn:///Volumes/data/git/php/think-scramble/vendor/pestphp/pest/src/Factories/TestCaseFactory.php(197) : eval()|'d code::\P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Contracts_Interface_Complete_Coverage__→_GeneratorInterface_contract_validation' flowId='59357']
+
+##teamcity[testFinished name='__pest_evaluable__Contracts_Interface_Complete_Coverage__→_GeneratorInterface_contract_validation' duration='7' flowId='59357']
+
+##teamcity[testSuiteFinished name='P\Tests\Unit\Ultimate30PercentCoverageSprintTest' flowId='59357']
+
+##teamcity[testSuiteFinished name='CLI Arguments' flowId='59357']

@@ -1,0 +1,801 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <build time="Sun Jul 27 23:59:59 UTC 2025" phpunit="10.5.36" coverage="10.1.16">
+    <runtime name="PHP" version="8.3.22" url="https://www.php.net/"/>
+    <driver name="pcov" version="1.0.12"/>
+  </build>
+  <project source="/Volumes/data/git/php/think-scramble/src">
+    <tests>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__&#x2192;_PostmanExporter_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_CacheMiddleware_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__&#x2192;_MemoryCacheDriver_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__&#x2192;_ExportManager_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Middleware_Module_Comprehensive_Coverage__&#x2192;_DocsAccessMiddleware_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Export_Module_Comprehensive_Coverage__&#x2192;_InsomniaExporter_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Controller_Module_Comprehensive_Coverage__&#x2192;_DocsController_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\AdvancedCoverageExpansionTest::__pest_evaluable__Cache_Drivers_Comprehensive_Coverage__&#x2192;_FileCacheDriver_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__&#x2192;_AnnotationParser_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__&#x2192;_SchemaGenerator_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__&#x2192;_ParameterExtractor_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__&#x2192;_ResponseGenerator_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__&#x2192;_CommandService_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__&#x2192;_ScrambleService_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Service_Module_Deep_Coverage__&#x2192;_Container_service_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__&#x2192;_ReflectionAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Generator_Module_Deep_Coverage__&#x2192;_DocumentBuilder_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__&#x2192;_AstParser_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\ContinuousCoverageBoostTest::__pest_evaluable__Analyzer_Module_Deep_Coverage__&#x2192;_CodeAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_FileChangeDetector_constructor_and_basic_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__&#x2192;_HookManager_advanced_hook_operations" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Generator_Modules__&#x2192;_SecuritySchemeGenerator_comprehensive_security_generation" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_FileChangeDetector_getFileHash_with_various_file_types" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_PerformanceMonitor_memory_tracking_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__&#x2192;_FileWatcher_addDirectory_and_configuration" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__&#x2192;_FileWatcher_change_detection_and_callbacks" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Watcher_Module_Coverage_Breakthrough__&#x2192;_FileWatcher_start_and_stop_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__&#x2192;_HookManager_priority_based_execution_order" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Plugin_System_Enhanced_Coverage__&#x2192;_PluginManager_plugin_discovery_and_loading" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__&#x2192;_MiddlewareAnalyzer_security_analysis" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_PerformanceMonitor_constructor_and_timer_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_IncrementalParser_constructor_and_cache_operations" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__&#x2192;_DocBlockParser_advanced_parsing_methods" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_FileChangeDetector_hasFileChanged_with_real_file_scenarios" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Analyzer_Modules__&#x2192;_ModelAnalyzer_comprehensive_model_analysis" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Performance_Module_Zero_Coverage_Breakthrough__&#x2192;_IncrementalParser_parseFile_with_incremental_logic" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Config_Module_Ultimate_Coverage__&#x2192;_ConfigPublisher_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Service_Module_Ultimate_Coverage__&#x2192;_AssetPublisher_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__&#x2192;_TypeInference_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__&#x2192;_ModelRelationAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__&#x2192;_ValidateAnnotationAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__&#x2192;_FileUploadAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Advanced_Analyzer_Module_Coverage__&#x2192;_AnnotationRouteAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Generator_Module_Ultimate_Coverage__&#x2192;_ModelSchemaGenerator_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Adapter_Module_Ultimate_Coverage__&#x2192;_ControllerParser_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Adapter_Module_Ultimate_Coverage__&#x2192;_MiddlewareHandler_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Console_Module_Ultimate_Coverage__&#x2192;_ScrambleCommand_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\UltimateCoverageMaximizationTest::__pest_evaluable__Generator_Module_Ultimate_Coverage__&#x2192;_OpenApiGenerator_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__&#x2192;_ValidatorIntegration_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__&#x2192;_GenerateCommand_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__&#x2192;_MultiAppSupport_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__&#x2192;_Type_base_class_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__&#x2192;_ArrayType_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Type_System_Complete_Coverage__&#x2192;_UnionType_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__&#x2192;_ExportCommand_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Command_Module_Complete_Coverage__&#x2192;_PublishCommand_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\FinalCoverage30PercentSprintTest::__pest_evaluable__Adapter_Module_Extended_Coverage__&#x2192;_RouteAnalyzer_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Advanced_Type_System_Coverage__&#x2192;_ScalarType_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality" size="unknown" status="success"/>
+      <test name="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Core_Scramble_Class_Complete_Coverage__&#x2192;_Scramble_main_class_comprehensive_functionality" size="unknown" status="success"/>
+    </tests>
+    <directory name="/">
+      <totals>
+        <lines total="22435" comments="6499" code="15936" executable="7560" executed="2033" percent="26.89"/>
+        <methods count="833" tested="196" percent="23.53"/>
+        <functions count="3" tested="0" percent="0.00"/>
+        <classes count="55" tested="1" percent="1.82"/>
+        <traits count="0" tested="0" percent="0"/>
+      </totals>
+      <directory name="Adapter">
+        <totals>
+          <lines total="2602" comments="710" code="1892" executable="906" executed="200" percent="22.08"/>
+          <methods count="86" tested="10" percent="11.63"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="5" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="ControllerParser.php" href="Adapter/ControllerParser.php.xml">
+          <totals>
+            <lines total="395" comments="135" code="260" executable="107" executed="25" percent="23.36"/>
+            <methods count="14" tested="2" percent="14.29"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="MiddlewareHandler.php" href="Adapter/MiddlewareHandler.php.xml">
+          <totals>
+            <lines total="391" comments="91" code="300" executable="162" executed="122" percent="75.31"/>
+            <methods count="10" tested="3" percent="30.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="MultiAppSupport.php" href="Adapter/MultiAppSupport.php.xml">
+          <totals>
+            <lines total="411" comments="123" code="288" executable="132" executed="4" percent="3.03"/>
+            <methods count="16" tested="2" percent="12.50"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="RouteAnalyzer.php" href="Adapter/RouteAnalyzer.php.xml">
+          <totals>
+            <lines total="993" comments="261" code="732" executable="356" executed="43" percent="12.08"/>
+            <methods count="33" tested="2" percent="6.06"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ValidatorIntegration.php" href="Adapter/ValidatorIntegration.php.xml">
+          <totals>
+            <lines total="412" comments="100" code="312" executable="149" executed="6" percent="4.03"/>
+            <methods count="13" tested="1" percent="7.69"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Analyzer">
+        <totals>
+          <lines total="5987" comments="1777" code="4210" executable="2012" executed="520" percent="25.84"/>
+          <methods count="224" tested="51" percent="22.77"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="16" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <directory name="Type">
+          <totals>
+            <lines total="614" comments="273" code="341" executable="98" executed="68" percent="69.39"/>
+            <methods count="39" tested="20" percent="51.28"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="4" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="ArrayType.php" href="Analyzer/Type/ArrayType.php.xml">
+            <totals>
+              <lines total="167" comments="82" code="85" executable="21" executed="10" percent="47.62"/>
+              <methods count="12" tested="6" percent="50.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="ScalarType.php" href="Analyzer/Type/ScalarType.php.xml">
+            <totals>
+              <lines total="99" comments="45" code="54" executable="13" executed="8" percent="61.54"/>
+              <methods count="6" tested="1" percent="16.67"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="Type.php" href="Analyzer/Type/Type.php.xml">
+            <totals>
+              <lines total="167" comments="79" code="88" executable="21" executed="15" percent="71.43"/>
+              <methods count="12" tested="7" percent="58.33"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="UnionType.php" href="Analyzer/Type/UnionType.php.xml">
+            <totals>
+              <lines total="181" comments="67" code="114" executable="43" executed="35" percent="81.40"/>
+              <methods count="9" tested="6" percent="66.67"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <file name="AnnotationParser.php" href="Analyzer/AnnotationParser.php.xml">
+          <totals>
+            <lines total="509" comments="161" code="348" executable="165" executed="42" percent="25.45"/>
+            <methods count="20" tested="1" percent="5.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="AnnotationRouteAnalyzer.php" href="Analyzer/AnnotationRouteAnalyzer.php.xml">
+          <totals>
+            <lines total="385" comments="120" code="265" executable="122" executed="24" percent="19.67"/>
+            <methods count="15" tested="1" percent="6.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="AstParser.php" href="Analyzer/AstParser.php.xml">
+          <totals>
+            <lines total="194" comments="78" code="116" executable="32" executed="18" percent="56.25"/>
+            <methods count="11" tested="6" percent="54.55"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="CodeAnalyzer.php" href="Analyzer/CodeAnalyzer.php.xml">
+          <totals>
+            <lines total="397" comments="120" code="277" executable="136" executed="34" percent="25.00"/>
+            <methods count="13" tested="3" percent="23.08"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="DocBlockParser.php" href="Analyzer/DocBlockParser.php.xml">
+          <totals>
+            <lines total="720" comments="186" code="534" executable="309" executed="86" percent="27.83"/>
+            <methods count="21" tested="2" percent="9.52"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="FileUploadAnalyzer.php" href="Analyzer/FileUploadAnalyzer.php.xml">
+          <totals>
+            <lines total="303" comments="92" code="211" executable="101" executed="36" percent="35.64"/>
+            <methods count="12" tested="2" percent="16.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="MiddlewareAnalyzer.php" href="Analyzer/MiddlewareAnalyzer.php.xml">
+          <totals>
+            <lines total="489" comments="109" code="380" executable="189" executed="45" percent="23.81"/>
+            <methods count="13" tested="3" percent="23.08"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ModelAnalyzer.php" href="Analyzer/ModelAnalyzer.php.xml">
+          <totals>
+            <lines total="644" comments="154" code="490" executable="245" executed="13" percent="5.31"/>
+            <methods count="19" tested="1" percent="5.26"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ModelRelationAnalyzer.php" href="Analyzer/ModelRelationAnalyzer.php.xml">
+          <totals>
+            <lines total="543" comments="157" code="386" executable="195" executed="28" percent="14.36"/>
+            <methods count="20" tested="2" percent="10.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ReflectionAnalyzer.php" href="Analyzer/ReflectionAnalyzer.php.xml">
+          <totals>
+            <lines total="372" comments="112" code="260" executable="121" executed="78" percent="64.46"/>
+            <methods count="16" tested="5" percent="31.25"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="TypeInference.php" href="Analyzer/TypeInference.php.xml">
+          <totals>
+            <lines total="397" comments="136" code="261" executable="116" executed="26" percent="22.41"/>
+            <methods count="16" tested="4" percent="25.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ValidateAnnotationAnalyzer.php" href="Analyzer/ValidateAnnotationAnalyzer.php.xml">
+          <totals>
+            <lines total="420" comments="79" code="341" executable="183" executed="22" percent="12.02"/>
+            <methods count="9" tested="1" percent="11.11"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Cache">
+        <totals>
+          <lines total="935" comments="293" code="642" executable="252" executed="77" percent="30.56"/>
+          <methods count="44" tested="13" percent="29.55"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="3" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="CacheInterface.php" href="Cache/CacheInterface.php.xml">
+          <totals>
+            <lines total="87" comments="60" code="27" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="CacheManager.php" href="Cache/CacheManager.php.xml">
+          <totals>
+            <lines total="368" comments="124" code="244" executable="104" executed="0" percent="0.00"/>
+            <methods count="16" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="FileCacheDriver.php" href="Cache/FileCacheDriver.php.xml">
+          <totals>
+            <lines total="249" comments="54" code="195" executable="79" executed="48" percent="60.76"/>
+            <methods count="14" tested="8" percent="57.14"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="MemoryCacheDriver.php" href="Cache/MemoryCacheDriver.php.xml">
+          <totals>
+            <lines total="231" comments="55" code="176" executable="69" executed="29" percent="42.03"/>
+            <methods count="14" tested="5" percent="35.71"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Command">
+        <totals>
+          <lines total="1664" comments="471" code="1193" executable="598" executed="32" percent="5.35"/>
+          <methods count="73" tested="4" percent="5.48"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="3" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="ExportCommand.php" href="Command/ExportCommand.php.xml">
+          <totals>
+            <lines total="1227" comments="361" code="866" executable="458" executed="19" percent="4.15"/>
+            <methods count="62" tested="2" percent="3.23"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="GenerateCommand.php" href="Command/GenerateCommand.php.xml">
+          <totals>
+            <lines total="341" comments="90" code="251" executable="107" executed="10" percent="9.35"/>
+            <methods count="8" tested="1" percent="12.50"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="PublishCommand.php" href="Command/PublishCommand.php.xml">
+          <totals>
+            <lines total="96" comments="20" code="76" executable="33" executed="3" percent="9.09"/>
+            <methods count="3" tested="1" percent="33.33"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Config">
+        <totals>
+          <lines total="1155" comments="496" code="659" executable="297" executed="23" percent="7.74"/>
+          <methods count="39" tested="4" percent="10.26"/>
+          <functions count="3" tested="0" percent="0.00"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="ConfigPublisher.php" href="Config/ConfigPublisher.php.xml">
+          <totals>
+            <lines total="287" comments="109" code="178" executable="73" executed="23" percent="31.51"/>
+            <methods count="15" tested="4" percent="26.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ScrambleConfig.php" href="Config/ScrambleConfig.php.xml">
+          <totals>
+            <lines total="489" comments="176" code="313" executable="129" executed="0" percent="0.00"/>
+            <methods count="24" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="config.php" href="Config/config.php.xml">
+          <totals>
+            <lines total="312" comments="196" code="116" executable="75" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="1" tested="0" percent="0.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="helpers.php" href="Config/helpers.php.xml">
+          <totals>
+            <lines total="67" comments="15" code="52" executable="20" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="2" tested="0" percent="0.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Console">
+        <totals>
+          <lines total="488" comments="98" code="390" executable="192" executed="81" percent="42.19"/>
+          <methods count="22" tested="9" percent="40.91"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="1" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="ScrambleCommand.php" href="Console/ScrambleCommand.php.xml">
+          <totals>
+            <lines total="488" comments="98" code="390" executable="192" executed="81" percent="42.19"/>
+            <methods count="22" tested="9" percent="40.91"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Contracts">
+        <totals>
+          <lines total="117" comments="70" code="47" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="AnalyzerInterface.php" href="Contracts/AnalyzerInterface.php.xml">
+          <totals>
+            <lines total="30" comments="17" code="13" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ConfigInterface.php" href="Contracts/ConfigInterface.php.xml">
+          <totals>
+            <lines total="55" comments="36" code="19" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="GeneratorInterface.php" href="Contracts/GeneratorInterface.php.xml">
+          <totals>
+            <lines total="32" comments="17" code="15" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Controller">
+        <totals>
+          <lines total="350" comments="75" code="275" executable="152" executed="78" percent="51.32"/>
+          <methods count="10" tested="2" percent="20.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="1" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="DocsController.php" href="Controller/DocsController.php.xml">
+          <totals>
+            <lines total="350" comments="75" code="275" executable="152" executed="78" percent="51.32"/>
+            <methods count="10" tested="2" percent="20.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Export">
+        <totals>
+          <lines total="1135" comments="165" code="970" executable="611" executed="268" percent="43.86"/>
+          <methods count="32" tested="8" percent="25.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="3" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="ExportManager.php" href="Export/ExportManager.php.xml">
+          <totals>
+            <lines total="266" comments="60" code="206" executable="113" executed="73" percent="64.60"/>
+            <methods count="8" tested="3" percent="37.50"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="InsomniaExporter.php" href="Export/InsomniaExporter.php.xml">
+          <totals>
+            <lines total="419" comments="52" code="367" executable="237" executed="80" percent="33.76"/>
+            <methods count="12" tested="3" percent="25.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="PostmanExporter.php" href="Export/PostmanExporter.php.xml">
+          <totals>
+            <lines total="450" comments="53" code="397" executable="261" executed="115" percent="44.06"/>
+            <methods count="12" tested="2" percent="16.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Generator">
+        <totals>
+          <lines total="3758" comments="1036" code="2722" executable="1291" executed="373" percent="28.89"/>
+          <methods count="125" tested="36" percent="28.80"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="7" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="DocumentBuilder.php" href="Generator/DocumentBuilder.php.xml">
+          <totals>
+            <lines total="833" comments="257" code="576" executable="305" executed="62" percent="20.33"/>
+            <methods count="34" tested="12" percent="35.29"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ModelSchemaGenerator.php" href="Generator/ModelSchemaGenerator.php.xml">
+          <totals>
+            <lines total="568" comments="147" code="421" executable="228" executed="7" percent="3.07"/>
+            <methods count="18" tested="1" percent="5.56"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="OpenApiGenerator.php" href="Generator/OpenApiGenerator.php.xml">
+          <totals>
+            <lines total="466" comments="149" code="317" executable="161" executed="92" percent="57.14"/>
+            <methods count="16" tested="7" percent="43.75"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ParameterExtractor.php" href="Generator/ParameterExtractor.php.xml">
+          <totals>
+            <lines total="557" comments="166" code="391" executable="197" executed="92" percent="46.70"/>
+            <methods count="20" tested="4" percent="20.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ResponseGenerator.php" href="Generator/ResponseGenerator.php.xml">
+          <totals>
+            <lines total="419" comments="89" code="330" executable="91" executed="59" percent="64.84"/>
+            <methods count="9" tested="5" percent="55.56"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="SchemaGenerator.php" href="Generator/SchemaGenerator.php.xml">
+          <totals>
+            <lines total="538" comments="153" code="385" executable="169" executed="53" percent="31.36"/>
+            <methods count="20" tested="6" percent="30.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="SecuritySchemeGenerator.php" href="Generator/SecuritySchemeGenerator.php.xml">
+          <totals>
+            <lines total="377" comments="75" code="302" executable="140" executed="8" percent="5.71"/>
+            <methods count="8" tested="1" percent="12.50"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Middleware">
+        <totals>
+          <lines total="889" comments="280" code="609" executable="259" executed="37" percent="14.29"/>
+          <methods count="34" tested="6" percent="17.65"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="CacheMiddleware.php" href="Middleware/CacheMiddleware.php.xml">
+          <totals>
+            <lines total="395" comments="132" code="263" executable="120" executed="22" percent="18.33"/>
+            <methods count="15" tested="3" percent="20.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="DocsAccessMiddleware.php" href="Middleware/DocsAccessMiddleware.php.xml">
+          <totals>
+            <lines total="494" comments="148" code="346" executable="139" executed="15" percent="10.79"/>
+            <methods count="19" tested="3" percent="15.79"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Performance">
+        <totals>
+          <lines total="1174" comments="362" code="812" executable="399" executed="153" percent="38.35"/>
+          <methods count="47" tested="11" percent="23.40"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="3" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="FileChangeDetector.php" href="Performance/FileChangeDetector.php.xml">
+          <totals>
+            <lines total="361" comments="114" code="247" executable="110" executed="25" percent="22.73"/>
+            <methods count="16" tested="3" percent="18.75"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="IncrementalParser.php" href="Performance/IncrementalParser.php.xml">
+          <totals>
+            <lines total="371" comments="117" code="254" executable="118" executed="23" percent="19.49"/>
+            <methods count="13" tested="2" percent="15.38"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="PerformanceMonitor.php" href="Performance/PerformanceMonitor.php.xml">
+          <totals>
+            <lines total="442" comments="131" code="311" executable="171" executed="105" percent="61.40"/>
+            <methods count="18" tested="6" percent="33.33"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Plugin">
+        <totals>
+          <lines total="720" comments="184" code="536" executable="207" executed="46" percent="22.22"/>
+          <methods count="28" tested="7" percent="25.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="HookManager.php" href="Plugin/HookManager.php.xml">
+          <totals>
+            <lines total="248" comments="69" code="179" executable="60" executed="29" percent="48.33"/>
+            <methods count="12" tested="3" percent="25.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="PluginInterface.php" href="Plugin/PluginInterface.php.xml">
+          <totals>
+            <lines total="79" comments="42" code="37" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="PluginManager.php" href="Plugin/PluginManager.php.xml">
+          <totals>
+            <lines total="393" comments="73" code="320" executable="147" executed="17" percent="11.56"/>
+            <methods count="16" tested="4" percent="25.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Service">
+        <totals>
+          <lines total="768" comments="267" code="501" executable="194" executed="68" percent="35.05"/>
+          <methods count="35" tested="21" percent="60.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="4" tested="1" percent="25.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="AssetPublisher.php" href="Service/AssetPublisher.php.xml">
+          <totals>
+            <lines total="296" comments="78" code="218" executable="91" executed="20" percent="21.98"/>
+            <methods count="10" tested="1" percent="10.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="CommandService.php" href="Service/CommandService.php.xml">
+          <totals>
+            <lines total="42" comments="17" code="25" executable="5" executed="5" percent="100.00"/>
+            <methods count="2" tested="2" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="Container.php" href="Service/Container.php.xml">
+          <totals>
+            <lines total="191" comments="72" code="119" executable="52" executed="15" percent="28.85"/>
+            <methods count="10" tested="6" percent="60.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ScrambleService.php" href="Service/ScrambleService.php.xml">
+          <totals>
+            <lines total="205" comments="91" code="114" executable="30" executed="28" percent="93.33"/>
+            <methods count="13" tested="12" percent="92.31"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="services.php" href="Service/services.php.xml">
+          <totals>
+            <lines total="34" comments="9" code="25" executable="16" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Utils">
+        <totals>
+          <lines total="192" comments="62" code="130" executable="55" executed="38" percent="69.09"/>
+          <methods count="8" tested="1" percent="12.50"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="1" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="YamlGenerator.php" href="Utils/YamlGenerator.php.xml">
+          <totals>
+            <lines total="192" comments="62" code="130" executable="55" executed="38" percent="69.09"/>
+            <methods count="8" tested="1" percent="12.50"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Watcher">
+        <totals>
+          <lines total="327" comments="69" code="258" executable="117" executed="28" percent="23.93"/>
+          <methods count="15" tested="6" percent="40.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="1" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="FileWatcher.php" href="Watcher/FileWatcher.php.xml">
+          <totals>
+            <lines total="327" comments="69" code="258" executable="117" executed="28" percent="23.93"/>
+            <methods count="15" tested="6" percent="40.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <file name="Scramble.php" href="Scramble.php.xml">
+        <totals>
+          <lines total="174" comments="84" code="90" executable="18" executed="11" percent="61.11"/>
+          <methods count="11" tested="7" percent="63.64"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="1" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+      </file>
+    </directory>
+  </project>
+</phpunit>

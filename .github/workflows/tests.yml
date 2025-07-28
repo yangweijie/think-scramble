@@ -1,0 +1,345 @@
+name: Tests and Coverage
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+# 设置权限
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  test:
+    name: Test Suite
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        php-version: ['8.0', '8.1', '8.2', '8.3']
+        dependency-version: [prefer-lowest, prefer-stable]
+        exclude:
+          # 排除一些不必要的组合以节省 CI 时间
+          - os: windows-latest
+            php-version: '8.0'
+          - os: macos-latest
+            php-version: '8.0'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_sqlite, dom, filter, gd, json, zip, xdebug
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ matrix.dependency-version }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-${{ matrix.php-version }}-${{ matrix.dependency-version }}-
+            ${{ runner.os }}-php-${{ matrix.php-version }}-
+
+      - name: Install dependencies
+        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-progress --no-interaction
+
+      - name: Make test scripts executable (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          chmod +x scripts/test.sh
+          chmod +x scripts/coverage-analysis.php
+
+      - name: Run code quality checks
+        run: |
+          # PHP syntax check
+          find src -name "*.php" -exec php -l {} \;
+          
+          # PHPStan analysis (if available)
+          if [ -f "vendor/bin/phpstan" ]; then
+            vendor/bin/phpstan analyse --no-progress || true
+          fi
+
+      - name: Run unit tests (Unix)
+        if: runner.os != 'Windows'
+        run: ./scripts/test.sh --testsuite Unit --verbose
+
+      - name: Run unit tests (Windows)
+        if: runner.os == 'Windows'
+        run: scripts\test.bat --testsuite Unit --verbose
+
+      - name: Run feature tests (Unix)
+        if: runner.os != 'Windows'
+        run: ./scripts/test.sh --testsuite Feature --verbose
+
+      - name: Run feature tests (Windows)
+        if: runner.os == 'Windows'
+        run: scripts\test.bat --testsuite Feature --verbose
+
+      - name: Run integration tests (Unix)
+        if: runner.os != 'Windows'
+        run: ./scripts/test.sh --testsuite Integration --verbose
+
+      - name: Run integration tests (Windows)
+        if: runner.os == 'Windows'
+        run: scripts\test.bat --testsuite Integration --verbose
+
+  coverage:
+    name: Coverage Analysis
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_sqlite, dom, filter, gd, json, zip, xdebug
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Cache Composer packages
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.1-coverage-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-8.1-coverage-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/test.sh
+          chmod +x scripts/coverage-analysis.php
+
+      - name: Run tests with coverage
+        run: ./scripts/test.sh --coverage --report
+
+      - name: Analyze coverage
+        run: php scripts/coverage-analysis.php
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: coverage/clover.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Upload coverage to Codeclimate
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: coverage/clover.xml:clover
+        continue-on-error: true
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/html/
+          retention-days: 30
+
+      - name: Upload coverage analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-analysis
+          path: coverage/analysis-report.txt
+          retention-days: 30
+
+      - name: Comment coverage on PR
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: coverage/analysis-report.txt
+
+  parallel-tests:
+    name: Parallel Test Execution
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_sqlite, dom, filter, gd, json, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Make test script executable
+        run: chmod +x scripts/test.sh
+
+      - name: Run parallel tests
+        run: ./scripts/test.sh --parallel --verbose
+
+  mutation-testing:
+    name: Mutation Testing
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_sqlite, dom, filter, gd, json, zip, xdebug
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Install Infection
+        run: composer require --dev infection/infection --no-interaction
+
+      - name: Run mutation testing
+        run: |
+          vendor/bin/infection --threads=4 --min-msi=70 --min-covered-msi=80 --no-interaction --show-mutations || true
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+
+  performance-tests:
+    name: Performance Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_sqlite, dom, filter, gd, json, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader
+
+      - name: Run performance benchmarks
+        run: |
+          # 创建大型测试项目
+          mkdir -p temp/large-project/app/controller
+          mkdir -p temp/large-project/app/model
+          
+          # 生成多个控制器和模型文件进行性能测试
+          for i in {1..50}; do
+            cat > temp/large-project/app/controller/Controller${i}.php << EOF
+          <?php
+          namespace App\\Controller;
+          use think\\Request;
+          use think\\Response;
+          /**
+           * Controller ${i}
+           * @tag Controller${i}
+           */
+          class Controller${i} {
+              /**
+               * @summary Get items
+               */
+              public function index(Request \$request): Response {
+                  return json(['data' => []]);
+              }
+              /**
+               * @summary Create item
+               */
+              public function create(Request \$request): Response {
+                  return json(['data' => []]);
+              }
+          }
+          EOF
+          done
+          
+          # 运行性能测试
+          time php bin/scramble --output=temp/performance-test.json --controllers=temp/large-project/app/controller
+          
+          # 检查生成的文档
+          if [ -f "temp/performance-test.json" ]; then
+            echo "✅ Performance test passed"
+            echo "📊 Generated document size: $(wc -c < temp/performance-test.json) bytes"
+          else
+            echo "❌ Performance test failed"
+            exit 1
+          fi
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run security scan
+        uses: symfonycorp/security-checker-action@v5
+
+      - name: Run Psalm security analysis
+        run: |
+          composer require --dev psalm/psalm --no-interaction
+          vendor/bin/psalm --taint-analysis --report=psalm-security.txt || true
+        continue-on-error: true
+
+      - name: Upload security report
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-report
+          path: psalm-security.txt
+          retention-days: 30
+        if: always()
+
+  summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [test, coverage, parallel-tests]
+    if: always()
+    
+    steps:
+      - name: Test Summary
+        run: |
+          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Suite | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Coverage Analysis | ${{ needs.coverage.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Parallel Tests | ${{ needs.parallel-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.test.result }}" = "success" ] && [ "${{ needs.coverage.result }}" = "success" ]; then
+            echo "✅ All tests passed successfully!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some tests failed. Please check the logs above." >> $GITHUB_STEP_SUMMARY
+          fi

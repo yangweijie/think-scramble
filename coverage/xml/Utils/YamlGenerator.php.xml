@@ -1,0 +1,1501 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <file name="YamlGenerator.php" path="/Utils">
+    <totals>
+      <lines total="192" comments="62" code="130" executable="55" executed="38" percent="69.09"/>
+      <methods count="8" tested="1" percent="12.50"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="0" percent="0.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="Yangweijie\ThinkScramble\Utils\YamlGenerator" start="12" executable="55" executed="38" crap="51.15">
+      <namespace name="Yangweijie\ThinkScramble\Utils"/>
+      <method name="encode" signature="encode(array $data, int $indent): string" start="21" end="51" crap="6.09" executable="15" executed="13" coverage="86.666666666667"/>
+      <method name="isSequentialArray" signature="isSequentialArray(array $array): bool" start="59" end="66" crap="2.15" executable="3" executed="2" coverage="66.666666666667"/>
+      <method name="formatValue" signature="formatValue($value): string" start="74" end="97" crap="7.04" executable="11" executed="10" coverage="90.909090909091"/>
+      <method name="needsQuotes" signature="needsQuotes(string $value): bool" start="105" end="129" crap="7.39" executable="10" executed="8" coverage="80"/>
+      <method name="escapeString" signature="escapeString(string $value): string" start="137" end="144" crap="1" executable="5" executed="5" coverage="100"/>
+      <method name="generateOpenApiYaml" signature="generateOpenApiYaml(array $document): string" start="152" end="161" crap="2" executable="5" executed="0" coverage="0"/>
+      <method name="hasNativeYamlSupport" signature="hasNativeYamlSupport(): bool" start="168" end="171" crap="2" executable="1" executed="0" coverage="0"/>
+      <method name="dump" signature="dump(array $data): string" start="179" end="190" crap="12" executable="5" executed="0" coverage="0"/>
+    </class>
+    <coverage>
+      <line nr="23">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="24">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="26">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="27">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="28">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="30">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="31">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="32">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="36">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="41">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="42">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="46">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="50">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="61">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="65">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="76">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="77">
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="80">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="81">
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="84">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="85">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="88">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="90">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="91">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="93">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="108">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="109">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+      </line>
+      <line nr="113">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="114">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="119">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="124">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="125">
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="128">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="139">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="140">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="141">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="142">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+      <line nr="143">
+        <covered by="P\Tests\Unit\PeakSprint36BreakthroughTest::__pest_evaluable__Critical_Coverage_Breakthrough___Utility_Modules__&#x2192;_YamlGenerator_comprehensive_YAML_operations"/>
+        <covered by="P\Tests\Unit\Ultimate30PercentCoverageSprintTest::__pest_evaluable__Utils_Module_Complete_Coverage__&#x2192;_YamlGenerator_comprehensive_functionality"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_DECLARE">declare</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strict_types</token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NAME_QUALIFIED">Yangweijie\ThinkScramble\Utils</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="6"/>
+      <line no="7">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="8">
+        <token name="T_DOC_COMMENT"> * &#x7B80;&#x5355;&#x7684; YAML &#x751F;&#x6210;&#x5668;</token>
+      </line>
+      <line no="9">
+        <token name="T_DOC_COMMENT"> * </token>
+      </line>
+      <line no="10">
+        <token name="T_DOC_COMMENT"> * &#x7528;&#x4E8E;&#x5728;&#x6CA1;&#x6709; YAML &#x6269;&#x5C55;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x751F;&#x6210; YAML &#x683C;&#x5F0F;&#x7684;&#x6587;&#x6863;</token>
+      </line>
+      <line no="11">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="12">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">YamlGenerator</token>
+      </line>
+      <line no="13">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="14">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="15">
+        <token name="T_DOC_COMMENT">     * &#x5C06;&#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x4E3A; YAML &#x5B57;&#x7B26;&#x4E32;</token>
+      </line>
+      <line no="16">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="17">
+        <token name="T_DOC_COMMENT">     * @param array $data &#x8981;&#x8F6C;&#x6362;&#x7684;&#x6570;&#x636E;</token>
+      </line>
+      <line no="18">
+        <token name="T_DOC_COMMENT">     * @param int $indent &#x7F29;&#x8FDB;&#x7EA7;&#x522B;</token>
+      </line>
+      <line no="19">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="20">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="21">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">encode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$data</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indent</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="22">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="23">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="24">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">str_repeat</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'  '</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indent</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="25"/>
+      <line no="26">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_FOREACH">foreach</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$data</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$key</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="27">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="28">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">isSequentialArray</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="29">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_COMMENT">// &#x5904;&#x7406;&#x6570;&#x7EC4;</token>
+      </line>
+      <line no="30">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$key</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">":\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="31">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_FOREACH">foreach</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_AS">as</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$item</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="32">
+        <token name="T_WHITESPACE">                        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$item</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="33">
+        <token name="T_WHITESPACE">                            </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"  -\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="34">
+        <token name="T_WHITESPACE">                            </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">encode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$item</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indent</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PLUS">+</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">2</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="35">
+        <token name="T_WHITESPACE">                        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ELSE">else</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="36">
+        <token name="T_WHITESPACE">                            </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'  - '</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">formatValue</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$item</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="37">
+        <token name="T_WHITESPACE">                        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="38">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="39">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ELSE">else</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="40">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_COMMENT">// &#x5904;&#x7406;&#x5BF9;&#x8C61;</token>
+      </line>
+      <line no="41">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$key</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">":\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="42">
+        <token name="T_WHITESPACE">                    </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">encode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indent</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_PLUS">+</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="44">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_ELSE">else</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="45">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_COMMENT">// &#x5904;&#x7406;&#x6807;&#x91CF;&#x503C;</token>
+      </line>
+      <line no="46">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$indentStr</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$key</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">': '</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">formatValue</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="47">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="48">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="49"/>
+      <line no="50">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="51">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="52"/>
+      <line no="53">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="54">
+        <token name="T_DOC_COMMENT">     * &#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x662F;&#x5426;&#x4E3A;&#x987A;&#x5E8F;&#x6570;&#x7EC4;</token>
+      </line>
+      <line no="55">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="56">
+        <token name="T_DOC_COMMENT">     * @param array $array</token>
+      </line>
+      <line no="57">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="58">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="59">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">isSequentialArray</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$array</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="60">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_EMPTY">empty</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$array</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="62">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="63">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="64"/>
+      <line no="65">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">array_keys</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$array</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_IDENTICAL">===</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">range</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_LNUMBER">0</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">count</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$array</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_MINUS">-</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="66">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="67"/>
+      <line no="68">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="69">
+        <token name="T_DOC_COMMENT">     * &#x683C;&#x5F0F;&#x5316;&#x503C;</token>
+      </line>
+      <line no="70">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="71">
+        <token name="T_DOC_COMMENT">     * @param mixed $value</token>
+      </line>
+      <line no="72">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="73">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="74">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">formatValue</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="75">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="76">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_IDENTICAL">===</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">null</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="77">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'null'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="78">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="79"/>
+      <line no="80">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_bool</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="81">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_QUESTION_MARK">?</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'true'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'false'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="82">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="83"/>
+      <line no="84">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_numeric</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="85">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING_CAST">(string)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="86">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="87"/>
+      <line no="88">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_string</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="89">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_COMMENT">// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="90">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">needsQuotes</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="91">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'"'</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">escapeString</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'"'</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="92">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="93">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="94">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="95"/>
+      <line no="96">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING_CAST">(string)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="97">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="98"/>
+      <line no="99">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="100">
+        <token name="T_DOC_COMMENT">     * &#x68C0;&#x67E5;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="101">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="102">
+        <token name="T_DOC_COMMENT">     * @param string $value</token>
+      </line>
+      <line no="103">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="104">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="105">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">needsQuotes</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="106">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="107">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x5305;&#x542B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x6216;&#x4EE5;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x5F00;&#x5934;&#xFF0C;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="108">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">preg_match</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'/[:\[\]{}|&gt;*&amp;!%#`@,]/'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="109">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="110">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="111"/>
+      <line no="112">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x662F; YAML &#x5173;&#x952E;&#x5B57;&#xFF0C;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="113">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yamlKeywords</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'true'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'false'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'null'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'yes'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'no'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'on'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'off'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="114">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">in_array</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strtolower</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$yamlKeywords</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="115">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="116">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="117"/>
+      <line no="118">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x6570;&#x5B57;&#x4F46;&#x5B9E;&#x9645;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="119">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">is_numeric</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXCLAMATION_MARK">!</token>
+        <token name="T_STRING">is_int</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EXCLAMATION_MARK">!</token>
+        <token name="T_STRING">is_float</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="120">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="121">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="122"/>
+      <line no="123">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x5982;&#x679C;&#x5305;&#x542B;&#x6362;&#x884C;&#x7B26;&#xFF0C;&#x9700;&#x8981;&#x5F15;&#x53F7;</token>
+      </line>
+      <line no="124">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strpos</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\n"</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_NOT_IDENTICAL">!==</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="125">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">true</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="126">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="127"/>
+      <line no="128">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="129">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="130"/>
+      <line no="131">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="132">
+        <token name="T_DOC_COMMENT">     * &#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x4E32;</token>
+      </line>
+      <line no="133">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="134">
+        <token name="T_DOC_COMMENT">     * @param string $value</token>
+      </line>
+      <line no="135">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="136">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="137">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">escapeString</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$value</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="138">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="139">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">str_replace</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="140">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'"'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\n"</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\r"</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\t"</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="141">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\"'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\\\'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\n'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\r'</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'\\t'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="142">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$value</token>
+      </line>
+      <line no="143">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="144">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="145"/>
+      <line no="146">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="147">
+        <token name="T_DOC_COMMENT">     * &#x751F;&#x6210; OpenAPI YAML &#x6587;&#x6863;</token>
+      </line>
+      <line no="148">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="149">
+        <token name="T_DOC_COMMENT">     * @param array $document OpenAPI &#x6587;&#x6863;&#x6570;&#x7EC4;</token>
+      </line>
+      <line no="150">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="151">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="152">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">generateOpenApiYaml</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$document</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="153">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="154">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"# OpenAPI 3.0 Specification\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="155">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"# Generated by ThinkScramble\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="156">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"# "</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">date</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'Y-m-d H:i:s'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOT">.</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">"\n\n"</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="157">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="158">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONCAT_EQUAL">.=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">encode</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$document</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="159">
+        <token name="T_WHITESPACE">        </token>
+      </line>
+      <line no="160">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$yaml</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="161">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="162"/>
+      <line no="163">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="164">
+        <token name="T_DOC_COMMENT">     * &#x68C0;&#x67E5;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x539F;&#x751F; YAML &#x6269;&#x5C55;</token>
+      </line>
+      <line no="165">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="166">
+        <token name="T_DOC_COMMENT">     * @return bool</token>
+      </line>
+      <line no="167">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="168">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">hasNativeYamlSupport</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">bool</token>
+      </line>
+      <line no="169">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="170">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">function_exists</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'yaml_emit'</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="171">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="172"/>
+      <line no="173">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="174">
+        <token name="T_DOC_COMMENT">     * &#x4F7F;&#x7528;&#x6700;&#x4F73;&#x53EF;&#x7528;&#x65B9;&#x6CD5;&#x751F;&#x6210; YAML</token>
+      </line>
+      <line no="175">
+        <token name="T_DOC_COMMENT">     *</token>
+      </line>
+      <line no="176">
+        <token name="T_DOC_COMMENT">     * @param array $data</token>
+      </line>
+      <line no="177">
+        <token name="T_DOC_COMMENT">     * @return string</token>
+      </line>
+      <line no="178">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="179">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STATIC">static</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">dump</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$data</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">string</token>
+      </line>
+      <line no="180">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="181">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">hasNativeYamlSupport</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="182">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_VARIABLE">$result</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">yaml_emit</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$data</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="183">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_IF">if</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$result</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IS_NOT_IDENTICAL">!==</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">false</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="184">
+        <token name="T_WHITESPACE">                </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$result</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="185">
+        <token name="T_WHITESPACE">            </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="186">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="187"/>
+      <line no="188">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_COMMENT">// &#x56DE;&#x9000;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x7B80;&#x5355;&#x751F;&#x6210;&#x5668;</token>
+      </line>
+      <line no="189">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">self</token>
+        <token name="T_DOUBLE_COLON">::</token>
+        <token name="T_STRING">generateOpenApiYaml</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$data</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="190">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="191">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="192"/>
+    </source>
+  </file>
+</phpunit>

@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Yangweijie\ThinkScramble\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use think\App;
-use think\Config;
 use Yangweijie\ThinkScramble\Config\ScrambleConfig;
 
 /**
