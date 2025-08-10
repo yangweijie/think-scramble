@@ -527,6 +527,26 @@ class DocumentBuilder
     }
 
     /**
+     * 检查是否有请求体
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return bool
+     */
+    protected function hasRequestBody(array $routeInfo, array $controllerInfo): bool
+    {
+        $method = strtoupper($routeInfo['method'] ?? 'GET');
+
+        // 只有 POST、PUT、PATCH 等方法才有请求体
+        if (!in_array($method, ['POST', 'PUT', 'PATCH'])) {
+            return false;
+        }
+
+        // 检查是否有文件上传参数或其他需要请求体的参数
+        return $this->hasFileUploadParameters($routeInfo, $controllerInfo);
+    }
+
+    /**
      * 生成文件上传属性
      *
      * @param array $routeInfo 路由信息
@@ -554,11 +574,7 @@ class DocumentBuilder
             $fileUploads = $analyzer->analyzeMethod($method);
 
             foreach ($fileUploads as $upload) {
-                $properties[$upload['name']] = [
-                    'type' => 'string',
-                    'format' => 'binary',
-                    'description' => $upload['description'] ?? '文件上传参数',
-                ];
+                $properties[$upload['name']] = $analyzer->generateOpenApiRequestBodyProperty($upload);
             }
         } catch (\Exception $e) {
             // 忽略错误

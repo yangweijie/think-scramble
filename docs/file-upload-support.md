@@ -9,6 +9,7 @@ ThinkScramble 现在支持自动识别和文档化文件上传参数，包括注
 - ✅ **类型验证** - 支持文件类型和大小限制
 - ✅ **OpenAPI 集成** - 自动生成 `multipart/form-data` 请求体
 - ✅ **智能合并** - 注释和代码分析结果智能合并
+- ✅ **OpenAPI 3.0 兼容** - 符合 OpenAPI 3.0 规范要求
 
 ## 支持的注释格式
 
@@ -150,7 +151,7 @@ requestBody:
 
 ### 参数定义
 
-文件上传参数会生成正确的 OpenAPI 参数定义：
+文件上传参数会生成正确的 OpenAPI 参数定义（兼容旧版）：
 
 ```yaml
 parameters:
@@ -161,6 +162,24 @@ parameters:
     schema:
       type: string
       format: binary
+```
+
+### OpenAPI 3.0 规范
+
+在 OpenAPI 3.0 中，文件上传参数推荐使用请求体方式：
+
+```yaml
+requestBody:
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          avatar:
+            type: string
+            format: binary
+            description: 用户头像文件 (支持格式: jpg, png, gif) (最大大小: 2MB)
 ```
 
 ## 完整示例

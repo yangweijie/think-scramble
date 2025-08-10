@@ -1,0 +1,38 @@
+
+
+Code Coverage Report:
+  2025-08-10 13:37:57
+
+ Summary:
+  Classes:  0.00% (0/56)
+  Methods:  2.85% (24/841)
+  Lines:    4.39% (331/7534)
+
+Yangweijie\ThinkScramble\Analyzer\AnnotationParser
+  Methods:   5.00% ( 1/20)   Lines:   0.61% (  1/165)
+Yangweijie\ThinkScramble\Analyzer\AstParser
+  Methods:   9.09% ( 1/11)   Lines:  28.12% (  9/ 32)
+Yangweijie\ThinkScramble\Analyzer\DocBlockParser
+  Methods:   9.52% ( 2/21)   Lines:  23.95% ( 74/309)
+Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer
+  Methods:  38.46% ( 5/13)   Lines:  61.61% ( 69/112)
+Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer
+  Methods:   7.69% ( 1/13)   Lines:   1.06% (  2/189)
+Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer
+  Methods:   5.26% ( 1/19)   Lines:   0.82% (  2/245)
+Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer
+  Methods:   5.00% ( 1/20)   Lines:   1.03% (  2/195)
+Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer
+  Methods:  11.11% ( 1/ 9)   Lines:   0.55% (  1/183)
+Yangweijie\ThinkScramble\Config\ScrambleConfig
+  Methods:  12.50% ( 3/24)   Lines:  37.98% ( 49/129)
+Yangweijie\ThinkScramble\Generator\DocumentBuilder
+  Methods:  11.43% ( 4/35)   Lines:  11.80% ( 36/305)
+Yangweijie\ThinkScramble\Generator\ModelSchemaGenerator
+  Methods:   5.56% ( 1/18)   Lines:   1.32% (  3/228)
+Yangweijie\ThinkScramble\Generator\ParameterExtractor
+  Methods:   4.76% ( 1/21)   Lines:   2.46% (  5/203)
+Yangweijie\ThinkScramble\Generator\SchemaGenerator
+  Methods:   5.00% ( 1/20)   Lines:   0.59% (  1/169)
+Yangweijie\ThinkScramble\Generator\SecuritySchemeGenerator
+  Methods:  12.50% ( 1/ 8)   Lines:   1.43% (  2/140)

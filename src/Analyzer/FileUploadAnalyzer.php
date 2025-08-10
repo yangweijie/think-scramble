@@ -262,7 +262,7 @@ class FileUploadAnalyzer
 
         $parameter = [
             'name' => $fileUpload['name'],
-            'in' => 'formData',
+            'in' => 'formData', // 保留兼容性，但推荐使用 requestBody
             'required' => $fileUpload['required'] ?? false,
             'description' => $fileUpload['description'] ?? '文件上传参数',
             'schema' => $schema,
@@ -280,6 +280,34 @@ class FileUploadAnalyzer
         }
 
         return $parameter;
+    }
+
+    /**
+     * 生成文件上传的 OpenAPI 请求体属性定义
+     *
+     * @param array $fileUpload
+     * @return array
+     */
+    public function generateOpenApiRequestBodyProperty(array $fileUpload): array
+    {
+        $property = [
+            'type' => 'string',
+            'format' => 'binary',
+            'description' => $fileUpload['description'] ?? '文件上传参数',
+        ];
+
+        // 添加文件类型限制
+        if (!empty($fileUpload['allowed_types'])) {
+            $property['description'] .= ' (支持格式: ' . implode(', ', $fileUpload['allowed_types']) . ')';
+        }
+
+        // 添加文件大小限制
+        if (!empty($fileUpload['max_size'])) {
+            $sizeText = $this->formatFileSize($fileUpload['max_size']);
+            $property['description'] .= ' (最大大小: ' . $sizeText . ')';
+        }
+
+        return $property;
     }
 
     /**

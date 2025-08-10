@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Volumes/data/git/php/think-scramble/src/Analyzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/Volumes/data/git/php/think-scramble/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Analyzer</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#17">Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#26">Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\ArrayType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\ScalarType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\Type</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\UnionType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#20">Yangweijie\ThinkScramble\Analyzer\TypeInference</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#16">Yangweijie\ThinkScramble\Analyzer\AnnotationParser</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#19">Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#17">Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer</a></td><td class="text-right">1%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer</a></td><td class="text-right">1%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#17">Yangweijie\ThinkScramble\Analyzer\DocBlockParser</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="AstParser.php.html#22">Yangweijie\ThinkScramble\Analyzer\AstParser</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#15">Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer</a></td><td class="text-right">61%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ModelAnalyzer.php.html#19">Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer</a></td><td class="text-right">6482</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#17">Yangweijie\ThinkScramble\Analyzer\DocBlockParser</a></td><td class="text-right">5335</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#17">Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer</a></td><td class="text-right">3911</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer</a></td><td class="text-right">3253</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#16">Yangweijie\ThinkScramble\Analyzer\AnnotationParser</a></td><td class="text-right">3247</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#17">Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer</a></td><td class="text-right">2652</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer</a></td><td class="text-right">2471</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#26">Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer</a></td><td class="text-right">1980</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#16">Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer</a></td><td class="text-right">1892</td></tr>
+       <tr><td><a href="TypeInference.php.html#20">Yangweijie\ThinkScramble\Analyzer\TypeInference</a></td><td class="text-right">1482</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\UnionType</a></td><td class="text-right">506</td></tr>
+       <tr><td><a href="Type/Type.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\Type</a></td><td class="text-right">420</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\ArrayType</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#12">Yangweijie\ThinkScramble\Analyzer\Type\ScalarType</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#15">Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer</a></td><td class="text-right">147</td></tr>
+       <tr><td><a href="AstParser.php.html#22">Yangweijie\ThinkScramble\Analyzer\AstParser</a></td><td class="text-right">124</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AnnotationParser.php.html#73"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseClassAnnotations">parseClassAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#98"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseMethodAnnotations">parseMethodAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#126"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractAnnotations">extractAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#148"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::isAnnotationTag">isAnnotationTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#167"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseAnnotationTag">parseAnnotationTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#218"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseRouteAnnotation">parseRouteAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseHttpMethodAnnotation">parseHttpMethodAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#279"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseMiddlewareAnnotation">parseMiddlewareAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#308"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseValidateAnnotation">parseValidateAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#334"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseResourceAnnotation">parseResourceAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#356"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseInjectAnnotation">parseInjectAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#369"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseGenericAnnotation">parseGenericAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#382"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractRouteAnnotations">extractRouteAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#401"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractMiddlewareAnnotations">extractMiddlewareAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#420"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractValidateAnnotations">extractValidateAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#439"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractInjectAnnotations">extractInjectAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#458"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractResourceAnnotations">extractResourceAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#477"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractOpenApiAnnotations">extractOpenApiAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#497"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::isOpenApiAnnotation">isOpenApiAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#26"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#38"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#83"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#121"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildRouteFromAnnotation">buildRouteFromAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#164"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildDefaultRoute">buildDefaultRoute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#197"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractRoutePrefix">extractRoutePrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#214"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractClassMiddleware">extractClassMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#234"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractMethodMiddleware">extractMethodMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#254"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractValidateInfo">extractValidateInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#274"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractOpenApiInfo">extractOpenApiInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#286"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildFullPath">buildFullPath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#310"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildDefaultPath">buildDefaultPath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#327"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#355"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::hasRelevantAnnotations">hasRelevantAnnotations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#368"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::getAllAnnotationRoutes">getAllAnnotationRoutes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#56"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::parse">parse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#109"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::traverse">traverse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#125"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::findNodes">findNodes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#137"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::findClasses">findClasses</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#148"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::findMethods">findMethods</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#159"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::findFunctions">findFunctions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#169"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::getErrors">getErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#179"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::hasErrors">hasErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AstParser.php.html#189"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::clearErrors">clearErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#42"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#57"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyze">analyze</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#76"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::supports">supports</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#88"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeFile">analyzeFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#133"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeClass">analyzeClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#171"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeClassNode">analyzeClassNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#204"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeMethodNode">analyzeMethodNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeFunctionNode">analyzeFunctionNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#285"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeParameterNode">analyzeParameterNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#320"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzePropertyNode">analyzePropertyNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#354"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::getFullClassName">getFullClassName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#373"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::getNodeVisibility">getNodeVisibility</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#391"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::clearCache">clearCache</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#84"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseParameterType">parseParameterType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#103"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseReturnType">parseReturnType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#122"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseVariableType">parseVariableType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#252"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseParamTag">parseParamTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#294"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseTypeTag">parseTypeTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#380"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseRouteAnnotation">parseRouteAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#422"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseMiddlewareAnnotation">parseMiddlewareAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#451"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseValidateAnnotation">parseValidateAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#484"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseResourceAnnotation">parseResourceAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#523"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseInjectAnnotation">parseInjectAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#551"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiAnnotation">parseApiAnnotation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#582"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiTag">parseApiTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#602"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiParamTag">parseApiParamTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#622"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiResponseTag">parseApiResponseTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#642"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseTypeString">parseTypeString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#687"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseSingleType">parseSingleType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#256"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::generateOpenApiParameter">generateOpenApiParameter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#291"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::generateOpenApiRequestBodyProperty">generateOpenApiRequestBodyProperty</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#319"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::formatFileSize">formatFileSize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#99"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#127"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeClassMiddleware">analyzeClassMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMethodMiddleware">analyzeMethodMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#187"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMethodMiddlewareForMethod">analyzeMethodMiddlewareForMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#222"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMiddleware">analyzeMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#265"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeCustomMiddleware">analyzeCustomMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#324"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::extractSecuritySchemes">extractSecuritySchemes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#356"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeGlobalMiddleware">analyzeGlobalMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#382"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::generateSecuritySchemeName">generateSecuritySchemeName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#396"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::generateOpenApiSecurity">generateOpenApiSecurity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#433"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#456"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::getMiddlewareStats">getMiddlewareStats</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#79"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeModel">analyzeModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#131"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getTableName">getTableName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#154"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeFields">analyzeFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#204"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelations">analyzeRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#225"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelationMethod">analyzeRelationMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#256"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelationFromMethodBody">analyzeRelationFromMethodBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#289"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeValidation">analyzeValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#322"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeTimestamps">analyzeTimestamps</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#365"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeSoftDelete">analyzeSoftDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#397"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::generateSchema">generateSchema</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#446"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getModelSchema">getModelSchema</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#464"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getModelTypes">getModelTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#482"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getFieldsFromDocBlock">getFieldsFromDocBlock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#509"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::parsePropertyTag">parsePropertyTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#534"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::parseFieldDefinition">parseFieldDefinition</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#568"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::parseFieldType">parseFieldType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#579"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::mapFieldType">mapFieldType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#631"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::convertToTableName">convertToTableName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#57"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeRelations">analyzeRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#78"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeRelationMethod">analyzeRelationMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#102"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromDocComment">analyzeFromDocComment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#135"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromMethodBody">analyzeFromMethodBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromMethodName">analyzeFromMethodName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#201"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::parseRelationTag">parseRelationTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#237"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::parseReturnTypeRelation">parseReturnTypeRelation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#259"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::findMethodNode">findMethodNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#280"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeMethodNode">analyzeMethodNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#302"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::isRelationMethodCall">isRelationMethodCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#319"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::parseRelationMethodCall">parseRelationMethodCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#353"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::extractStringValue">extractStringValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#368"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::isRelationReturnType">isRelationReturnType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#390"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::inferRelationTypeFromReturn">inferRelationTypeFromReturn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#417"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::extractModelFromReturnType">extractModelFromReturnType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#438"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#463"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::guessRelatedModel">guessRelatedModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#479"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::generateRelationSchema">generateRelationSchema</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#525"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::getRelationDescription">getRelationDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#40"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeClass">analyzeClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#74"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#93"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeFunction">analyzeFunction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#116"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeMethods">analyzeMethods</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#133"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getMethodInfo">getMethodInfo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#156"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeProperties">analyzeProperties</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#181"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeParameters">analyzeParameters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#207"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeReturnType">analyzeReturnType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#224"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeParameterType">analyzeParameterType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#241"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzePropertyType">analyzePropertyType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::convertReflectionType">convertReflectionType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#299"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getVisibility">getVisibility</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#318"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getPropertyVisibility">getPropertyVisibility</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#337"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getPropertyDefaultValue">getPropertyDefaultValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#353"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getClassReflection">getClassReflection</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#367"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::clearCache">clearCache</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#31"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#43"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::getKeyType">getKeyType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#53"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::getValueType">getValueType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#64"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::setKeyType">setKeyType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#76"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::setValueType">setValueType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#87"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::toString">toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#105"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::isAssociative">isAssociative</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#115"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::isIndexed">isIndexed</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#126"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::simple">simple</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#138"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::of">of</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#150"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::associative">associative</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::indexed">indexed</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#25"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#40"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::int">int</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#51"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::float">float</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#62"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::string">string</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#73"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::bool">bool</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#84"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#30"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#41"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#51"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isNullable">isNullable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#62"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::setNullable">setNullable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#73"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::toString">toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#84"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isScalar">isScalar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#94"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isCompound">isCompound</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#104"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isSpecial">isSpecial</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#114"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isClass">isClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#125"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#152"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/Type.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#26"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#44"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::getTypes">getTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#55"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::addType">addType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#72"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::hasType">hasType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#87"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::hasNull">hasNull</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#97"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::toString">toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#109"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#128"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::simplify">simplify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#176"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::of">of</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#37"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#49"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferType">inferType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#70"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::doInferType">doInferType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#117"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferArrayType">inferArrayType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#157"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferVariableType">inferVariableType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#170"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferMethodCallType">inferMethodCallType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#183"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferFunctionCallType">inferFunctionCallType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#208"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferPropertyType">inferPropertyType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#220"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferBinaryOpType">inferBinaryOpType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#259"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferArithmeticType">inferArithmeticType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#284"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferTernaryType">inferTernaryType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#303"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferTypeDeclaration">inferTypeDeclaration</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#335"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::mergeTypes">mergeTypes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#370"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::isBooleanConstant">isBooleanConstant</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#382"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::getCacheKey">getCacheKey</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TypeInference.php.html#392"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::clearCache">clearCache</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#62"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#89"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeValidateClass">analyzeValidateClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#129"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::extractValidateRules">extractValidateRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#192"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::generateOpenApiParameters">generateOpenApiParameters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#221"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::convertRuleToOpenApiParameter">convertRuleToOpenApiParameter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#252"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::applyRuleToParameter">applyRuleToParameter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#365"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#403"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#158"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseTag">parseTag</abbr></a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="AstParser.php.html#78"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::parseFile">parseFile</abbr></a></td><td class="text-right">54%</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#363"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::convertSizeToBytes">convertSizeToBytes</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#191"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::extractFileParameterName">extractFileParameterName</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#168"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::isFileUploadCall">isFileUploadCall</abbr></a></td><td class="text-right">71%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#87"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::extractFromCode">extractFromCode</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#117"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::findMethodNode">findMethodNode</abbr></a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#252"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::applyRuleToParameter">applyRuleToParameter</abbr></a></td><td class="text-right">600</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#158"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseTag">parseTag</abbr></a></td><td class="text-right">415</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#167"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseAnnotationTag">parseAnnotationTag</abbr></a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#204"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeMethodNode">analyzeMethodNode</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#479"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::generateRelationSchema">generateRelationSchema</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#642"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseTypeString">parseTypeString</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#128"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::simplify">simplify</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#79"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeModel">analyzeModel</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#154"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeFields">analyzeFields</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#129"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::extractValidateRules">extractValidateRules</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#687"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseSingleType">parseSingleType</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#127"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeClassMiddleware">analyzeClassMiddleware</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#187"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMethodMiddlewareForMethod">analyzeMethodMiddlewareForMethod</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#397"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::generateSchema">generateSchema</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#482"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getFieldsFromDocBlock">getFieldsFromDocBlock</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::convertReflectionType">convertReflectionType</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#133"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeClass">analyzeClass</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#551"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiAnnotation">parseApiAnnotation</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#324"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::extractSecuritySchemes">extractSecuritySchemes</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#322"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeTimestamps">analyzeTimestamps</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#534"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::parseFieldDefinition">parseFieldDefinition</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#579"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::mapFieldType">mapFieldType</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#102"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromDocComment">analyzeFromDocComment</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#84"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Type/Type.php.html#125"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="TypeInference.php.html#303"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferTypeDeclaration">inferTypeDeclaration</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="TypeInference.php.html#335"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::mergeTypes">mergeTypes</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#365"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#38"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#83"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#88"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeFile">analyzeFile</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#171"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeClassNode">analyzeClassNode</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#320"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzePropertyNode">analyzePropertyNode</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#84"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseParameterType">parseParameterType</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#380"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseRouteAnnotation">parseRouteAnnotation</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#222"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMiddleware">analyzeMiddleware</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#396"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::generateOpenApiSecurity">generateOpenApiSecurity</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#289"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeValidation">analyzeValidation</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#87"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::toString">toString</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="TypeInference.php.html#117"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferArrayType">inferArrayType</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="TypeInference.php.html#259"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferArithmeticType">inferArithmeticType</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#218"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseRouteAnnotation">parseRouteAnnotation</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#197"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractRoutePrefix">extractRoutePrefix</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#327"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeFunctionNode">analyzeFunctionNode</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#285"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyzeParameterNode">analyzeParameterNode</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#252"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseParamTag">parseParamTag</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#422"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseMiddlewareAnnotation">parseMiddlewareAnnotation</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#451"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseValidateAnnotation">parseValidateAnnotation</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#484"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseResourceAnnotation">parseResourceAnnotation</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#319"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::formatFileSize">formatFileSize</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeMethodMiddleware">analyzeMethodMiddleware</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#456"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::getMiddlewareStats">getMiddlewareStats</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#225"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelationMethod">analyzeRelationMethod</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#365"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeSoftDelete">analyzeSoftDelete</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#135"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromMethodBody">analyzeFromMethodBody</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#162"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeFromMethodName">analyzeFromMethodName</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#319"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::parseRelationMethodCall">parseRelationMethodCall</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#40"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeClass">analyzeClass</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#156"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeProperties">analyzeProperties</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#89"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeValidateClass">analyzeValidateClass</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#192"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::generateOpenApiParameters">generateOpenApiParameters</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#221"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::convertRuleToOpenApiParameter">convertRuleToOpenApiParameter</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#126"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractAnnotations">extractAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#279"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseMiddlewareAnnotation">parseMiddlewareAnnotation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#382"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractRouteAnnotations">extractRouteAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#401"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractMiddlewareAnnotations">extractMiddlewareAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#420"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractValidateAnnotations">extractValidateAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#439"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractInjectAnnotations">extractInjectAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#458"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractResourceAnnotations">extractResourceAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#477"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::extractOpenApiAnnotations">extractOpenApiAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#121"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildRouteFromAnnotation">buildRouteFromAnnotation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#214"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractClassMiddleware">extractClassMiddleware</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#234"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractMethodMiddleware">extractMethodMiddleware</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#254"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::extractValidateInfo">extractValidateInfo</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#286"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::buildFullPath">buildFullPath</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#355"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::hasRelevantAnnotations">hasRelevantAnnotations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AnnotationRouteAnalyzer.php.html#368"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationRouteAnalyzer::getAllAnnotationRoutes">getAllAnnotationRoutes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AstParser.php.html#56"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::parse">parse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#57"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::analyze">analyze</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#373"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::getNodeVisibility">getNodeVisibility</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#103"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseReturnType">parseReturnType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#122"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseVariableType">parseVariableType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#523"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseInjectAnnotation">parseInjectAnnotation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#256"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::generateOpenApiParameter">generateOpenApiParameter</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#291"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::generateOpenApiRequestBodyProperty">generateOpenApiRequestBodyProperty</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#99"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeController">analyzeController</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#265"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::analyzeCustomMiddleware">analyzeCustomMiddleware</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="MiddlewareAnalyzer.php.html#433"><abbr title="Yangweijie\ThinkScramble\Analyzer\MiddlewareAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#131"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getTableName">getTableName</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#204"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelations">analyzeRelations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#256"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::analyzeRelationFromMethodBody">analyzeRelationFromMethodBody</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#446"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getModelSchema">getModelSchema</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#464"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::getModelTypes">getModelTypes</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#57"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeRelations">analyzeRelations</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#78"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeRelationMethod">analyzeRelationMethod</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#201"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::parseRelationTag">parseRelationTag</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#259"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::findMethodNode">findMethodNode</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#280"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::analyzeMethodNode">analyzeMethodNode</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#368"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::isRelationReturnType">isRelationReturnType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#390"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::inferRelationTypeFromReturn">inferRelationTypeFromReturn</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#417"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::extractModelFromReturnType">extractModelFromReturnType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#438"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#93"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeFunction">analyzeFunction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#181"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeParameters">analyzeParameters</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#299"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getVisibility">getVisibility</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#318"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getPropertyVisibility">getPropertyVisibility</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Type/Type.php.html#114"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::isClass">isClass</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#72"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::hasType">hasType</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#109"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::isCompatibleWith">isCompatibleWith</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#62"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="ValidateAnnotationAnalyzer.php.html#403"><abbr title="Yangweijie\ThinkScramble\Analyzer\ValidateAnnotationAnalyzer::shouldSkipMethod">shouldSkipMethod</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AstParser.php.html#78"><abbr title="Yangweijie\ThinkScramble\Analyzer\AstParser::parseFile">parseFile</abbr></a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#168"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::isFileUploadCall">isFileUploadCall</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#73"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseClassAnnotations">parseClassAnnotations</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#98"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseMethodAnnotations">parseMethodAnnotations</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#257"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseHttpMethodAnnotation">parseHttpMethodAnnotation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#308"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseValidateAnnotation">parseValidateAnnotation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AnnotationParser.php.html#334"><abbr title="Yangweijie\ThinkScramble\Analyzer\AnnotationParser::parseResourceAnnotation">parseResourceAnnotation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#76"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::supports">supports</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="CodeAnalyzer.php.html#354"><abbr title="Yangweijie\ThinkScramble\Analyzer\CodeAnalyzer::getFullClassName">getFullClassName</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#582"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiTag">parseApiTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#602"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiParamTag">parseApiParamTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DocBlockParser.php.html#622"><abbr title="Yangweijie\ThinkScramble\Analyzer\DocBlockParser::parseApiResponseTag">parseApiResponseTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ModelAnalyzer.php.html#509"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelAnalyzer::parsePropertyTag">parsePropertyTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#302"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::isRelationMethodCall">isRelationMethodCall</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ModelRelationAnalyzer.php.html#353"><abbr title="Yangweijie\ThinkScramble\Analyzer\ModelRelationAnalyzer::extractStringValue">extractStringValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#74"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeMethod">analyzeMethod</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#116"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeMethods">analyzeMethods</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#133"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getMethodInfo">getMethodInfo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#207"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeReturnType">analyzeReturnType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#224"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzeParameterType">analyzeParameterType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#241"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::analyzePropertyType">analyzePropertyType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#337"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getPropertyDefaultValue">getPropertyDefaultValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ReflectionAnalyzer.php.html#353"><abbr title="Yangweijie\ThinkScramble\Analyzer\ReflectionAnalyzer::getClassReflection">getClassReflection</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#105"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::isAssociative">isAssociative</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Type/ArrayType.php.html#115"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ArrayType::isIndexed">isIndexed</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Type/ScalarType.php.html#25"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\ScalarType::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Type/Type.php.html#73"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\Type::toString">toString</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Type/UnionType.php.html#26"><abbr title="Yangweijie\ThinkScramble\Analyzer\Type\UnionType::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TypeInference.php.html#49"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferType">inferType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TypeInference.php.html#70"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::doInferType">doInferType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TypeInference.php.html#183"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferFunctionCallType">inferFunctionCallType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TypeInference.php.html#284"><abbr title="Yangweijie\ThinkScramble\Analyzer\TypeInference::inferTernaryType">inferTernaryType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#87"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::extractFromCode">extractFromCode</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#191"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::extractFileParameterName">extractFileParameterName</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="FileUploadAnalyzer.php.html#117"><abbr title="Yangweijie\ThinkScramble\Analyzer\FileUploadAnalyzer::findMethodNode">findMethodNode</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.22</a> and <a href="https://phpunit.de/">PHPUnit 10.5.36</a> at Sun Aug 10 13:37:56 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([8,5,0,2,0,0,0,1,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([203,0,0,1,0,0,1,2,1,2,2,13], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0.6060606060606061,57,"<a href=\"AnnotationParser.php.html#16\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser<\/a>"],[0,43,"<a href=\"AnnotationRouteAnalyzer.php.html#16\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer<\/a>"],[28.125,17,"<a href=\"AstParser.php.html#22\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser<\/a>"],[0,51,"<a href=\"CodeAnalyzer.php.html#17\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer<\/a>"],[23.948220064724918,109,"<a href=\"DocBlockParser.php.html#17\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser<\/a>"],[61.60714285714286,43,"<a href=\"FileUploadAnalyzer.php.html#15\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer<\/a>"],[1.0582010582010581,50,"<a href=\"MiddlewareAnalyzer.php.html#16\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer<\/a>"],[0.8163265306122449,81,"<a href=\"ModelAnalyzer.php.html#19\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer<\/a>"],[1.0256410256410255,63,"<a href=\"ModelRelationAnalyzer.php.html#17\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer<\/a>"],[0,44,"<a href=\"ReflectionAnalyzer.php.html#26\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer<\/a>"],[0,18,"<a href=\"Type\/ArrayType.php.html#12\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType<\/a>"],[0,12,"<a href=\"Type\/ScalarType.php.html#12\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType<\/a>"],[0,20,"<a href=\"Type\/Type.php.html#12\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type<\/a>"],[0,22,"<a href=\"Type\/UnionType.php.html#12\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType<\/a>"],[0,38,"<a href=\"TypeInference.php.html#20\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference<\/a>"],[0.546448087431694,57,"<a href=\"ValidateAnnotationAnalyzer.php.html#16\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"AnnotationParser.php.html#62\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::__construct<\/a>"],[0,2,"<a href=\"AnnotationParser.php.html#73\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseClassAnnotations<\/a>"],[0,2,"<a href=\"AnnotationParser.php.html#98\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseMethodAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#126\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractAnnotations<\/a>"],[0,1,"<a href=\"AnnotationParser.php.html#148\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::isAnnotationTag<\/a>"],[0,14,"<a href=\"AnnotationParser.php.html#167\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseAnnotationTag<\/a>"],[0,4,"<a href=\"AnnotationParser.php.html#218\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseRouteAnnotation<\/a>"],[0,2,"<a href=\"AnnotationParser.php.html#257\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseHttpMethodAnnotation<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#279\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseMiddlewareAnnotation<\/a>"],[0,2,"<a href=\"AnnotationParser.php.html#308\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseValidateAnnotation<\/a>"],[0,2,"<a href=\"AnnotationParser.php.html#334\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseResourceAnnotation<\/a>"],[0,1,"<a href=\"AnnotationParser.php.html#356\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseInjectAnnotation<\/a>"],[0,1,"<a href=\"AnnotationParser.php.html#369\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::parseGenericAnnotation<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#382\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractRouteAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#401\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractMiddlewareAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#420\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractValidateAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#439\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractInjectAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#458\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractResourceAnnotations<\/a>"],[0,3,"<a href=\"AnnotationParser.php.html#477\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::extractOpenApiAnnotations<\/a>"],[0,1,"<a href=\"AnnotationParser.php.html#497\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationParser::isOpenApiAnnotation<\/a>"],[0,1,"<a href=\"AnnotationRouteAnalyzer.php.html#26\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::__construct<\/a>"],[0,5,"<a href=\"AnnotationRouteAnalyzer.php.html#38\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::analyzeController<\/a>"],[0,5,"<a href=\"AnnotationRouteAnalyzer.php.html#83\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::analyzeMethod<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#121\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::buildRouteFromAnnotation<\/a>"],[0,1,"<a href=\"AnnotationRouteAnalyzer.php.html#164\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::buildDefaultRoute<\/a>"],[0,4,"<a href=\"AnnotationRouteAnalyzer.php.html#197\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::extractRoutePrefix<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#214\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::extractClassMiddleware<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#234\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::extractMethodMiddleware<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#254\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::extractValidateInfo<\/a>"],[0,1,"<a href=\"AnnotationRouteAnalyzer.php.html#274\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::extractOpenApiInfo<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#286\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::buildFullPath<\/a>"],[0,1,"<a href=\"AnnotationRouteAnalyzer.php.html#310\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::buildDefaultPath<\/a>"],[0,4,"<a href=\"AnnotationRouteAnalyzer.php.html#327\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::shouldSkipMethod<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#355\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::hasRelevantAnnotations<\/a>"],[0,3,"<a href=\"AnnotationRouteAnalyzer.php.html#368\">Yangweijie\\ThinkScramble\\Analyzer\\AnnotationRouteAnalyzer::getAllAnnotationRoutes<\/a>"],[100,1,"<a href=\"AstParser.php.html#42\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::__construct<\/a>"],[0,3,"<a href=\"AstParser.php.html#56\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::parse<\/a>"],[54.54545454545454,5,"<a href=\"AstParser.php.html#78\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::parseFile<\/a>"],[0,1,"<a href=\"AstParser.php.html#109\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::traverse<\/a>"],[0,1,"<a href=\"AstParser.php.html#125\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::findNodes<\/a>"],[0,1,"<a href=\"AstParser.php.html#137\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::findClasses<\/a>"],[0,1,"<a href=\"AstParser.php.html#148\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::findMethods<\/a>"],[0,1,"<a href=\"AstParser.php.html#159\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::findFunctions<\/a>"],[0,1,"<a href=\"AstParser.php.html#169\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::getErrors<\/a>"],[0,1,"<a href=\"AstParser.php.html#179\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::hasErrors<\/a>"],[0,1,"<a href=\"AstParser.php.html#189\">Yangweijie\\ThinkScramble\\Analyzer\\AstParser::clearErrors<\/a>"],[0,1,"<a href=\"CodeAnalyzer.php.html#42\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::__construct<\/a>"],[0,3,"<a href=\"CodeAnalyzer.php.html#57\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyze<\/a>"],[0,2,"<a href=\"CodeAnalyzer.php.html#76\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::supports<\/a>"],[0,5,"<a href=\"CodeAnalyzer.php.html#88\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeFile<\/a>"],[0,6,"<a href=\"CodeAnalyzer.php.html#133\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeClass<\/a>"],[0,5,"<a href=\"CodeAnalyzer.php.html#171\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeClassNode<\/a>"],[0,10,"<a href=\"CodeAnalyzer.php.html#204\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeMethodNode<\/a>"],[0,4,"<a href=\"CodeAnalyzer.php.html#257\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeFunctionNode<\/a>"],[0,4,"<a href=\"CodeAnalyzer.php.html#285\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzeParameterNode<\/a>"],[0,5,"<a href=\"CodeAnalyzer.php.html#320\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::analyzePropertyNode<\/a>"],[0,2,"<a href=\"CodeAnalyzer.php.html#354\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::getFullClassName<\/a>"],[0,3,"<a href=\"CodeAnalyzer.php.html#373\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::getNodeVisibility<\/a>"],[0,1,"<a href=\"CodeAnalyzer.php.html#391\">Yangweijie\\ThinkScramble\\Analyzer\\CodeAnalyzer::clearCache<\/a>"],[93.54838709677419,10,"<a href=\"DocBlockParser.php.html#25\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parse<\/a>"],[0,5,"<a href=\"DocBlockParser.php.html#84\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseParameterType<\/a>"],[0,3,"<a href=\"DocBlockParser.php.html#103\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseReturnType<\/a>"],[0,3,"<a href=\"DocBlockParser.php.html#122\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseVariableType<\/a>"],[100,1,"<a href=\"DocBlockParser.php.html#141\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::cleanDocBlock<\/a>"],[20.967741935483872,28,"<a href=\"DocBlockParser.php.html#158\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseTag<\/a>"],[0,4,"<a href=\"DocBlockParser.php.html#252\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseParamTag<\/a>"],[0,1,"<a href=\"DocBlockParser.php.html#294\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseTypeTag<\/a>"],[100,5,"<a href=\"DocBlockParser.php.html#311\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseFileUploadTag<\/a>"],[66.66666666666666,1,"<a href=\"DocBlockParser.php.html#363\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::convertSizeToBytes<\/a>"],[0,5,"<a href=\"DocBlockParser.php.html#380\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseRouteAnnotation<\/a>"],[0,4,"<a href=\"DocBlockParser.php.html#422\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseMiddlewareAnnotation<\/a>"],[0,4,"<a href=\"DocBlockParser.php.html#451\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseValidateAnnotation<\/a>"],[0,4,"<a href=\"DocBlockParser.php.html#484\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseResourceAnnotation<\/a>"],[0,3,"<a href=\"DocBlockParser.php.html#523\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseInjectAnnotation<\/a>"],[0,6,"<a href=\"DocBlockParser.php.html#551\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseApiAnnotation<\/a>"],[0,2,"<a href=\"DocBlockParser.php.html#582\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseApiTag<\/a>"],[0,2,"<a href=\"DocBlockParser.php.html#602\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseApiParamTag<\/a>"],[0,2,"<a href=\"DocBlockParser.php.html#622\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseApiResponseTag<\/a>"],[0,9,"<a href=\"DocBlockParser.php.html#642\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseTypeString<\/a>"],[0,7,"<a href=\"DocBlockParser.php.html#687\">Yangweijie\\ThinkScramble\\Analyzer\\DocBlockParser::parseSingleType<\/a>"],[100,1,"<a href=\"FileUploadAnalyzer.php.html#30\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::__construct<\/a>"],[100,2,"<a href=\"FileUploadAnalyzer.php.html#42\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::analyzeMethod<\/a>"],[100,4,"<a href=\"FileUploadAnalyzer.php.html#67\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::extractFromDocComment<\/a>"],[80,4,"<a href=\"FileUploadAnalyzer.php.html#87\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::extractFromCode<\/a>"],[83.33333333333334,3,"<a href=\"FileUploadAnalyzer.php.html#117\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::findMethodNode<\/a>"],[100,4,"<a href=\"FileUploadAnalyzer.php.html#137\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::analyzeMethodNode<\/a>"],[71.42857142857143,6,"<a href=\"FileUploadAnalyzer.php.html#168\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::isFileUploadCall<\/a>"],[66.66666666666666,3,"<a href=\"FileUploadAnalyzer.php.html#191\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::extractFileParameterName<\/a>"],[100,1,"<a href=\"FileUploadAnalyzer.php.html#211\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::normalizeFileUploadInfo<\/a>"],[90,5,"<a href=\"FileUploadAnalyzer.php.html#229\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::mergeFileUploads<\/a>"],[0,3,"<a href=\"FileUploadAnalyzer.php.html#256\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::generateOpenApiParameter<\/a>"],[0,3,"<a href=\"FileUploadAnalyzer.php.html#291\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::generateOpenApiRequestBodyProperty<\/a>"],[0,4,"<a href=\"FileUploadAnalyzer.php.html#319\">Yangweijie\\ThinkScramble\\Analyzer\\FileUploadAnalyzer::formatFileSize<\/a>"],[100,1,"<a href=\"MiddlewareAnalyzer.php.html#86\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::__construct<\/a>"],[0,3,"<a href=\"MiddlewareAnalyzer.php.html#99\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeController<\/a>"],[0,7,"<a href=\"MiddlewareAnalyzer.php.html#127\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeClassMiddleware<\/a>"],[0,4,"<a href=\"MiddlewareAnalyzer.php.html#162\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeMethodMiddleware<\/a>"],[0,7,"<a href=\"MiddlewareAnalyzer.php.html#187\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeMethodMiddlewareForMethod<\/a>"],[0,5,"<a href=\"MiddlewareAnalyzer.php.html#222\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeMiddleware<\/a>"],[0,3,"<a href=\"MiddlewareAnalyzer.php.html#265\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeCustomMiddleware<\/a>"],[0,6,"<a href=\"MiddlewareAnalyzer.php.html#324\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::extractSecuritySchemes<\/a>"],[0,1,"<a href=\"MiddlewareAnalyzer.php.html#356\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::analyzeGlobalMiddleware<\/a>"],[0,1,"<a href=\"MiddlewareAnalyzer.php.html#382\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::generateSecuritySchemeName<\/a>"],[0,5,"<a href=\"MiddlewareAnalyzer.php.html#396\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::generateOpenApiSecurity<\/a>"],[0,3,"<a href=\"MiddlewareAnalyzer.php.html#433\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::shouldSkipMethod<\/a>"],[0,4,"<a href=\"MiddlewareAnalyzer.php.html#456\">Yangweijie\\ThinkScramble\\Analyzer\\MiddlewareAnalyzer::getMiddlewareStats<\/a>"],[100,1,"<a href=\"ModelAnalyzer.php.html#66\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::__construct<\/a>"],[0,8,"<a href=\"ModelAnalyzer.php.html#79\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeModel<\/a>"],[0,3,"<a href=\"ModelAnalyzer.php.html#131\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::getTableName<\/a>"],[0,8,"<a href=\"ModelAnalyzer.php.html#154\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeFields<\/a>"],[0,3,"<a href=\"ModelAnalyzer.php.html#204\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeRelations<\/a>"],[0,4,"<a href=\"ModelAnalyzer.php.html#225\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeRelationMethod<\/a>"],[0,3,"<a href=\"ModelAnalyzer.php.html#256\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeRelationFromMethodBody<\/a>"],[0,5,"<a href=\"ModelAnalyzer.php.html#289\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeValidation<\/a>"],[0,6,"<a href=\"ModelAnalyzer.php.html#322\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeTimestamps<\/a>"],[0,4,"<a href=\"ModelAnalyzer.php.html#365\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::analyzeSoftDelete<\/a>"],[0,7,"<a href=\"ModelAnalyzer.php.html#397\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::generateSchema<\/a>"],[0,3,"<a href=\"ModelAnalyzer.php.html#446\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::getModelSchema<\/a>"],[0,3,"<a href=\"ModelAnalyzer.php.html#464\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::getModelTypes<\/a>"],[0,7,"<a href=\"ModelAnalyzer.php.html#482\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::getFieldsFromDocBlock<\/a>"],[0,2,"<a href=\"ModelAnalyzer.php.html#509\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::parsePropertyTag<\/a>"],[0,6,"<a href=\"ModelAnalyzer.php.html#534\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::parseFieldDefinition<\/a>"],[0,1,"<a href=\"ModelAnalyzer.php.html#568\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::parseFieldType<\/a>"],[0,6,"<a href=\"ModelAnalyzer.php.html#579\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::mapFieldType<\/a>"],[0,1,"<a href=\"ModelAnalyzer.php.html#631\">Yangweijie\\ThinkScramble\\Analyzer\\ModelAnalyzer::convertToTableName<\/a>"],[100,1,"<a href=\"ModelRelationAnalyzer.php.html#45\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::__construct<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#57\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeRelations<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#78\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeRelationMethod<\/a>"],[0,6,"<a href=\"ModelRelationAnalyzer.php.html#102\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeFromDocComment<\/a>"],[0,4,"<a href=\"ModelRelationAnalyzer.php.html#135\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeFromMethodBody<\/a>"],[0,4,"<a href=\"ModelRelationAnalyzer.php.html#162\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeFromMethodName<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#201\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::parseRelationTag<\/a>"],[0,1,"<a href=\"ModelRelationAnalyzer.php.html#237\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::parseReturnTypeRelation<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#259\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::findMethodNode<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#280\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::analyzeMethodNode<\/a>"],[0,2,"<a href=\"ModelRelationAnalyzer.php.html#302\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::isRelationMethodCall<\/a>"],[0,4,"<a href=\"ModelRelationAnalyzer.php.html#319\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::parseRelationMethodCall<\/a>"],[0,2,"<a href=\"ModelRelationAnalyzer.php.html#353\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::extractStringValue<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#368\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::isRelationReturnType<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#390\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::inferRelationTypeFromReturn<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#417\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::extractModelFromReturnType<\/a>"],[0,3,"<a href=\"ModelRelationAnalyzer.php.html#438\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::shouldSkipMethod<\/a>"],[0,1,"<a href=\"ModelRelationAnalyzer.php.html#463\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::guessRelatedModel<\/a>"],[0,10,"<a href=\"ModelRelationAnalyzer.php.html#479\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::generateRelationSchema<\/a>"],[0,1,"<a href=\"ModelRelationAnalyzer.php.html#525\">Yangweijie\\ThinkScramble\\Analyzer\\ModelRelationAnalyzer::getRelationDescription<\/a>"],[0,4,"<a href=\"ReflectionAnalyzer.php.html#40\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeClass<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#74\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeMethod<\/a>"],[0,3,"<a href=\"ReflectionAnalyzer.php.html#93\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeFunction<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#116\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeMethods<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#133\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::getMethodInfo<\/a>"],[0,4,"<a href=\"ReflectionAnalyzer.php.html#156\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeProperties<\/a>"],[0,3,"<a href=\"ReflectionAnalyzer.php.html#181\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeParameters<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#207\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeReturnType<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#224\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzeParameterType<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#241\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::analyzePropertyType<\/a>"],[0,7,"<a href=\"ReflectionAnalyzer.php.html#257\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::convertReflectionType<\/a>"],[0,3,"<a href=\"ReflectionAnalyzer.php.html#299\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::getVisibility<\/a>"],[0,3,"<a href=\"ReflectionAnalyzer.php.html#318\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::getPropertyVisibility<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#337\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::getPropertyDefaultValue<\/a>"],[0,2,"<a href=\"ReflectionAnalyzer.php.html#353\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::getClassReflection<\/a>"],[0,1,"<a href=\"ReflectionAnalyzer.php.html#367\">Yangweijie\\ThinkScramble\\Analyzer\\ReflectionAnalyzer::clearCache<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#31\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::__construct<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#43\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::getKeyType<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#53\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::getValueType<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#64\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::setKeyType<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#76\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::setValueType<\/a>"],[0,5,"<a href=\"Type\/ArrayType.php.html#87\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::toString<\/a>"],[0,2,"<a href=\"Type\/ArrayType.php.html#105\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::isAssociative<\/a>"],[0,2,"<a href=\"Type\/ArrayType.php.html#115\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::isIndexed<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#126\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::simple<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#138\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::of<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#150\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::associative<\/a>"],[0,1,"<a href=\"Type\/ArrayType.php.html#162\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ArrayType::indexed<\/a>"],[0,2,"<a href=\"Type\/ScalarType.php.html#25\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::__construct<\/a>"],[0,1,"<a href=\"Type\/ScalarType.php.html#40\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::int<\/a>"],[0,1,"<a href=\"Type\/ScalarType.php.html#51\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::float<\/a>"],[0,1,"<a href=\"Type\/ScalarType.php.html#62\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::string<\/a>"],[0,1,"<a href=\"Type\/ScalarType.php.html#73\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::bool<\/a>"],[0,6,"<a href=\"Type\/ScalarType.php.html#84\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\ScalarType::isCompatibleWith<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#30\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::__construct<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#41\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::getName<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#51\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isNullable<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#62\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::setNullable<\/a>"],[0,2,"<a href=\"Type\/Type.php.html#73\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::toString<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#84\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isScalar<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#94\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isCompound<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#104\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isSpecial<\/a>"],[0,3,"<a href=\"Type\/Type.php.html#114\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isClass<\/a>"],[0,6,"<a href=\"Type\/Type.php.html#125\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::isCompatibleWith<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#152\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::create<\/a>"],[0,1,"<a href=\"Type\/Type.php.html#162\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\Type::__toString<\/a>"],[0,2,"<a href=\"Type\/UnionType.php.html#26\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::__construct<\/a>"],[0,1,"<a href=\"Type\/UnionType.php.html#44\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::getTypes<\/a>"],[0,1,"<a href=\"Type\/UnionType.php.html#55\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::addType<\/a>"],[0,3,"<a href=\"Type\/UnionType.php.html#72\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::hasType<\/a>"],[0,1,"<a href=\"Type\/UnionType.php.html#87\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::hasNull<\/a>"],[0,1,"<a href=\"Type\/UnionType.php.html#97\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::toString<\/a>"],[0,3,"<a href=\"Type\/UnionType.php.html#109\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::isCompatibleWith<\/a>"],[0,9,"<a href=\"Type\/UnionType.php.html#128\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::simplify<\/a>"],[0,1,"<a href=\"Type\/UnionType.php.html#176\">Yangweijie\\ThinkScramble\\Analyzer\\Type\\UnionType::of<\/a>"],[0,1,"<a href=\"TypeInference.php.html#37\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::__construct<\/a>"],[0,2,"<a href=\"TypeInference.php.html#49\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferType<\/a>"],[0,2,"<a href=\"TypeInference.php.html#70\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::doInferType<\/a>"],[0,5,"<a href=\"TypeInference.php.html#117\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferArrayType<\/a>"],[0,1,"<a href=\"TypeInference.php.html#157\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferVariableType<\/a>"],[0,1,"<a href=\"TypeInference.php.html#170\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferMethodCallType<\/a>"],[0,2,"<a href=\"TypeInference.php.html#183\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferFunctionCallType<\/a>"],[0,1,"<a href=\"TypeInference.php.html#208\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferPropertyType<\/a>"],[0,1,"<a href=\"TypeInference.php.html#220\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferBinaryOpType<\/a>"],[0,5,"<a href=\"TypeInference.php.html#259\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferArithmeticType<\/a>"],[0,2,"<a href=\"TypeInference.php.html#284\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferTernaryType<\/a>"],[0,6,"<a href=\"TypeInference.php.html#303\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::inferTypeDeclaration<\/a>"],[0,6,"<a href=\"TypeInference.php.html#335\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::mergeTypes<\/a>"],[0,1,"<a href=\"TypeInference.php.html#370\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::isBooleanConstant<\/a>"],[0,1,"<a href=\"TypeInference.php.html#382\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::getCacheKey<\/a>"],[0,1,"<a href=\"TypeInference.php.html#392\">Yangweijie\\ThinkScramble\\Analyzer\\TypeInference::clearCache<\/a>"],[100,1,"<a href=\"ValidateAnnotationAnalyzer.php.html#51\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::__construct<\/a>"],[0,3,"<a href=\"ValidateAnnotationAnalyzer.php.html#62\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::analyzeMethod<\/a>"],[0,4,"<a href=\"ValidateAnnotationAnalyzer.php.html#89\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::analyzeValidateClass<\/a>"],[0,8,"<a href=\"ValidateAnnotationAnalyzer.php.html#129\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::extractValidateRules<\/a>"],[0,4,"<a href=\"ValidateAnnotationAnalyzer.php.html#192\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::generateOpenApiParameters<\/a>"],[0,4,"<a href=\"ValidateAnnotationAnalyzer.php.html#221\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::convertRuleToOpenApiParameter<\/a>"],[0,24,"<a href=\"ValidateAnnotationAnalyzer.php.html#252\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::applyRuleToParameter<\/a>"],[0,6,"<a href=\"ValidateAnnotationAnalyzer.php.html#365\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::analyzeController<\/a>"],[0,3,"<a href=\"ValidateAnnotationAnalyzer.php.html#403\">Yangweijie\\ThinkScramble\\Analyzer\\ValidateAnnotationAnalyzer::shouldSkipMethod<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

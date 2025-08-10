@@ -220,14 +220,41 @@ class ParameterExtractor
             $method = $reflection->getMethod($action);
             $fileUploads = $this->fileUploadAnalyzer->analyzeMethod($method);
 
-            foreach ($fileUploads as $upload) {
-                $parameters[] = $this->fileUploadAnalyzer->generateOpenApiParameter($upload);
+            // 检查是否需要添加到参数列表（仅当没有 requestBody 时）
+            $hasRequestBody = $this->hasRequestBody($routeInfo, $controllerInfo);
+            
+            if (!$hasRequestBody) {
+                // 如果没有 requestBody，则添加为 formData 参数（向后兼容）
+                foreach ($fileUploads as $upload) {
+                    $parameters[] = $this->fileUploadAnalyzer->generateOpenApiParameter($upload);
+                }
             }
+            // 如果有 requestBody，则文件上传参数将在 requestBody 中处理
         } catch (\Exception $e) {
             // 忽略分析错误
         }
 
         return $parameters;
+    }
+
+    /**
+     * 检查是否有请求体
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return bool
+     */
+    protected function hasRequestBody(array $routeInfo, array $controllerInfo): bool
+    {
+        $method = strtoupper($routeInfo['method'] ?? 'GET');
+
+        // 只有 POST、PUT、PATCH 等方法才有请求体
+        if (!in_array($method, ['POST', 'PUT', 'PATCH'])) {
+            return false;
+        }
+
+        // 检查是否有文件上传参数
+        return $this->hasFileUploadParameters($routeInfo, $controllerInfo);
     }
 
     /**

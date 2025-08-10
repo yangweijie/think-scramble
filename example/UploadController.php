@@ -162,4 +162,33 @@ class UploadController
             'temp_path' => '/temp/'
         ]);
     }
+
+    /**
+     * 使用 OpenAPI 3.0 规范的文件上传示例
+     * 
+     * @param Request $request
+     * @return Response
+     * 
+     * @upload cover required jpg,png max:5MB 封面图片
+     * @upload attachment pdf,doc,docx max:20MB 附件文件
+     * @param string title 文章标题
+     * @param string content 文章内容
+     */
+    public function openApi3Upload(Request $request): Response
+    {
+        $cover = $request->file('cover');
+        $attachment = $request->file('attachment');
+        $title = $request->param('title');
+        $content = $request->param('content');
+        
+        // 处理文件上传逻辑
+        
+        return json([
+            'message' => '文件上传成功',
+            'article_id' => uniqid(),
+            'title' => $title,
+            'cover_url' => '/uploads/' . $cover->getOriginalName(),
+            'attachment_url' => '/uploads/' . $attachment->getOriginalName()
+        ]);
+    }
 }
