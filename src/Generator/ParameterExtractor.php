@@ -206,7 +206,8 @@ class ParameterExtractor
         }
 
         // 获取方法反射
-        $className = $controllerInfo['class'] ?? '';
+        // 修复：从 'name' 字段获取类名而不是 'class' 字段
+        $className = $controllerInfo['name'] ?? $controllerInfo['class'] ?? '';
         if (!$className || !class_exists($className)) {
             return $parameters;
         }
@@ -258,6 +259,39 @@ class ParameterExtractor
     }
 
     /**
+     * 检查是否有文件上传参数
+     *
+     * @param array $routeInfo 路由信息
+     * @param array $controllerInfo 控制器信息
+     * @return bool
+     */
+    protected function hasFileUploadParameters(array $routeInfo, array $controllerInfo): bool
+    {
+        $action = $routeInfo['action'] ?? '';
+        // 修复：从 'name' 字段获取类名而不是 'class' 字段
+        $className = $controllerInfo['name'] ?? $controllerInfo['class'] ?? '';
+
+        if (!$action || !$className || !class_exists($className)) {
+            return false;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+            if (!$reflection->hasMethod($action)) {
+                return false;
+            }
+
+            $method = $reflection->getMethod($action);
+            $analyzer = new FileUploadAnalyzer();
+            $fileUploads = $analyzer->analyzeMethod($method);
+
+            return !empty($fileUploads);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * 提取注解参数
      *
      * @param array $routeInfo 路由信息
@@ -268,7 +302,8 @@ class ParameterExtractor
     {
         $parameters = [];
         $action = $routeInfo['action'] ?? '';
-        $className = $controllerInfo['class'] ?? '';
+        // 修复：从 'name' 字段获取类名而不是 'class' 字段
+        $className = $controllerInfo['name'] ?? $controllerInfo['class'] ?? '';
 
         if (!$action || !$className || !class_exists($className)) {
             return $parameters;
@@ -488,12 +523,24 @@ class ParameterExtractor
     protected function isRequestParameter(array $param): bool
     {
         $type = $param['type'] ?? null;
+        $name = $param['name'] ?? '';
         
+        // 检查参数名是否为 request
+        if ($name === 'request') {
+            return true;
+        }
+        
+        // 检查类型是否为 Request 相关
         if (is_string($type)) {
             // 检查是否为 Request 类型
             if (str_contains(strtolower($type), 'request')) {
                 return true;
             }
+        }
+        
+        // 检查空类型但参数名为 request 的情况
+        if (empty($type) && $name === 'request') {
+            return true;
         }
 
         return false;

@@ -463,20 +463,7 @@ class DocumentBuilder
         // 检查是否有文件上传参数
         $hasFileUpload = $this->hasFileUploadParameters($routeInfo, $controllerInfo);
 
-        $content = [
-            'application/json' => [
-                'schema' => [
-                    'type' => 'object',
-                    'properties' => [],
-                ],
-            ],
-            'application/x-www-form-urlencoded' => [
-                'schema' => [
-                    'type' => 'object',
-                    'properties' => [],
-                ],
-            ],
-        ];
+        $content = [];
 
         // 如果有文件上传，添加 multipart/form-data 支持
         if ($hasFileUpload) {
@@ -484,6 +471,21 @@ class DocumentBuilder
                 'schema' => [
                     'type' => 'object',
                     'properties' => $this->generateFileUploadProperties($routeInfo, $controllerInfo),
+                ],
+            ];
+        } else {
+            // 否则添加默认的 JSON 和表单支持
+            $content['application/json'] = [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [],
+                ],
+            ];
+            
+            $content['application/x-www-form-urlencoded'] = [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [],
                 ],
             ];
         }
@@ -504,7 +506,8 @@ class DocumentBuilder
     protected function hasFileUploadParameters(array $routeInfo, array $controllerInfo): bool
     {
         $action = $routeInfo['action'] ?? '';
-        $className = $controllerInfo['class'] ?? '';
+        // 修复：从 'name' 字段获取类名而不是 'class' 字段
+        $className = $controllerInfo['name'] ?? $controllerInfo['class'] ?? '';
 
         if (!$action || !$className || !class_exists($className)) {
             return false;
@@ -520,8 +523,15 @@ class DocumentBuilder
             $analyzer = new FileUploadAnalyzer();
             $fileUploads = $analyzer->analyzeMethod($method);
 
+            // 调试输出
+            error_log("Checking file uploads for {$className}::{$action}: " . (empty($fileUploads) ? "none" : count($fileUploads) . " found"));
+            if (!empty($fileUploads)) {
+                error_log("File uploads for {$className}::{$action}: " . json_encode($fileUploads));
+            }
+
             return !empty($fileUploads);
         } catch (\Exception $e) {
+            error_log("Error analyzing file uploads for {$className}::{$action}: " . $e->getMessage());
             return false;
         }
     }
@@ -557,7 +567,8 @@ class DocumentBuilder
     {
         $properties = [];
         $action = $routeInfo['action'] ?? '';
-        $className = $controllerInfo['class'] ?? '';
+        // 修复：从 'name' 字段获取类名而不是 'class' 字段
+        $className = $controllerInfo['name'] ?? $controllerInfo['class'] ?? '';
 
         if (!$action || !$className || !class_exists($className)) {
             return $properties;
