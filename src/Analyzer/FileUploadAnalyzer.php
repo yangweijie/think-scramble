@@ -48,6 +48,10 @@ class FileUploadAnalyzer
         if ($docComment) {
             $docUploads = $this->extractFromDocComment($docComment);
             $fileUploads = array_merge($fileUploads, $docUploads);
+            
+            // 从 OpenAPI 注解中提取 requestBody 信息
+            $openApiUploads = $this->extractFromOpenApiAnnotations($docComment);
+            $fileUploads = array_merge($fileUploads, $openApiUploads);
         }
 
         // 从代码中自动识别文件上传
@@ -75,6 +79,67 @@ class FileUploadAnalyzer
             }
         }
 
+        return $fileUploads;
+    }
+
+    /**
+     * 从 OpenAPI 注解中提取文件上传信息
+     *
+     * @param string $docComment
+     * @return array
+     */
+    protected function extractFromOpenApiAnnotations(string $docComment): array
+    {
+        $fileUploads = [];
+        
+        // 简单解析注释中的 OpenAPI requestBody 定义
+        // 这里我们查找 @OA\RequestBody 注解
+        if (preg_match_all('/@OA\\\\\\\\RequestBody\s*\([^)]*\)/', $docComment, $matches)) {
+            foreach ($matches[0] as $match) {
+                // 查找 @OA\Property 定义
+                if (preg_match_all('/@OA\\\\\\\\Property\s*\(\s*property\s*=\s*"([^"]+)"\s*,[^)]*type\s*=\s*"array"[^)]*\)/', $match, $arrayProps)) {
+                    // 处理数组类型的属性
+                    foreach ($arrayProps[1] as $propertyName) {
+                        $fileUploads[] = [
+                            'name' => $propertyName,
+                            'required' => true,
+                            'description' => '文件上传参数',
+                            'is_array' => true,
+                            'source' => 'openapi_annotation',
+                        ];
+                    }
+                }
+                
+                if (preg_match_all('/@OA\\\\\\\\Property\s*\(\s*property\s*=\s*"([^"]+)"\s*,[^)]*format\s*=\s*"binary"[^)]*\)/', $match, $binaryProps)) {
+                    // 处理二进制类型的属性
+                    foreach ($binaryProps[1] as $propertyName) {
+                        // 检查是否已经添加了该属性（避免重复）
+                        $exists = false;
+                        foreach ($fileUploads as $index => $upload) {
+                            if ($upload['name'] === $propertyName) {
+                                $exists = true;
+                                // 如果已经存在且不是数组类型，则更新它
+                                if (!isset($upload['is_array']) || !$upload['is_array']) {
+                                    $fileUploads[$index]['is_array'] = false;
+                                }
+                                break;
+                            }
+                        }
+                        
+                        if (!$exists) {
+                            $fileUploads[] = [
+                                'name' => $propertyName,
+                                'required' => true,
+                                'description' => '文件上传参数',
+                                'is_array' => false,
+                                'source' => 'openapi_annotation',
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+        
         return $fileUploads;
     }
 
@@ -233,14 +298,37 @@ class FileUploadAnalyzer
 
         foreach ($fileUploads as $upload) {
             $name = $upload['name'];
-            if (isset($byName[$name])) {
+            
+            // 处理数组形式的参数名（如 files[]）
+            $baseName = $name;
+            if (str_ends_with($name, '[]')) {
+                $baseName = substr($name, 0, -2);
+            }
+            
+            // 检查是否已存在同名参数（包括数组形式和非数组形式）
+            $existingKey = null;
+            foreach ($byName as $key => $existing) {
+                $existingName = $existing['name'];
+                $existingBaseName = $existingName;
+                if (str_ends_with($existingName, '[]')) {
+                    $existingBaseName = substr($existingName, 0, -2);
+                }
+                
+                if ($baseName === $existingBaseName) {
+                    $existingKey = $key;
+                    break;
+                }
+            }
+            
+            if ($existingKey !== null) {
                 // 合并信息，注释优先于代码分析
-                $existing = $byName[$name];
-                if ($upload['source'] === 'annotation' || $existing['source'] === 'code_analysis') {
-                    $byName[$name] = array_merge($existing, $upload);
+                $existing = $byName[$existingKey];
+                // 如果新的参数是数组形式（如 files[]），或者来源是注解，则优先使用
+                if (str_ends_with($name, '[]') || $upload['source'] === 'annotation') {
+                    $byName[$existingKey] = array_merge($existing, $upload);
                 }
             } else {
-                $byName[$name] = $upload;
+                $byName[] = $upload;
             }
         }
 
@@ -290,11 +378,41 @@ class FileUploadAnalyzer
      */
     public function generateOpenApiRequestBodyProperty(array $fileUpload): array
     {
-        $property = [
-            'type' => 'string',
-            'format' => 'binary',
-            'description' => $fileUpload['description'] ?? '文件上传参数',
-        ];
+        // 检查是否为数组类型（批量上传）
+        if (isset($fileUpload['is_array']) && $fileUpload['is_array']) {
+            // 数组类型的文件上传
+            $property = [
+                'type' => 'array',
+                'description' => $fileUpload['description'] ?? '文件上传参数',
+                'items' => [
+                    'type' => 'string',
+                    'format' => 'binary'
+                ]
+            ];
+        } else {
+            // 检查参数名是否包含复数形式或特定关键词，以推断是否为数组
+            $name = $fileUpload['name'] ?? '';
+            $isArrayInferred = $this->isInferredAsArray($name, $fileUpload);
+            
+            if ($isArrayInferred) {
+                // 数组类型的文件上传
+                $property = [
+                    'type' => 'array',
+                    'description' => $fileUpload['description'] ?? '文件上传参数',
+                    'items' => [
+                        'type' => 'string',
+                        'format' => 'binary'
+                    ]
+                ];
+            } else {
+                // 单个文件上传
+                $property = [
+                    'type' => 'string',
+                    'format' => 'binary',
+                    'description' => $fileUpload['description'] ?? '文件上传参数',
+                ];
+            }
+        }
 
         // 添加文件类型限制
         if (!empty($fileUpload['allowed_types'])) {
@@ -308,6 +426,45 @@ class FileUploadAnalyzer
         }
 
         return $property;
+    }
+
+    /**
+     * 推断文件上传参数是否应为数组类型
+     *
+     * @param string $name 参数名
+     * @param array $fileUpload 文件上传信息
+     * @return bool
+     */
+    protected function isInferredAsArray(string $name, array $fileUpload): bool
+    {
+        // 明确标记为数组
+        if (isset($fileUpload['is_array']) && $fileUpload['is_array']) {
+            return true;
+        }
+        
+        // 通过参数名推断（复数形式或带有[]）
+        $pluralIndicators = ['files', 'images', 'documents', 'avatars'];
+        foreach ($pluralIndicators as $indicator) {
+            if (str_contains($name, $indicator)) {
+                return true;
+            }
+        }
+        
+        // 检查参数名是否以[]结尾（HTML表单多文件上传的标准格式）
+        if (str_ends_with($name, '[]')) {
+            return true;
+        }
+        
+        // 通过描述推断
+        $description = $fileUpload['description'] ?? '';
+        $arrayIndicators = ['多文件', '批量', '多个', '支持多'];
+        foreach ($arrayIndicators as $indicator) {
+            if (str_contains($description, $indicator)) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     /**
